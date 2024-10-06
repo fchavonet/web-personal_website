@@ -7,3 +7,9 @@
     padding: 0;
     scroll-behavior: smooth;
 }
+
+/********** GENERAL **********/
+section {
+    width: 100%;
+    height: 100dvh;
+}
