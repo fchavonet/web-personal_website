@@ -29,7 +29,7 @@ homeLink.addEventListener("click", function () {
 
 ////////// THEME TOGGLE BEHAVIOR \\\\\\\\\\
 const htmlPage = document.getElementById("html-page");
-const navbar = document.querySelector("nav");
+// const nav = document.querySelector("nav");
 const themeToggleButton = document.getElementById("theme-toggle-button");
 const themeIcon = themeToggleButton.querySelector("i");
 // Get the current theme from localStorage or default to light.
@@ -45,7 +45,7 @@ function updateThemeIcon() {
   } else {
     themeIcon.classList.remove("bi-moon-stars-fill");
     themeIcon.classList.add("bi-sun-fill");
-    navbar.classList.add("dark")
+    nav.classList.add("dark-mode")
   }
 }
 
@@ -56,10 +56,10 @@ themeToggleButton.addEventListener("click", function () {
   // Toggle between light and dark themes.
   if (currentTheme === "light") {
     currentTheme = "dark";
-    navbar.classList.add("dark")
+    nav.classList.add("dark-mode")
   } else {
     currentTheme = "light";
-    navbar.classList.remove("dark")
+    nav.classList.remove("dark-mode")
   }
 
   // Update theme attribute and store current theme in localStorage.

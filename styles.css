@@ -1,3 +1,10 @@
+/********** VARIABLES **********/
+:root {
+    --primary-color: #0d6efd;
+    --light-color: rgba(233, 236, 239, 0.75);
+    --dark-color: rgba(53, 58, 63, 0.75);
+}
+
 /********** RESET CSS **********/
 *,
 *::before,
@@ -16,6 +23,14 @@ section {
 }
 
 /********** HEADER **********/
-.navbar {
-    background-color: grey;
+nav {
+    background-color: var(--light-color);
+}
+
+nav .nav-link:hover {
+    color: var(--primary-color);
+}
+
+.dark-mode {
+    background-color: var(--dark-color);
 }
