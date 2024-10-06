@@ -12,4 +12,10 @@
 section {
     width: 100%;
     height: 100dvh;
+    padding-top: 5rem;
+}
+
+/********** HEADER **********/
+.navbar {
+    background-color: grey;
 }
