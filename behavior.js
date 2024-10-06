@@ -4,7 +4,7 @@ const navLinks = document.querySelectorAll(".nav-link");
 
 navLinks.forEach(link => {
   link.addEventListener("click", function (event) {
-    // Prevent default anchor behavior.
+    // Prevent the default button behavior.
     event.preventDefault();
 
     const sectionId = link.getAttribute("data-section-id");
@@ -20,6 +20,29 @@ navLinks.forEach(link => {
 });
 
 
+////////// MOVE TO TOP BUTTON BEHAVIOR \\\\\\\\\\
+const moveToTopButton = document.getElementById("move-to-top-button");
+
+window.addEventListener("scroll", function () {
+  // Get the current scroll position.
+  const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+
+  // Show the button if the user has scrolled more than 250 pixels.
+  if (scrollPosition > 250) {
+    moveToTopButton.classList.add("show");
+  } else {
+    moveToTopButton.classList.remove("show");
+  }
+});
+
+moveToTopButton.addEventListener("click", function (event) {
+  // Prevent the default button behavior.
+  event.preventDefault();
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+
 ////////// PAGE REFRESH BEHAVIOR \\\\\\\\\\
 const homeLink = document.querySelector(".navbar-brand");
 homeLink.addEventListener("click", function () {
@@ -30,6 +53,7 @@ homeLink.addEventListener("click", function () {
 ////////// THEME TOGGLE BEHAVIOR \\\\\\\\\\
 const htmlPage = document.getElementById("html-page");
 // const nav = document.querySelector("nav");
+const footer = document.querySelector("footer");
 const themeToggleButton = document.getElementById("theme-toggle-button");
 const themeIcon = themeToggleButton.querySelector("i");
 // Get the current theme from localStorage or default to light.
@@ -45,7 +69,8 @@ function updateThemeIcon() {
   } else {
     themeIcon.classList.remove("bi-moon-stars-fill");
     themeIcon.classList.add("bi-sun-fill");
-    nav.classList.add("dark-mode")
+    nav.classList.add("dark-mode");
+    footer.classList.add("dark-mode");
   }
 }
 
@@ -56,10 +81,12 @@ themeToggleButton.addEventListener("click", function () {
   // Toggle between light and dark themes.
   if (currentTheme === "light") {
     currentTheme = "dark";
-    nav.classList.add("dark-mode")
+    nav.classList.add("dark-mode");
+    footer.classList.add("dark-mode");
   } else {
     currentTheme = "light";
-    nav.classList.remove("dark-mode")
+    nav.classList.remove("dark-mode");
+    footer.classList.remove("dark-mode");
   }
 
   // Update theme attribute and store current theme in localStorage.

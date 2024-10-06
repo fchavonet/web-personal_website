@@ -3,6 +3,7 @@
     --primary-color: #0d6efd;
     --light-color: rgba(233, 236, 239, 0.75);
     --dark-color: rgba(53, 58, 63, 0.75);
+    --white: rgb(255, 255, 255);
 }
 
 /********** RESET CSS **********/
@@ -15,16 +16,56 @@
     scroll-behavior: smooth;
 }
 
+/********** SCROLLBAR **********/
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 25px;
+    background-color: var(--primary-color);
+}
+
 /********** GENERAL **********/
 section {
     width: 100%;
-    height: 100dvh;
+    height: 100svh;
     padding-top: 5rem;
+}
+
+#move-to-top-button {
+    position: fixed;
+    bottom: -2rem;
+    right: 2rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    border: 0.1rem solid var(--primary-color);
+    border-radius: 50%;
+    background-color: transparent;
+    opacity: 0;
+    transition: all 0.1s ease-in-out;
+}
+
+#move-to-top-button:hover {
+    color: var(--white);
+    background-color: var(--primary-color);
+}
+
+#move-to-top-button.show {
+    bottom: 2rem;
+    opacity: 1;
 }
 
 /********** HEADER **********/
 nav {
     background-color: var(--light-color);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
 }
 
 nav .nav-link:hover {
@@ -33,4 +74,18 @@ nav .nav-link:hover {
 
 .dark-mode {
     background-color: var(--dark-color);
+}
+
+/********** FOOTER **********/
+footer {
+    width: 100%;
+    height: 6rem;
+    background-color: var(--light-color);
+}
+
+/********** RESPONSIVE DESIGN **********/
+@media (max-width: 768px) {
+    #move-to-top-button {
+        display: none;
+    }
 }
