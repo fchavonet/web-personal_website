@@ -96,3 +96,7 @@ themeToggleButton.addEventListener("click", function () {
   // Update icon after theme change.
   updateThemeIcon();
 });
+
+
+////////// BACKGROUND PARTICLES BEHAVIOR \\\\\\\\\\
+particlesJS.load("particles-js", "./particles.json");

@@ -1,8 +1,8 @@
 /********** VARIABLES **********/
 :root {
     --primary-color: #0d6efd;
-    --light-color: rgba(233, 236, 239, 0.75);
-    --dark-color: rgba(53, 58, 63, 0.75);
+    --light-color: rgba(233, 236, 239, 0.5);
+    --dark-color: rgba(53, 58, 63, 0.5);
     --white: rgb(255, 255, 255);
 }
 
@@ -61,6 +61,15 @@ section {
     opacity: 1;
 }
 
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
 /********** HEADER **********/
 nav {
     background-color: var(--light-color);
@@ -81,6 +90,8 @@ footer {
     width: 100%;
     height: 6rem;
     background-color: var(--light-color);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
 }
 
 /********** RESPONSIVE DESIGN **********/
