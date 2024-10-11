@@ -120,7 +120,6 @@ nav .nav-link:hover {
 /********** SKILLS SECTION **********/
 #skills-cards-container {
     width: 75%;
-    z-index: 9999;
 }
 
 .card-container {
