@@ -54,8 +54,12 @@ homeLink.addEventListener("click", function () {
 const htmlPage = document.getElementById("html-page");
 // const nav = document.querySelector("nav");
 const footer = document.querySelector("footer");
+
+const containersBackground = document.querySelectorAll(".container-background");
+
 const themeToggleButton = document.getElementById("theme-toggle-button");
 const themeIcon = themeToggleButton.querySelector("i");
+
 // Get the current theme from localStorage or default to light.
 let currentTheme = localStorage.getItem("theme") || "light";
 
@@ -71,6 +75,10 @@ function updateThemeIcon() {
     themeIcon.classList.add("bi-sun-fill");
     nav.classList.add("dark-mode");
     footer.classList.add("dark-mode");
+
+    containersBackground.forEach(function (container) {
+      container.classList.add("dark-mode");
+    });
   }
 }
 
@@ -83,10 +91,18 @@ themeToggleButton.addEventListener("click", function () {
     currentTheme = "dark";
     nav.classList.add("dark-mode");
     footer.classList.add("dark-mode");
+
+    containersBackground.forEach(function (container) {
+      container.classList.add("dark-mode");
+    });
   } else {
     currentTheme = "light";
     nav.classList.remove("dark-mode");
     footer.classList.remove("dark-mode");
+
+    containersBackground.forEach(function (container) {
+      container.classList.remove("dark-mode");
+    });
   }
 
   // Update theme attribute and store current theme in localStorage.

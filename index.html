@@ -32,8 +32,7 @@
                 </div>
 
                 <!-- Toggler button (for mobile view) -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#responsive-menu">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#responsive-menu">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -72,8 +71,54 @@
     <!---------- MAIN ---------->
     <main>
         <!---------- ABOUT SECTION ---------->
-        <section id="about">
+        <section id="about" class="d-flex flex-column justify-content-center align-items-center">
             <h2 class="text-center">About</h2>
+
+            <div class="container container-background w-75 p-3 shadow">
+                <!-- -->
+                <div class="d-flex justify-content-start mb-4 border-bottom">
+                    <div class="d-flex align-items-end">
+                    <img id="avatar" src="./resources/images/avatar.webp" alt="Fabien Chavonet's avatar">
+                </div>
+
+                    <div class="d-flex flex-column justify-content-center mt-2">
+                        <h1>Fabien Chavonet</h1>
+                        <h3 id="subtitle-text" class="text-primary">Software Engineer</h3>
+                    </div>
+                </div>
+
+                <!-- -->
+                <p id="about-text" class="mb-4">
+                    As a Full-Stack developer, I love turning ideas into reality through code.
+                    <br>
+                    With a unique background that includes team management, technical expert roles at <a class="link-underline link-underline-opacity-0" href="https://www.apple.com" target="_blank">Apple</a>, and logistics coordination at <a class="link-underline link-underline-opacity-0" href="https://www.tesla.com" target="_blank">Tesla</a>, I bring a varied perspective to every project.
+                    <br>
+                    Currently working as an educational manager in software development at <a class="link-underline link-underline-opacity-0" href="https://www.holbertonschool.com" target="_blank">Holberton School</a>, I am eager to take on new challenges and bring my passion into developing innovative solutions.
+                    <br>
+                    Discover my skills and work, and feel free to contact me!
+                </p>
+
+                <!-- -->
+                <div class="d-flex justify-content-between align-items-center pt-2 border-top">
+                    <button class="btn btn-primary disabled">
+                        <i class="bi bi-file-earmark-person"></i> Resume
+                    </button>
+
+                    <div class="d-flex">
+                        <a class="social fs-3 me-2" href="https://github.com/fchavonet" target="_blank">
+                            <i class="bi bi-github"></i>
+                        </a>
+
+                        <a class="social fs-3 me-2" href="https://www.instagram.com/pandolowitz/" target="_blank">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+
+                        <a class="social fs-3 me-2" href="https://fr.linkedin.com/in/fchavonet" target="_blank">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!---------- SKILLS SECTION ---------->
@@ -93,7 +138,7 @@
     </main>
 
     <!---------- FOOTER ---------->
-    <footer class="d-flex justify-content-center align-items-center">
+    <footer class="d-flex justify-content-center align-items-center border-top">
         <div>
             © 2024 - Fabien Chavonet.
         </div>
