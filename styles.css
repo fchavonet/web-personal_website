@@ -98,7 +98,7 @@ nav .nav-link:hover {
 
 /********** ABOUT SECTION **********/
 #about_container {
-    width: 80%;
+    width: 75%;
 }
 
 #avatar {
@@ -114,7 +114,21 @@ nav .nav-link:hover {
 }
 
 .social:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
+}
+
+/********** SKILLS SECTION **********/
+#skills-cards-container {
+    width: 75%;
+}
+
+.card-container {
+    width: 20rem;
+    transition: all 0.1s ease-in-out;
+}
+
+.card-container:hover {
+    transform: scale(1.1);
 }
 
 /********** FOOTER **********/
@@ -134,6 +148,18 @@ footer {
     
     #about_container {
         width: 90%;
+    }
+
+    #skills-cards-container {
+        width: 90%;
+    }
+
+    .card-container {
+        width: 100%;
+    }
+
+    .card-container:hover {
+        transform: none;
     }
 
     #move-to-top-button {
