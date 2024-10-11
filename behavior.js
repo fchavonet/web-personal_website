@@ -114,5 +114,54 @@ themeToggleButton.addEventListener("click", function () {
 });
 
 
+////////// SKILLS CAROUSEL BEHAVIOR \\\\\\\\\\
+window.onload = function () {
+  // Selects the container of the skills carousel icons.
+  const skillsCarouselIconsContainer = document.getElementById("skills-carousel-icons-container");
+
+  // Clones the icons container and appends it for continuous scrolling.
+  const iconsContainerClone = skillsCarouselIconsContainer.cloneNode(true);
+  skillsCarouselIconsContainer.parentNode.appendChild(iconsContainerClone);
+
+  // Gets the total width of the skills carousel icons container
+  const iconsContainerWidth = skillsCarouselIconsContainer.scrollWidth;
+
+  let currentPosition = 0;
+  let scrolling = true;
+
+  function scrollCarousel() {
+    if (scrolling) {
+      currentPosition -= 1;
+    }
+
+    // Resets position if the container is fully scrolled.
+    if (Math.abs(currentPosition) >= iconsContainerWidth) {
+      currentPosition = 0;
+    }
+
+    skillsCarouselIconsContainer.style.transform = "translateX(" + currentPosition + "px)";
+    iconsContainerClone.style.transform = "translateX(" + (currentPosition + iconsContainerWidth) + "px)";
+
+    // Continues the animation on the next frame.
+    requestAnimationFrame(scrollCarousel);
+  }
+
+  scrollCarousel();
+
+  // Stop carousel scrolling on mouse over.
+  function stopScrolling() {
+    scrolling = false;
+  }
+  skillsCarouselIconsContainer.addEventListener("mouseover", stopScrolling);
+  iconsContainerClone.addEventListener("mouseover", stopScrolling);
+
+  // Restart carousel scrolling on mouse out.
+  function startScrolling() {
+    scrolling = true;
+  }
+  skillsCarouselIconsContainer.addEventListener("mouseout", startScrolling);
+  iconsContainerClone.addEventListener("mouseout", startScrolling);
+};
+
 ////////// BACKGROUND PARTICLES BEHAVIOR \\\\\\\\\\
 particlesJS.load("particles-js", "./particles.json");

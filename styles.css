@@ -120,6 +120,7 @@ nav .nav-link:hover {
 /********** SKILLS SECTION **********/
 #skills-cards-container {
     width: 75%;
+    z-index: 9999;
 }
 
 .card-container {
@@ -129,6 +130,28 @@ nav .nav-link:hover {
 
 .card-container:hover {
     transform: scale(1.1);
+}
+
+#skills-carousel-overflow {
+    position: relative;
+    width: 100%;
+    height: 3rem;
+    overflow-x: hidden;
+}
+
+#skills-carousel-icons-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    white-space: nowrap;
+}
+
+.skills-icon {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 5rem;
+    cursor: pointer;
 }
 
 /********** FOOTER **********/
@@ -142,14 +165,21 @@ footer {
 
 /********** RESPONSIVE DESIGN **********/
 @media (max-width: 768px) {
-    #subtitle-text {
-        font-size: 0.8rem;
+    /* General */
+    #move-to-top-button {
+        display: none;
     }
-    
+
+    /* About section */
     #about_container {
         width: 90%;
     }
 
+    #subtitle-text {
+        font-size: 0.8rem;
+    }
+
+    /* Skills section */
     #skills-cards-container {
         width: 90%;
     }
@@ -162,7 +192,7 @@ footer {
         transform: none;
     }
 
-    #move-to-top-button {
+    #skills-carousel-container {
         display: none;
     }
 }
