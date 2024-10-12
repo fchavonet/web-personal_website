@@ -169,6 +169,15 @@ nav .nav-link:hover {
     width: 20rem;
 }
 
+/********** CONTACT SECTION **********/
+#contact-container {
+    width: 75%;
+}
+
+#message {
+    resize: none;
+}
+
 /********** FOOTER **********/
 footer {
     width: 100%;
@@ -224,5 +233,10 @@ footer {
 
     .card {
         width: 100%;
+    }
+
+    /* Contact section */
+    #contact-container {
+        width: 90%;
     }
 }

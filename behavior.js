@@ -180,4 +180,57 @@ window.onload = function () {
 
 
 ////////// BACKGROUND PARTICLES BEHAVIOR \\\\\\\\\\
+document.addEventListener("DOMContentLoaded", function () {
+  //
+  emailjs.init("-nvDUA2GW_QoL_8nL");
+
+  // Selects the contact form.
+  const contactForm = document.getElementById("contact-form");
+
+  // Selects the name, email, and message input fields.
+  const name = document.getElementById("name");
+  const email = document.getElementById("email");
+  const message = document.getElementById("message");
+
+  // Selects the send button.
+  const sendButton = document.getElementById("send-button");
+
+  function checkFormCompletion() {
+    // Enables the send button if all fields are filled.
+    if (name.value.trim() !== "" && email.value.trim() !== "" && message.value.trim() !== "") {
+      sendButton.disabled = false;
+    } else {
+      sendButton.disabled = true;
+    }
+  }
+
+  // Listens for input changes to check form completion.
+  contactForm.addEventListener("input", checkFormCompletion);
+
+  //
+  contactForm.addEventListener("submit", function (event) {
+    // Prevent the default button behavior.
+    event.preventDefault();
+
+    // Updates the button text to "Sending...".
+    sendButton.textContent = "Sending...";
+
+    // Sends the form data via emailJS.
+    emailjs.sendForm("service_37gv0v7", "template_lxmfrhn", this).then(function () {
+      alert("Your message has been sent!");
+
+      // Resets the form and updates the button text and state.
+      contactForm.reset();
+      sendButton.textContent = "Send Message";
+      sendButton.disabled = true;
+    }, function (error) {
+      alert("An error occurred, please try again.");
+      // Resets the button text to "Send Message" in case of error.
+      sendButton.textContent = "Send Message";
+    });
+  });
+});
+
+
+////////// BACKGROUND PARTICLES BEHAVIOR \\\\\\\\\\
 particlesJS.load("particles-js", "./particles.json");
