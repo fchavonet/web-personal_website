@@ -37,16 +37,21 @@ h2 {
     display: none;
 }
 
+a {
+    cursor: pointer;
+}
+
 .container-background {
-    border-radius: 25px;
-    background-color: var(--light-color);
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    cursor: default;
+    border: none !important;
+    border-radius: 25px !important;
+    background-color: var(--light-color) !important;
+    backdrop-filter: blur(3px) !important;
+    -webkit-backdrop-filter: blur(3px) !important;
+    cursor: default !important;
 }
 
 .dark-mode {
-    background-color: var(--dark-color);
+    background-color: var(--dark-color) !important;
 }
 
 #move-to-top-button {
@@ -155,6 +160,15 @@ nav .nav-link:hover {
     cursor: pointer;
 }
 
+/********** WORKS SECTION **********/
+#works-container {
+    width: 75%;
+}
+
+.card {
+    width: 20rem;
+}
+
 /********** FOOTER **********/
 footer {
     width: 100%;
@@ -195,5 +209,20 @@ footer {
 
     #skills-carousel-container {
         display: none;
+    }
+
+    /* Works section */
+    #works {
+        height: 100%;
+        padding-top: 6rem;
+    }
+
+    #works-container {
+        width: 90%;
+        gap: 3rem;
+    }
+
+    .card {
+        width: 100%;
     }
 }
