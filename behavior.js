@@ -114,6 +114,19 @@ themeToggleButton.addEventListener("click", function () {
 });
 
 
+////////// POPHOVER BEHAVIOR \\\\\\\\\\
+function initializePopovers() {
+  const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+  const popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  initializePopovers();
+});
+
+
 ////////// SKILLS CAROUSEL BEHAVIOR \\\\\\\\\\
 window.onload = function () {
   // Selects the container of the skills carousel icons.
@@ -161,7 +174,10 @@ window.onload = function () {
   }
   skillsCarouselIconsContainer.addEventListener("mouseout", startScrolling);
   iconsContainerClone.addEventListener("mouseout", startScrolling);
+
+  initializePopovers();
 };
+
 
 ////////// BACKGROUND PARTICLES BEHAVIOR \\\\\\\\\\
 particlesJS.load("particles-js", "./particles.json");

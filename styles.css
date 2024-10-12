@@ -42,6 +42,7 @@ h2 {
     background-color: var(--light-color);
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
+    cursor: default;
 }
 
 .dark-mode {
@@ -149,7 +150,8 @@ nav .nav-link:hover {
 .skills-icon {
     width: 3rem;
     height: 3rem;
-    margin-right: 5rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
     cursor: pointer;
 }
 
