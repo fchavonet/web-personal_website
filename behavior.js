@@ -191,9 +191,20 @@ document.addEventListener("DOMContentLoaded", function () {
   const name = document.getElementById("name");
   const email = document.getElementById("email");
   const message = document.getElementById("message");
+  const messageCharCount = document.getElementById("message-char-count");
 
   // Selects the send button.
   const sendButton = document.getElementById("send-button");
+
+  // Update the character count for a given input.
+  function updateCharCount(input, charCountElement, maxChars) {
+    charCountElement.textContent = `${input.value.length}/${maxChars}`;
+  }
+
+  // Update character count for the message input field.
+  message.addEventListener("input", function () {
+    updateCharCount(message, messageCharCount, 500);
+  });
 
   function checkFormCompletion() {
     // Enables the send button if all fields are filled.

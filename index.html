@@ -335,15 +335,16 @@
 
                 <form id="contact-form">
                     <div class="mb-3">
-                        <input id="name" class="form-control" type="text" name="name" placeholder="Your name" required>
+                        <input id="name" class="form-control" type="text" name="name" placeholder="Your name" maxlength="50" required>
                     </div>
                 
                     <div class="mb-3">
-                        <input id="email" class="form-control" type="email" name="email" placeholder="Your Email" required>
+                        <input id="email" class="form-control" type="email" name="email" placeholder="Your Email" maxlength="50" required>
                     </div>
                 
                     <div class="mb-3">
-                        <textarea id="message" class="form-control" name="message" rows="10" placeholder="Your message..." required></textarea>
+                        <textarea id="message" class="form-control" name="message" rows="10" placeholder="Your message..." maxlength="500" required></textarea>
+                        <small id="message-char-count" class="mt-1 d-flex justify-content-end align-items-center text-muted">0/500</small>
                     </div>
                 
                     <div class="d-grid">
