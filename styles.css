@@ -41,6 +41,10 @@ a {
     cursor: pointer;
 }
 
+.active {
+    color: var(--primary-color) !important;
+}
+
 .container-background {
     border: none !important;
     border-radius: 25px !important;

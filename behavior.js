@@ -20,6 +20,41 @@ navLinks.forEach(link => {
 });
 
 
+////////// ACTIVE LINK ON SCROLL BEHAVIOR \\\\\\\\\\
+document.addEventListener("DOMContentLoaded", function () {
+  // Select all sections and navigation links.
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+  // Listen for the scroll event on the window.
+  window.addEventListener("scroll", function () {
+    let current = "";
+
+    // Loop through each section to check which is currently in view.
+    sections.forEach(function (section) {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+
+      // Check if the section is within the current scroll position.
+      if (window.scrollY >= sectionTop - sectionHeight / 3) {
+        // Get the ID of the visible section.
+        current = section.getAttribute("id");
+      }
+    });
+
+    // Update "active" class on nav links.
+    navLinks.forEach(function (link) {
+      // Remove "active" class from all links.
+      link.classList.remove("active");
+      if (link.getAttribute("data-section-id") === current) {
+        // Add "active" class to the matching link.
+        link.classList.add("active");
+      }
+    });
+  });
+});
+
+
 ////////// MOVE TO TOP BUTTON BEHAVIOR \\\\\\\\\\
 const moveToTopButton = document.getElementById("move-to-top-button");
 
