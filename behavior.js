@@ -280,3 +280,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 ////////// BACKGROUND PARTICLES BEHAVIOR \\\\\\\\\\
 particlesJS.load("particles-js", "./particles.json");
+
+
+////////// ANIMATE ON SCROLL BEHAVIOR \\\\\\\\\\
+AOS.init({
+  disable: false,
+  offset: 200,
+  delay: 0,
+  duration: 800,
+  easing: "ease",
+  once: false,
+  mirror: true,
+  anchorPlacement: "center-center",
+});

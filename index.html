@@ -22,6 +22,10 @@
 
     <!-- EmailJS -->
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <!-- Animate On Scroll (AOS) -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
 </head>
 
 <body data-bs-offset="50" data-bs-spy="scroll" data-bs-target=".navbar">
@@ -77,7 +81,7 @@
         <section id="about" class="d-flex flex-column justify-content-center align-items-center">
             <h2 class="text-center">About</h2>
 
-            <div id="about_container" class="container-background p-3 ps-4 pe-4 shadow">
+            <div id="about_container" class="container-background p-3 ps-4 pe-4 shadow" data-aos="zoom-in">
                 <!-- About name -->
                 <div class="d-flex justify-content-start mb-4 border-bottom">
                     <div class="d-flex align-items-end">
@@ -132,7 +136,7 @@
 
             <!-- Skills cards-->
             <div id="skills-cards-container" class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-0 mb-md-5 ">
-                <div class="card-container container-background text-center mb-5 mb-md-0 p-2 shadow">
+                <div class="card-container container-background text-center mb-5 mb-md-0 p-2 shadow" data-aos="zoom-in">
                     <i class="bi bi-code-slash text-primary fs-1"></i>
                     <h3>Front-End</h3>
                     <p>
@@ -142,7 +146,7 @@
                     </p>
                 </div>
 
-                <div class="card-container container-background text-center p-2 shadow">
+                <div class="card-container container-background text-center p-2 shadow" data-aos="zoom-in">
                     <i class="bi bi-server text-primary fs-1"></i>
                     <h3>Back-End</h3>
                     <p>
@@ -152,7 +156,7 @@
                     </p>
                 </div>
 
-                <div class="card-container container-background text-center mt-5 mt-md-0 p-2 shadow">
+                <div class="card-container container-background text-center mt-5 mt-md-0 p-2 shadow" data-aos="zoom-in">
                     <i class="bi bi-tools text-primary fs-1"></i>
                     <h3>Tools & Technologies</h3>
                     <p>
@@ -164,7 +168,7 @@
             </div>
 
             <!-- Skills carousel -->
-            <div id="skills-carousel-container" class="w-100 mt-5">
+            <div id="skills-carousel-container" class="w-100 mt-5" data-aos="zoom-in">
                 <div id="skills-carousel-overflow">
                     <div id="skills-carousel-icons-container">
                         <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="Git">
@@ -260,9 +264,8 @@
             <h2 class="text-center">Works</h2>
 
             <div id="works-container" class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-                
                 <!-- First project -->
-                <div class="card h-100 container-background shadow">
+                <div class="card h-100 container-background shadow" data-aos="zoom-in">
                     <img class="card-img-top" src="./resources/images/screenshots/screenshot-holberton_survivors.webp" alt="Holberton Survivors screenshot">
 
                     <div class="card-body">
@@ -283,7 +286,7 @@
                 </div>
 
                 <!-- Second project -->
-                <div class="card h-100 container-background shadow">
+                <div class="card h-100 container-background shadow" data-aos="zoom-in">
                     <img class="card-img-top" src="./resources/images/screenshots/screenshot-othello_game.webp" alt="Othello Game screenshot">
 
                     <div class="card-body">
@@ -304,7 +307,7 @@
                 </div>
 
                 <!-- Third project -->
-                <div class="card h-100 container-background shadow">
+                <div class="card h-100 container-background shadow" data-aos="zoom-in">
                     <img class="card-img-top" src="./resources/images/screenshots/screenshot-holberton_headphones.webp" alt="Holberton Headphones screenshot">
 
                     <div class="card-body">
@@ -330,7 +333,7 @@
         <section id="contact" class="d-flex flex-column justify-content-center align-items-center">
             <h2 class="text-center">Contact</h2>
 
-            <div id="contact-container" class="container-background p-4 shadow">
+            <div id="contact-container" class="container-background p-4 shadow" data-aos="zoom-in">
                 <h4 class="mb-4 text-center"> Feel free to contact me if you have any questions.</h4>
 
                 <form id="contact-form">
