@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 ////////// BACKGROUND PARTICLES BEHAVIOR \\\\\\\\\\
-particlesJS.load("particles-js", "./particles.json");
+particlesJS.load("particles-js", "./resources/particles/particles.json");
 
 
 ////////// ANIMATE ON SCROLL BEHAVIOR \\\\\\\\\\
