@@ -202,6 +202,13 @@ footer {
 
 /********** RESPONSIVE DESIGN **********/
 @media (max-width: 768px) {
+    /* Header */
+    #theme-toggle-button {
+        position: fixed;
+        bottom: 10.75rem;
+        right: 5rem;
+    }
+
     /* General */
     #move-to-top-button {
         display: none;

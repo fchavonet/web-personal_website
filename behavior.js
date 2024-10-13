@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 ////////// MOVE TO TOP BUTTON BEHAVIOR \\\\\\\\\\
+const navbarBrand = document.querySelector(".navbar-brand");
 const moveToTopButton = document.getElementById("move-to-top-button");
 
 window.addEventListener("scroll", function () {
@@ -70,18 +71,18 @@ window.addEventListener("scroll", function () {
   }
 });
 
-moveToTopButton.addEventListener("click", function (event) {
+navbarBrand .addEventListener("click", function (event) {
   // Prevent the default button behavior.
   event.preventDefault();
 
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
+moveToTopButton.addEventListener("click", function (event) {
+  // Prevent the default button behavior.
+  event.preventDefault();
 
-////////// PAGE REFRESH BEHAVIOR \\\\\\\\\\
-const homeLink = document.querySelector(".navbar-brand");
-homeLink.addEventListener("click", function () {
-  location.reload();
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
 
