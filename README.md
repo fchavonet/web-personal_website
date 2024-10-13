@@ -100,7 +100,7 @@ You can also visit the site by clicking [here](https://fchavonet.github.io/web-p
     <picture>
         <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/fchavonet/web-personal_website/refs/heads/main/resources/images/light-screenshots.png">
         <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/fchavonet/web-personal_website/refs/heads/main/resources/images/dark-screenshots.png">
-        <img src="" alt="Screenshots">
+        <img src="https://raw.githubusercontent.com/fchavonet/web-personal_website/refs/heads/main/resources/images/light-screenshots.png" alt="Screenshots">
     </picture>
 </p>
 
