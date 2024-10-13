@@ -292,5 +292,4 @@ AOS.init({
   easing: "ease",
   once: false,
   mirror: true,
-  anchorPlacement: "center-center",
 });
