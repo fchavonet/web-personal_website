@@ -1,8 +1,9 @@
-////////// SCROLL TO SECTION BEHAVIOR \\\\\\\\\\
-const nav = document.querySelector("nav");
+////////// SCROLL TO SECTIONS BEHAVIOR \\\\\\\\\\
+const navbarToggler = document.getElementById("navbar-toggler");
+const navbarMenu = document.getElementById("navbar-menu");
 const navLinks = document.querySelectorAll(".nav-link");
 
-navLinks.forEach(link => {
+navLinks.forEach(function (link) {
   link.addEventListener("click", function (event) {
     // Prevent the default button behavior.
     event.preventDefault();
@@ -12,9 +13,14 @@ navLinks.forEach(link => {
 
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
+
+      if (window.innerWidth < 992) {
+        navbarMenu.classList.remove("show");
+        navbarToggler.classList.add("collapsed");
+      }
     } else {
-      // Log error if section is not found.
-      console.error(`Section with ID "${sectionId}" not found.`);
+      // Log error if section ID is not found.
+      console.error("Section with ID " + sectionId + " not found.");
     }
   });
 });
@@ -22,13 +28,12 @@ navLinks.forEach(link => {
 
 ////////// ACTIVE LINK ON SCROLL BEHAVIOR \\\\\\\\\\
 document.addEventListener("DOMContentLoaded", function () {
-  // Select all sections and navigation links.
   const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+  // const navLinks = document.querySelectorAll(".nav-link");
 
   // Listen for the scroll event on the window.
   window.addEventListener("scroll", function () {
-    let current = "";
+    let currentSection = "about";
 
     // Loop through each section to check which is currently in view.
     sections.forEach(function (section) {
@@ -38,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Check if the section is within the current scroll position.
       if (window.scrollY >= sectionTop - sectionHeight / 3) {
         // Get the ID of the visible section.
-        current = section.getAttribute("id");
+        currentSection = section.getAttribute("id");
       }
     });
 
@@ -46,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
     navLinks.forEach(function (link) {
       // Remove "active" class from all links.
       link.classList.remove("active");
-      if (link.getAttribute("data-section-id") === current) {
+      if (link.getAttribute("data-section-id") === currentSection) {
         // Add "active" class to the matching link.
         link.classList.add("active");
       }
@@ -55,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-////////// MOVE TO TOP BUTTON BEHAVIOR \\\\\\\\\\
+////////// MOVE TO TOP BEHAVIOR \\\\\\\\\\
 const navbarBrand = document.querySelector(".navbar-brand");
 const moveToTopButton = document.getElementById("move-to-top-button");
 
@@ -63,15 +68,15 @@ window.addEventListener("scroll", function () {
   // Get the current scroll position.
   const scrollPosition = window.scrollY || document.documentElement.scrollTop;
 
-  // Show the button if the user has scrolled more than 250 pixels.
+  // Unhide the button if the user has scrolled more than 250 pixels.
   if (scrollPosition > 250) {
-    moveToTopButton.classList.add("show");
+    moveToTopButton.classList.add("unhide");
   } else {
-    moveToTopButton.classList.remove("show");
+    moveToTopButton.classList.remove("unhide");
   }
 });
 
-navbarBrand .addEventListener("click", function (event) {
+navbarBrand.addEventListener("click", function (event) {
   // Prevent the default button behavior.
   event.preventDefault();
 
@@ -88,20 +93,16 @@ moveToTopButton.addEventListener("click", function (event) {
 
 ////////// THEME TOGGLE BEHAVIOR \\\\\\\\\\
 const htmlPage = document.getElementById("html-page");
-// const nav = document.querySelector("nav");
-const footer = document.querySelector("footer");
 
-const containersBackground = document.querySelectorAll(".container-background");
+const themeToggler = document.getElementById("theme-toggler");
+const themeIcon = themeToggler.querySelector("i");
 
-const themeToggleButton = document.getElementById("theme-toggle-button");
-const themeIcon = themeToggleButton.querySelector("i");
+const bgTertiary = document.querySelectorAll(".bg-tertiary")
 
 // Get the current theme from localStorage or default to light.
 let currentTheme = localStorage.getItem("theme") || "light";
 
-htmlPage.setAttribute("data-bs-theme", currentTheme);
-
-// Update the theme icon based on the current theme.
+// Update theme icon based on current theme.
 function updateThemeIcon() {
   if (currentTheme === "light") {
     themeIcon.classList.remove("bi-sun-fill");
@@ -109,45 +110,40 @@ function updateThemeIcon() {
   } else {
     themeIcon.classList.remove("bi-moon-stars-fill");
     themeIcon.classList.add("bi-sun-fill");
-    nav.classList.add("dark-mode");
-    footer.classList.add("dark-mode");
-
-    containersBackground.forEach(function (container) {
-      container.classList.add("dark-mode");
-    });
   }
 }
 
-// Update icon on initial load.
-updateThemeIcon();
+// Update theme and localStorage.
+function updateTheme() {
+  htmlPage.setAttribute("data-bs-theme", currentTheme);
 
-themeToggleButton.addEventListener("click", function () {
-  // Toggle between light and dark themes.
-  if (currentTheme === "light") {
-    currentTheme = "dark";
-    nav.classList.add("dark-mode");
-    footer.classList.add("dark-mode");
-
-    containersBackground.forEach(function (container) {
-      container.classList.add("dark-mode");
+  // Add or remove dark-mode class
+  if (currentTheme === "dark") {
+    bgTertiary.forEach(element => {
+      element.classList.add("dark-mode");
     });
   } else {
-    currentTheme = "light";
-    nav.classList.remove("dark-mode");
-    footer.classList.remove("dark-mode");
-
-    containersBackground.forEach(function (container) {
-      container.classList.remove("dark-mode");
+    bgTertiary.forEach(element => {
+      element.classList.remove("dark-mode");
     });
   }
 
-  // Update theme attribute and store current theme in localStorage.
-  htmlPage.setAttribute("data-bs-theme", currentTheme);
   localStorage.setItem("theme", currentTheme);
-
-  // Update icon after theme change.
   updateThemeIcon();
+}
+
+// Toggle theme on button click
+themeToggler.addEventListener("click", function () {
+  if (currentTheme === "light") {
+    currentTheme = "dark";
+  } else {
+    currentTheme = "light";
+  }
+  updateTheme();
 });
+
+// Apply theme on page load.
+updateTheme();
 
 
 ////////// POPHOVER BEHAVIOR \\\\\\\\\\
@@ -160,6 +156,19 @@ function initializePopovers() {
 
 document.addEventListener("DOMContentLoaded", function () {
   initializePopovers();
+});
+
+
+
+////////// AUTO SECTION PADDING BEHAVIOR \\\\\\\\\\
+window.addEventListener("DOMContentLoaded", function () {
+	const navHeight = this.document.querySelector("nav").offsetHeight;
+	const sections = this.document.querySelectorAll("section");
+
+	//
+	sections.forEach(function (section) {
+		section.style.paddingTop = navHeight + "px";
+	});
 });
 
 
