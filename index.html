@@ -83,7 +83,7 @@
     </header>
 
     <!-- MAIN -->
-    <main>
+    <main class="ps-3 ps-md-0 pe-3 pe-md-0">
         <!-- ABOUT SECTION -->
         <section id="about" class="d-flex justify-content-center align-items-center">
             <div class="container mt-md-5 p-3 rounded-3 bg-tertiary">
@@ -336,10 +336,10 @@
         </section>
 
         <!-- CONTACT SECTION -->
-        <section id="contact" class="d-flex flex-column justify-content-center align-items-center">
-            <h2 class="text-center">Contact</h2>
+        <section id="contact" class="d-flex justify-content-center align-items-center">
+            <div class="container mt-md-5 mb-md-5 p-3 rounded-3 bg-tertiary">
+                <h2>Contact</h2>
 
-            <div id="contact-container" class="container-background p-4 shadow" data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
                 <h4 class="mb-4 text-center"> Feel free to contact me if you have any questions.</h4>
 
                 <form id="contact-form">
@@ -353,11 +353,11 @@
 
                     <div class="mb-3">
                         <textarea id="message" class="form-control" name="message" rows="10" placeholder="Your message..." maxlength="500" required></textarea>
-                        <small id="message-char-count" class="mt-1 d-flex justify-content-end align-items-center text-muted">0/500</small>
+                        <small id="message-char-count" class="d-flex justify-content-end align-items-center mt-1 text-muted">0/500</small>
                     </div>
 
-                    <div class="d-grid">
-                        <button id="send-button" class="btn btn-primary btn-block" disabled>Send Message</button>
+                    <div>
+                        <button id="send-button" class="btn btn-primary w-100" disabled>Send Message</button>
                     </div>
                 </form>
             </div>

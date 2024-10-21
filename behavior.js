@@ -97,7 +97,7 @@ const htmlPage = document.getElementById("html-page");
 const themeToggler = document.getElementById("theme-toggler");
 const themeIcon = themeToggler.querySelector("i");
 
-const bgTertiary = document.querySelectorAll(".bg-tertiary")
+const bgTertiary = document.querySelectorAll(".bg-tertiary");
 
 // Get the current theme from localStorage or default to light.
 let currentTheme = localStorage.getItem("theme") || "light";
@@ -157,7 +157,6 @@ function initializePopovers() {
 document.addEventListener("DOMContentLoaded", function () {
   initializePopovers();
 });
-
 
 
 ////////// AUTO SECTION PADDING BEHAVIOR \\\\\\\\\\
@@ -224,72 +223,79 @@ window.onload = function () {
 };
 
 
-////////// BACKGROUND PARTICLES BEHAVIOR \\\\\\\\\\
+////////// CONTACT FORM BEHAVIOR \\\\\\\\\\
 document.addEventListener("DOMContentLoaded", function () {
-  //
-  emailjs.init("-nvDUA2GW_QoL_8nL");
+	// Initialize EmailJS with public user ID.
+	emailjs.init("-nvDUA2GW_QoL_8nL");
 
-  // Selects the contact form.
-  const contactForm = document.getElementById("contact-form");
+	// Selects the contact form.
+	const contactForm = document.getElementById("contact-form");
 
-  // Selects the name, email, and message input fields.
-  const name = document.getElementById("name");
-  const email = document.getElementById("email");
-  const message = document.getElementById("message");
-  const messageCharCount = document.getElementById("message-char-count");
+	// Selects the name, email, and message input fields.
+	const name = document.getElementById("name");
+	const email = document.getElementById("email");
+	const message = document.getElementById("message");
+	const messageCharCount = document.getElementById("message-char-count");
 
-  // Selects the send button.
-  const sendButton = document.getElementById("send-button");
+	// Selects the send button.
+	const sendButton = document.getElementById("send-button");
 
-  // Update the character count for a given input.
-  function updateCharCount(input, charCountElement, maxChars) {
-    charCountElement.textContent = `${input.value.length}/${maxChars}`;
-  }
+	// Function to validate the email format.
+	function isValidEmail(email) {
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		return emailRegex.test(email);
+	}
 
-  // Update character count for the message input field.
-  message.addEventListener("input", function () {
-    updateCharCount(message, messageCharCount, 500);
-  });
+	// Function to check if the form is completely filled out.
+	function checkFormCompletion() {
+		const isNameFilled = name.value.trim() !== "";
+		const isEmailFilled = email.value.trim() !== "";
+		const isMessageFilled = message.value.trim() !== "";
+		const isEmailValid = isValidEmail(email.value);
 
-  function checkFormCompletion() {
-    // Enables the send button if all fields are filled.
-    if (name.value.trim() !== "" && email.value.trim() !== "" && message.value.trim() !== "") {
-      sendButton.disabled = false;
-    } else {
-      sendButton.disabled = true;
-    }
-  }
+		// Add or remove "invalid" class based on email validity.
+		if (!isEmailValid && isEmailFilled) {
+			email.classList.add("invalid");
+		} else {
+			email.classList.remove("invalid");
+		}
 
-  // Listens for input changes to check form completion.
-  contactForm.addEventListener("input", checkFormCompletion);
+		// Enable or disable send button.
+		if (isNameFilled && isEmailFilled && isEmailValid && isMessageFilled) {
+			sendButton.disabled = false;
+		} else {
+			sendButton.disabled = true;
+		}
+	}
 
-  //
-  contactForm.addEventListener("submit", function (event) {
-    // Prevent the default button behavior.
-    event.preventDefault();
+	// Update char count and check form.
+	contactForm.addEventListener("input", function () {
+		messageCharCount.textContent = message.value.length + "/500";
+		checkFormCompletion();
+	});
 
-    // Updates the button text to "Sending...".
-    sendButton.textContent = "Sending...";
+	// Handles the form submission process.
+	contactForm.addEventListener("submit", function (event) {
+		// Prevent the default button behavior.
+		event.preventDefault();
+		sendButton.textContent = "Sending...";
 
-    // Sends the form data via emailJS.
-    emailjs.sendForm("service_37gv0v7", "template_lxmfrhn", this).then(function () {
-      alert("Your message has been sent!");
+		emailjs.sendForm("service_37gv0v7", "template_lxmfrhn", this).then(function () {
+			alert("Your message has been sent!");
+			contactForm.reset();
+			sendButton.textContent = "Send Message";
+			sendButton.disabled = true;
 
-      // Resets the form and updates the button text and state.
-      contactForm.reset();
-      sendButton.textContent = "Send Message";
-      sendButton.disabled = true;
-    }, function (error) {
-      alert("An error occurred, please try again.");
-      // Resets the button text to "Send Message" in case of error.
-      sendButton.textContent = "Send Message";
-    });
-  });
+			// Reset message character count.
+			messageCharCount.textContent = "0/500";
+			// Remove "invalid" class from email input.
+			email.classList.remove("invalid");
+		}, function (error) {
+			alert("An error occurred, please try again.");
+			sendButton.textContent = "Send Message";
+		});
+	});
 });
-
-
-////////// BACKGROUND PARTICLES BEHAVIOR \\\\\\\\\\
-particlesJS.load("particles-js", "./resources/particles/particles.json");
 
 
 ////////// ANIMATE ON SCROLL BEHAVIOR \\\\\\\\\\
@@ -302,3 +308,7 @@ AOS.init({
   once: false,
   mirror: true,
 });
+
+
+////////// BACKGROUND PARTICLES BEHAVIOR \\\\\\\\\\
+particlesJS.load("particles-js", "./resources/particles/particles.json");
