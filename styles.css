@@ -30,16 +30,11 @@
 section {
     width: 100%;
     height: 100svh;
-    padding-top: 3.5rem;
 }
 
 h2 {
     position: absolute;
     clip-path: inset(100%);
-}
-
-a {
-    cursor: pointer;
 }
 
 .active {
@@ -81,28 +76,9 @@ a {
     z-index: -1;
 }
 
-/********** HEADER **********/
-nav {
-    background-color: var(--light-color);
-    backdrop-filter: blur(var(--blur));
-    -webkit-backdrop-filter: blur(var(--blur));
-}
-
-nav .nav-link:hover {
-    color: var(--primary-color);
-}
-
-/********** ABOUT SECTION **********/
-#about_container {
-    width: 75%;
-}
-
+/* ABOUT SECTION */
 #avatar {
     height: 8rem;
-}
-
-#subtitle-text {
-    font-size: 1.5rem;
 }
 
 .social {
@@ -110,7 +86,7 @@ nav .nav-link:hover {
 }
 
 .social:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 /********** SKILLS SECTION **********/
