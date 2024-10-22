@@ -143,7 +143,7 @@
                 <h2>Skills</h2>
 
                 <!-- Skills cards-->
-                <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center mt-0 p-0 gap-4">
+                <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center gap-4 mt-0 p-0">
                     <!-- Front-end -->
                     <div class="d-flex flex-column justify-content-center align-items-center pt-1 pb-2 col-12 col-lg-3 rounded-3 bg-tertiary">
                         <i class="bi bi-code-slash text-primary fs-1" aria-hidden="true"></i>
@@ -275,78 +275,99 @@
         </section>
 
         <!-- PROJECTS SECTION -->
-        <section id="projects" class="d-flex flex-column justify-content-center align-items-center">
-            <h2 class="text-center">Works</h2>
+        <section id="projects">
+            <div class="container d-flex flex-column justify-content-center align-items-center gap-5 mt-md-5 mt-0 p-0">
+                <!-- Hidden section title -->
+                <h2>Projects</h2>
 
-            <div id="works-container" class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-                <!-- First project -->
-                <div class="card h-100 container-background shadow" data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
-                    <img class="card-img-top" src="./resources/images/screenshots/screenshot-holberton_survivors.webp" alt="Holberton Survivors screenshot">
+                <!-- First row -->
+                <div class="container-fluid d-flex flex-column flex-lg-row justify-content-between gap-5 gap-ld-0 p-0">
+                    <!-- Project 001 -->
+                    <div class="col-12 col-lg-3">
+                        <div class="card h-100 w-100 bg-tertiary border-0">
+                            <img class="card-img-top" src="./resources/images/screenshots/screenshot-holberton_survivors.webp" alt="Holberton Survivors's screenshot">
 
-                    <div class="card-body">
-                        <h4 class="card-title">Holberton Survivors</h4>
+                            <div class="card-body">
+                                <h3 class="card-title">Holberton Survivors</h3>
 
-                        <p class="card-text">
-                            The final stage of my first year at Holberton School! Discover our 2D game inspired by <a class="link-underline link-underline-opacity-0" href="https://store.steampowered.com/app/1794680/Vampire_Survivors/?l=french" target="_blank">Vampire Survivors</a>, which I developed in collaboration with <a class="link-underline link-underline-opacity-0" href="https://github.com/SpStigma" target="_blank">Yoann Rivet</a>. It was presented to a panel of judges, successfully validating our graduation with excellent feedback..
-                        </p>
+                                <p class="card-text">
+                                    The final stage of my first year at Holberton School!
+                                    <br>
+                                    Discover our 2D game inspired by <a class="link-underline link-underline-opacity-0" href="https://store.steampowered.com/app/1794680/Vampire_Survivors/?l=french" target="_blank">Vampire Survivors</a>, which I developed in collaboration with <a class="link-underline link-underline-opacity-0" href="https://github.com/SpStigma" target="_blank">Yoann Rivet</a>.
+                                    <br>
+                                    Created in one month, it was presented to a panel of judges, successfully validating our graduation with excellent feedback.
+                                </p>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center p-3 ps-4 border-top">
+                                <a href="https://github.com/fchavonet/unity-2d-holberton_survivors" target="_blank">
+                                    <img src="https://img.shields.io/github/stars/fchavonet/unity-2d-holberton_survivors?style=social" alt="GitHub repository stars">
+                                </a>
+
+                                <a class="btn btn-sm btn-primary" href="http://holbertonsurvivors.com" target="_blank">Holberton Survivors</a>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="d-flex justify-content-between p-3 ps-4 pe-4 border-top">
-                        <a href="https://github.com/fchavonet/unity-2d-holberton_survivors" target="_blank">
-                            <img src="https://img.shields.io/github/stars/fchavonet/unity-2d-holberton_survivors?style=social" alt="GitHub repository stars">
-                        </a>
+                    <!-- Project 002 -->
+                    <div class="col-12 col-lg-3">
+                        <div class="card h-100 w-100 bg-tertiary border-0">
+                            <img class="card-img-top" src="./resources/images/screenshots/screenshot-othello_game.webp" alt="Othello Game's screenshot">
 
-                        <a class="btn btn-outline-primary btn-sm" href="http://holbertonsurvivors.com" target="_blank">Holberton Survivors</a>
+                            <div class="card-body">
+                                <h3 class="card-title">Othello Game</h3>
+
+                                <p class="card-text">
+                                    Inspired by the end-of-year work of <a class="link-underline link-underline-opacity-0" href="https://github.com/Rdrg974" target="_blank">Rodrigue Hassany Mohamed</a> and <a class="link-underline link-underline-opacity-0" href="https://github.com/tjennat" target="_blank">Théo Jennat</a> at Holberton School, this browser-based implementation of the <a class="link-underline link-underline-opacity-0" href="https://www.worldothello.org" target="_blank">Othello Game</a> (Reversi) was built from scratch using HTML5, CSS3, and JavaScript.
+                                    <br>
+                                    It features both online play against a basic AI and local multiplayer mode with a friend.
+                                </p>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center p-3 ps-4 border-top">
+                                <a href="https://github.com/fchavonet/web-othello_game" target="_blank">
+                                    <img src="https://img.shields.io/github/stars/fchavonet/web-othello_game?style=social" alt="GitHub repository stars">
+                                </a>
+
+                                <a class="btn btn-primary btn-sm" href="https://fchavonet.github.io/web-othello_game/" target="_blank">Othello Game</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 003 -->
+                    <div class="col-12 col-lg-3">
+                        <div class="card h-100 w-100 bg-tertiary border-0">
+                            <img class="card-img-top"
+                                src="./resources/images/screenshots/screenshot-holberton_headphones.webp" alt="Holberton Headphones screenshot">
+
+                            <div class="card-body">
+                                <h3 class="card-title">Holberton Headphones</h3>
+
+                                <p class="card-text">
+                                    During my second year of Full Stack specialization at Holberton School, I was tasked with faithfully replicating a design provided by <a class="link-underline link-underline-opacity-0" href="https://fr.linkedin.com/in/nic0fil?challengeId=AQFJKcOlqal_lQAAAZJ_r4S2zk83tI4CxFf6BI-azhW7Rka7padRgfdo7fbLfP9xakZv5F6oIMhAHFRCIwJiBfequZB4XdP4yQ&submissionId=ddf286d6-d3a4-fd17-edb7-118a5cff7d51&challengeSource=AgFGPpQ6sfMQFAAAAZJ_r9irOm7KYuNMGk8DB1-dNIi4PBrm568RXMkq2wguG-g&challegeType=AgFSrjcDM-GkvAAAAZJ_r9iuC4Jbcah3lfjIh5n5gDbzGCL1Auh57kA&memberId=AgHcXzPOHwq70QAAAZJ_r9ixbGyCN6DCLxhDuyAwtiE-JD0&recognizeDevice=AgFh4RT6N7H-LgAAAZJ_r9i0xWskUNIOIyt_NLCfu4uEumPuuqq4" target="_blank">Nicolas Philippot</a> in Figma.
+                                    <br>
+                                    This project is a great demonstration of my adaptability and front-end developer skills. You can find all the details directly on the <a class="link-underline link-underline-opacity-0" href="https://github.com/fchavonet/holbertonschool-headphones" target="_blank">GitHub</a> repository.
+                                </p>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center p-3 ps-4 border-top">
+                                <a href="https://github.com/fchavonet/holbertonschool-headphones" target="_blank">
+                                    <img src="https://img.shields.io/github/stars/fchavonet/holbertonschool-headphones?style=social" alt="GitHub repository stars">
+                                </a>
+
+                                <a class="btn btn-primary btn-sm" href="https://fchavonet.github.io/holbertonschool-headphones/101-index.html" target="_blank">Holberton Headphones</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Second project -->
-                <div class="card h-100 container-background shadow" data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
-                    <img class="card-img-top" src="./resources/images/screenshots/screenshot-othello_game.webp" alt="Othello Game screenshot">
-
-                    <div class="card-body">
-                        <h4 class="card-title">Othello Game</h4>
-
-                        <p class="card-text">
-                            Inspired by the <a class="link-underline link-underline-opacity-0" href="https://github.com/Rdrg974/holbertonschool-portfolio" target="_blank">end-of-year work</a> of <a class="link-underline link-underline-opacity-0" href="https://github.com/Rdrg974" target="_blank">Rodrigue Hassany Mohamed</a> and <a class="link-underline link-underline-opacity-0" href="https://github.com/tjennat" target="_blank">Théo Jennat</a> at Holberton School, this browser-based implementation of the <a class="link-underline link-underline-opacity-0" href="https://www.worldothello.org" target="_blank">Othello Game</a> (Reversi) was built from scratch using HTML5, CSS3, and JavaScript. It features both online play against a basic AI and local multiplayer mode with a friend.
-                        </p>
-                    </div>
-
-                    <div class="d-flex justify-content-between p-3 ps-4 pe-4 border-top">
-                        <a href="https://github.com/fchavonet/web-othello_game" target="_blank">
-                            <img src="https://img.shields.io/github/stars/fchavonet/web-othello_game?style=social" alt="GitHub repository stars">
-                        </a>
-
-                        <a class="btn btn-outline-primary btn-sm" href="https://fchavonet.github.io/web-othello_game/" target="_blank">Othello Game</a>
-                    </div>
-                </div>
-
-                <!-- Third project -->
-                <div class="card h-100 container-background shadow" data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
-                    <img class="card-img-top" src="./resources/images/screenshots/screenshot-holberton_headphones.webp" alt="Holberton Headphones screenshot">
-
-                    <div class="card-body">
-                        <h4 class="card-title">Holberton Headphones</h4>
-
-                        <p class="card-text">
-                            During my second year of Full Stack specialization at Holberton School, I was tasked with faithfully replicating a design provided by <a class="link-underline link-underline-opacity-0" href="https://fr.linkedin.com/in/nic0fil?challengeId=AQFJKcOlqal_lQAAAZJ_r4S2zk83tI4CxFf6BI-azhW7Rka7padRgfdo7fbLfP9xakZv5F6oIMhAHFRCIwJiBfequZB4XdP4yQ&submissionId=ddf286d6-d3a4-fd17-edb7-118a5cff7d51&challengeSource=AgFGPpQ6sfMQFAAAAZJ_r9irOm7KYuNMGk8DB1-dNIi4PBrm568RXMkq2wguG-g&challegeType=AgFSrjcDM-GkvAAAAZJ_r9iuC4Jbcah3lfjIh5n5gDbzGCL1Auh57kA&memberId=AgHcXzPOHwq70QAAAZJ_r9ixbGyCN6DCLxhDuyAwtiE-JD0&recognizeDevice=AgFh4RT6N7H-LgAAAZJ_r9i0xWskUNIOIyt_NLCfu4uEumPuuqq4" target="_blank">Nicolas Philippot</a> in Figma. This project is a great demonstration of my adaptability and front-end developer skills. You can find all the details directly on the <a class="link-underline link-underline-opacity-0" href="https://github.com/fchavonet/holbertonschool-headphones" target="_blank">GitHub</a> repository.
-                        </p>
-                    </div>
-
-                    <div class="d-flex justify-content-between p-3 ps-4 pe-4 border-top">
-                        <a href="https://github.com/fchavonet/holbertonschool-headphones" target="_blank">
-                            <img src="https://img.shields.io/github/stars/fchavonet/holbertonschool-headphones?style=social" alt="GitHub repository stars">
-                        </a>
-
-                        <a class="btn btn-outline-primary btn-sm" href="https://fchavonet.github.io/holbertonschool-headphones/101-index.html" target="_blank">Holberton Headphones</a>
-                    </div>
-                </div>
+                <!-- Second row (W.I.P.) -->
             </div>
         </section>
 
         <!-- CONTACT SECTION -->
         <section id="contact" class="d-flex justify-content-center align-items-center">
-            <div class="container mb-lg-5 p-3 rounded-3 bg-tertiary">
+            <div class="container mt-md-5 mt-0 mb-md-5 p-3 rounded-3 bg-tertiary">
                 <!-- Hidden section title -->
                 <h2>Contact</h2>
 
