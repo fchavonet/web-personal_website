@@ -1,8 +1,8 @@
 /* VARIABLES */
 :root {
     --primary-color: rgb(13, 109, 253);
-    --light-color: rgba(248, 249, 250, 0.50);
-    --dark-color: rgba(52, 58, 64, 0.50);
+    --light-color: rgba(248, 249, 250, 0.65);
+    --dark-color: rgba(52, 58, 64, 0.65);
     --backdrop-blur: 3px;
 }
 
@@ -27,6 +27,10 @@
 }
 
 /* GENERAL */
+body {
+    overflow-x: hidden;
+}
+
 h2 {
     position: absolute;
     clip-path: inset(100%);
@@ -84,24 +88,28 @@ h2 {
     transform: scale(1.2);
 }
 
-/********** SKILLS SECTION **********/
-#skills-cards-container {
-    width: 75%;
+/* SKILLS SECTION */
+.skills-container {
+    transition: transform 0.3s ease-in-out;
 }
 
-.card-container {
-    width: 20rem;
-    transition: all 0.1s ease-in-out;
+.skills-container:hover {
+    transform: scale(0.95);
 }
 
-.card-container:hover {
-    transform: scale(1.1);
+#skills-carousel-container {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    margin-left: -50vw;
+    right: 50%;
+    margin-right: -50vw;
 }
 
 #skills-carousel-overflow {
     position: relative;
     width: 100%;
-    height: 5rem;
+    height: 3rem;
     overflow-x: hidden;
 }
 
@@ -142,6 +150,10 @@ h2 {
 /* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
     #about {
+        height: 100svh;
+    }
+
+    #skills {
         height: 100svh;
     }
 
