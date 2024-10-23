@@ -5,21 +5,31 @@ const navLinks = document.querySelectorAll(".nav-link");
 
 navLinks.forEach(function (link) {
   link.addEventListener("click", function (event) {
-    // Prevent the default button behavior.
+    // Prevent the default behavior of the link.
     event.preventDefault();
 
     const sectionId = link.getAttribute("data-section-id");
     const section = document.getElementById(sectionId);
 
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      if (sectionId === "projects") {
+        // If it's the "projects" section, apply the offset.
+        const sectionPosition = section.getBoundingClientRect().top + window.scrollY - 50;
 
+        // Scroll smoothly to the adjusted position.
+        window.scrollTo({ top: sectionPosition, behavior: "smooth" });
+      } else {
+        // Otherwise, use the standard scrollIntoView for smooth scrolling.
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+
+      // Close the navbar menu if the screen width is less than 992px.
       if (window.innerWidth < 992) {
         navbarMenu.classList.remove("show");
         navbarToggler.classList.add("collapsed");
       }
     } else {
-      // Log error if section ID is not found.
+      // Log an error if the section ID is not found.
       console.error("Section with ID " + sectionId + " not found.");
     }
   });
@@ -161,13 +171,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 ////////// AUTO SECTION PADDING BEHAVIOR \\\\\\\\\\
 window.addEventListener("DOMContentLoaded", function () {
-	const navHeight = this.document.querySelector("nav").offsetHeight;
-	const sections = this.document.querySelectorAll("section");
+  const navHeight = this.document.querySelector("nav").offsetHeight;
+  const sections = this.document.querySelectorAll("section");
 
-	//
-	sections.forEach(function (section) {
-		section.style.paddingTop = navHeight + "px";
-	});
+  //
+  sections.forEach(function (section) {
+    section.style.paddingTop = navHeight + "px";
+  });
 });
 
 
@@ -225,76 +235,76 @@ window.onload = function () {
 
 ////////// CONTACT FORM BEHAVIOR \\\\\\\\\\
 document.addEventListener("DOMContentLoaded", function () {
-	// Initialize EmailJS with public user ID.
-	emailjs.init("-nvDUA2GW_QoL_8nL");
+  // Initialize EmailJS with public user ID.
+  emailjs.init("-nvDUA2GW_QoL_8nL");
 
-	// Selects the contact form.
-	const contactForm = document.getElementById("contact-form");
+  // Selects the contact form.
+  const contactForm = document.getElementById("contact-form");
 
-	// Selects the name, email, and message input fields.
-	const name = document.getElementById("name");
-	const email = document.getElementById("email");
-	const message = document.getElementById("message");
-	const messageCharCount = document.getElementById("message-char-count");
+  // Selects the name, email, and message input fields.
+  const name = document.getElementById("name");
+  const email = document.getElementById("email");
+  const message = document.getElementById("message");
+  const messageCharCount = document.getElementById("message-char-count");
 
-	// Selects the send button.
-	const sendButton = document.getElementById("send-button");
+  // Selects the send button.
+  const sendButton = document.getElementById("send-button");
 
-	// Function to validate the email format.
-	function isValidEmail(email) {
-		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-		return emailRegex.test(email);
-	}
+  // Function to validate the email format.
+  function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
 
-	// Function to check if the form is completely filled out.
-	function checkFormCompletion() {
-		const isNameFilled = name.value.trim() !== "";
-		const isEmailFilled = email.value.trim() !== "";
-		const isMessageFilled = message.value.trim() !== "";
-		const isEmailValid = isValidEmail(email.value);
+  // Function to check if the form is completely filled out.
+  function checkFormCompletion() {
+    const isNameFilled = name.value.trim() !== "";
+    const isEmailFilled = email.value.trim() !== "";
+    const isMessageFilled = message.value.trim() !== "";
+    const isEmailValid = isValidEmail(email.value);
 
-		// Add or remove "invalid" class based on email validity.
-		if (!isEmailValid && isEmailFilled) {
-			email.classList.add("invalid");
-		} else {
-			email.classList.remove("invalid");
-		}
+    // Add or remove "invalid" class based on email validity.
+    if (!isEmailValid && isEmailFilled) {
+      email.classList.add("invalid");
+    } else {
+      email.classList.remove("invalid");
+    }
 
-		// Enable or disable send button.
-		if (isNameFilled && isEmailFilled && isEmailValid && isMessageFilled) {
-			sendButton.disabled = false;
-		} else {
-			sendButton.disabled = true;
-		}
-	}
+    // Enable or disable send button.
+    if (isNameFilled && isEmailFilled && isEmailValid && isMessageFilled) {
+      sendButton.disabled = false;
+    } else {
+      sendButton.disabled = true;
+    }
+  }
 
-	// Update char count and check form.
-	contactForm.addEventListener("input", function () {
-		messageCharCount.textContent = message.value.length + "/500";
-		checkFormCompletion();
-	});
+  // Update char count and check form.
+  contactForm.addEventListener("input", function () {
+    messageCharCount.textContent = message.value.length + "/500";
+    checkFormCompletion();
+  });
 
-	// Handles the form submission process.
-	contactForm.addEventListener("submit", function (event) {
-		// Prevent the default button behavior.
-		event.preventDefault();
-		sendButton.textContent = "Sending...";
+  // Handles the form submission process.
+  contactForm.addEventListener("submit", function (event) {
+    // Prevent the default button behavior.
+    event.preventDefault();
+    sendButton.textContent = "Sending...";
 
-		emailjs.sendForm("service_37gv0v7", "template_lxmfrhn", this).then(function () {
-			alert("Your message has been sent!");
-			contactForm.reset();
-			sendButton.textContent = "Send Message";
-			sendButton.disabled = true;
+    emailjs.sendForm("service_37gv0v7", "template_lxmfrhn", this).then(function () {
+      alert("Your message has been sent!");
+      contactForm.reset();
+      sendButton.textContent = "Send Message";
+      sendButton.disabled = true;
 
-			// Reset message character count.
-			messageCharCount.textContent = "0/500";
-			// Remove "invalid" class from email input.
-			email.classList.remove("invalid");
-		}, function (error) {
-			alert("An error occurred, please try again.");
-			sendButton.textContent = "Send Message";
-		});
-	});
+      // Reset message character count.
+      messageCharCount.textContent = "0/500";
+      // Remove "invalid" class from email input.
+      email.classList.remove("invalid");
+    }, function (error) {
+      alert("An error occurred, please try again.");
+      sendButton.textContent = "Send Message";
+    });
+  });
 });
 
 

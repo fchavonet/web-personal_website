@@ -1,8 +1,8 @@
 /* VARIABLES */
 :root {
     --primary-color: rgb(13, 109, 253);
-    --light-color: rgba(248, 249, 250, 0.65);
-    --dark-color: rgba(52, 58, 64, 0.65);
+    --light-color: rgba(248, 249, 250, 0.75);
+    --dark-color: rgba(52, 58, 64, 0.75);
     --backdrop-blur: 3px;
 }
 
