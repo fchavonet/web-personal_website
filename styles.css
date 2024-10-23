@@ -33,6 +33,9 @@ body {
 
 h2 {
     position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
     clip-path: inset(100%);
 }
 
