@@ -27,7 +27,9 @@
 
 ## 📄 <span id="description">Description</span>
 
-This is the first version of my personal website, designed to showcase my professional skills and projects, and to provide a platform for potential employers or collaborators to get to know me better. While learning Bootstrap during my courses at Holberton School, I chose this technology to practice and enhance my front-end development skills. My goal was to quickly create a minimalistic yet functional website, focusing on a clean, responsive design and user experience.
+This is the first version of my personal website, designed to showcase my professional skills and projects, and to provide a platform for potential employers or collaborators to get to know me better. While learning Bootstrap during my courses at Holberton School, I chose this technology to practice and develop my front-end skills. My objective was to quickly create a minimalistic and functional website, with a focus on a clean and responsive design that enhances user experience.
+
+That said, I am not fully satisfied with the current outcome, and a second version will be released soon. For now, this version fulfills the exercise requirements.
 
 ## 🎓 <span id="objectives">Objectives</span>
 
@@ -66,6 +68,7 @@ Additional libraries and tools used:
 | `resources`   | Contains the resources required for the repository. |
 | `README.md`   | The readme file you are currently reading 😉.       |
 | `behavior.js` | JavaScript for interactivity and animations.        |
+| `CNAME`       | Defines the custom domain name for the website.     |
 | `index.html`  | Main HTML file structuring the website content.     |
 | `styles.css`  | CSS styles for layout and responsiveness.           |
 
@@ -84,7 +87,7 @@ git clone https://github.com/fchavonet/web-personal_website.git
 
 2. Open the repository you've just cloned.
 
-3. Ensure you have a stable internet connection as some resources are fetched from CDNs
+3. Ensure you have a stable internet connection as some resources are fetched from CDNs.
 
 **How to use:**
 
@@ -94,7 +97,7 @@ git clone https://github.com/fchavonet/web-personal_website.git
 
 4. Explore the interactive elements like theme toggling, smooth scrolling, and animated sections.
 
-You can also visit the site by clicking [here](https://fchavonet.github.io/web-personal_website/).
+You can also visit the site by clicking [here](https://www.fchavonet.dev).
 
 <p align="center">
     <picture>
