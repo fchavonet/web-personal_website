@@ -309,15 +309,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 ////////// ANIMATE ON SCROLL BEHAVIOR \\\\\\\\\\
-AOS.init({
-  disable: false,
-  offset: 200,
-  delay: 0,
-  duration: 800,
-  easing: "ease",
-  once: false,
-  mirror: true,
+function initAOSForSmallScreens() {
+  if (window.innerWidth < 992) {
+    AOS.init({
+      // Enable AOS for small screens.
+      disable: false,
+      offset: 200,
+      delay: 0,
+      duration: 800,
+      easing: "ease",
+      once: false,
+      mirror: true,
+    });
+  } else {
+    AOS.init({
+      // Disable AOS for larger screens.
+      disable: true,
+    });
+  }
+}
+
+// Initialize on page load.
+initAOSForSmallScreens();
+
+// Re-initialize AOS when the window is resized.
+window.addEventListener("resize", function () {
+  initAOSForSmallScreens();
 });
+
 
 
 ////////// BACKGROUND PARTICLES BEHAVIOR \\\\\\\\\\

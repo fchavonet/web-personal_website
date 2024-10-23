@@ -66,9 +66,9 @@ Additional libraries and tools used:
 | **FILE**      | **DESCRIPTION**                                     |
 | :-----------: | --------------------------------------------------- |
 | `resources`   | Contains the resources required for the repository. |
+| `CNAME`       | Defines the custom domain name for the website.     |
 | `README.md`   | The readme file you are currently reading 😉.       |
 | `behavior.js` | JavaScript for interactivity and animations.        |
-| `CNAME`       | Defines the custom domain name for the website.     |
 | `index.html`  | Main HTML file structuring the website content.     |
 | `styles.css`  | CSS styles for layout and responsiveness.           |
 
