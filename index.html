@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html id="html-page" data-bs-theme="" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Fabien Chavonet - Personal Website</title>
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Full Stack Developer, currently working as an educational manager at the Holberton School, shaping the next generation of software developers.">
+    <link rel="canonical" href="https://www.fchavonet.dev/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="./assets/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="48x48" href="./assets/favicon/favicon-48x48.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+
+    <!-- Custom styles and behavior scripts -->
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+
+    <!-- EmailJS -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js" defer></script>
+
+    <!-- Animate On Scroll (AOS) -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Particles.js -->
+    <script src="./assets/particles/particles.js"></script>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav class="navbar navbar-expand-lg nav-justified fixed-top bg-tertiary border-bottom">
+            <div class="container">
+                <!-- Navbar brand -->
+                <div class="nav-item d-flex justify-content-start align-items-center">
+                    <a class="navbar-brand" href="javascript:void(0);">Fabien Chavonet</a>
+                </div>
+
+                <!-- Theme toggler and navbar menu button -->
+                <div class="nav-item d-flex justify-content-end align-items-center gap-2 order-lg-3">
+                    <button id="theme-toggler" class="btn btn-sm btn-outline-primary" type="button">
+                        <i class="bi bi-moon-fill"></i>
+                    </button>
+
+                    <button class="btn btn-sm btn-outline-primary d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
+                        <i class="bi bi-list"></i>
+                    </button>
+                </div>
+
+                <!-- Navbar menu -->
+                <div id="navbar-menu" class="navbar-collapse collapse justify-content-center align-items-center order-lg-2">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#about" data-section-id="about">About</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#skills" data-section-id="skills">Skills</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#projects" data-section-id="projects">Projects</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact" data-section-id="contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main class="ps-3 ps-md-0 pe-3 pe-md-0">
+        <!-- ABOUT SECTION -->
+        <section id="about" class="d-flex justify-content-center align-items-center">
+            <div class="container mt-md-5 p-3 rounded-3 bg-tertiary shadow" data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
+                <!-- Header with avatar and name -->
+                <div class="d-flex justify-content-start align-items-end border-bottom mb-3">
+                    <img id="avatar" src="./assets/images/avatar.webp" alt="Avatar image">
+
+                    <div class="d-flex flex-column justify-content-end mb-2">
+                        <h1 class="m-0 p-0">Fabien Chavonet</h1>
+                        <h4 class="m-0 p-0 text-primary ">Full Stack Developer</h4>
+                    </div>
+                </div>
+
+                <!-- Hidden section title -->
+                <h2>About</h2>
+
+                <!-- Personal description -->
+                <p class="m-0 p-0">
+                    As a Full-Stack developer, I love turning ideas into reality through clean and efficient code.
+                    <br>
+                    With a diverse background, including team management, technical expert at <a class="link-underline link-underline-opacity-0" href="https://www.apple.com" target="_blank">Apple</a> and logistics coordination at <a class="link-underline link-underline-opacity-0" href="https://www.tesla.com" target="_blank">Tesla</a>, I bring a unique perspective to each project.
+                    <br>
+                    Currently, I work as an educational manager in software development at <a class="link-underline link-underline-opacity-0" href="https://www.holbertonschool.com" target="_blank">Holberton School</a> in France, where I help shape the next generation of developers.
+                    <br>
+                    I'm passionate about innovative technologies, and I'm always eager to take on new challenges.
+                </p>
+
+                <!-- Buttons with resume download and social links -->
+                <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
+                    <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="W.I.P.">
+                        <button class="btn btn-primary" type="button" disabled>
+                            <i class="bi bi-file-earmark-person"></i> Resume
+                        </button>
+                    </span>
+
+                    <div class="d-flex">
+                        <a class="social fs-3 me-3" href="https://fr.linkedin.com/in/fchavonet" aria-label="LinkedIn profile button" target="_blank">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+
+                        <a class="social fs-3" href="https://github.com/fchavonet" aria-label="GitHub profile button" target="_blank">
+                            <i class="bi bi-github"></i>
+                        </a>
+
+                        <a class="social fs-3 ms-3" href="https://www.instagram.com/pandolowitz" aria-label="Instagram profile button" target="_blank">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="d-flex justify-content-center align-items-center">
+            <div class="container mt-md-5 mt-0 p-0">
+                <!-- Hidden section title -->
+                <h2>Skills</h2>
+
+                <!-- Skills cards-->
+                <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center gap-5 mt-0 p-0">
+                    <!-- Front-end -->
+                    <div class="d-flex flex-column justify-content-center align-items-center mb-0 mb-md-5 pt-2 pb-3 col-12 col-lg-3 rounded-3 bg-tertiary shadow" data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
+                        <i class="bi bi-code-slash text-primary fs-1" aria-hidden="true"></i>
+                        <h3 class="mt-2 text-center">Front-End</h3>
+
+                        <p class="m-0 p-0 text-center">
+                            HTML, CSS, JavaScript
+                            <br>
+                            Bootstrap, React, Tailwind
+                        </p>
+                    </div>
+
+                    <!-- Back-End -->
+                    <div class="d-flex flex-column justify-content-center align-items-center mb-0 mb-md-5 pt-2 pb-3 col-12 col-lg-3 rounded-3 bg-tertiary shadow" data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
+                        <i class="bi bi-server text-primary fs-1" aria-hidden="true"></i>
+                        <h3 class="mt-2 text-center">Back-End</h3>
+
+                        <p class="m-0 p-0 text-center">
+                            Flask, Django, MySQL
+                            <br>
+                            Nodes.js, Next.js, MongoDB
+                        </p>
+                    </div>
+
+                    <!-- Tools & Technologies -->
+                    <div class="d-flex flex-column justify-content-center align-items-center mb-0 mb-md-5 pt-2 pb-3 col-12 col-lg-3 rounded-3 bg-tertiary shadow" data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
+                        <i class="bi bi-tools text-primary fs-1" aria-hidden="true"></i>
+                        <h3 class="mt-2 text-center">Tools & Technologies</h3>
+
+                        <p class="m-0 p-0 text-center">
+                            Git, GitHub, Docker
+                            <br>
+                            Blender, Figma, Photoshop
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Skills carousel -->
+                <div id="skills-carousel-container" class="d-none d-md-block mt-5">
+                    <div id="skills-carousel-overflow">
+                        <div id="skills-carousel-icons-container">
+                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="Git">
+                                <img class="skills-icon" src="./assets/images/icons/icon-git.webp" alt="Git icon">
+                            </span>
+
+                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="GitHub">
+                                <img class="skills-icon" src="./assets/images/icons/icon-github.webp" alt="GitHub icon">
+                            </span>
+
+                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="Docker">
+                                <img class="skills-icon" src="./assets/images/icons/icon-docker.webp" alt="Docker icon">
+                            </span>
+
+                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="Blender">
+                                <img class="skills-icon" src="./assets/images/icons/icon-blender.webp" alt="Blender icon">
+                            </span>
+
+                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="Figma">
+                                <img class="skills-icon" src="./assets/images/icons/icon-figma.webp" alt="Figma icon">
+                            </span>
+
+                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="Photoshop">
+                                <img class="skills-icon" src="./assets/images/icons/icon-photoshop.webp" alt="Photoshop icon">
+                            </span>
+
+                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="C">
+                                <img class="skills-icon" src="./assets/images/icons/icon-c.webp" alt="C icon">
+                            </span>
+
+                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="C Sharp">
+                                <img class="skills-icon" src="./assets/images/icons/icon-c-sharp.webp" alt="C Sharp icon">
+                            </span>
+
+                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="HTML 5">
+                                <img class="skills-icon" src="./assets/images/icons/icon-html_5.webp" alt="HTML 5 icon">
+                            </span>
+
+                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="CSS 3">
+                                <img class="skills-icon" src="./assets/images/icons/icon-css_3.webp" alt="CSS 3 icon">
+                            </span>
+
+                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="Javascript">
+                                <img class="skills-icon" src="./assets/images/icons/icon-javascript.webp" alt="Javascript icon">
+                            </span>
+
+                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="Bootstrap">
+                                <img class="skills-icon" src="./assets/images/icons/icon-bootstrap.webp" alt="Bootstrap icon">
+                            </span>
+
+                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="React">
+                                <img class="skills-icon" src="./assets/images/icons/icon-react.webp" alt="React icon">
+                            </span>
+
+                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="Tailwind">
+                                <img class="skills-icon" src="./assets/images/icons/icon-tailwind.webp" alt="Tailwind icon">
+                            </span>
+
+                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="Python">
+                                <img class="skills-icon" src="./assets/images/icons/icon-python.webp" alt="Python icon">
+                            </span>
+
+                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="Flask">
+                                <img class="skills-icon" src="./assets/images/icons/icon-flask.webp" alt="Flask icon">
+                            </span>
+
+                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="Django">
+                                <img class="skills-icon" src="./assets/images/icons/icon-django.webp" alt="Django icon">
+                            </span>
+
+                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="MySQL">
+                                <img class="skills-icon" src="./assets/images/icons/icon-mysql.webp" alt="MySQL icon">
+                            </span>
+
+                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="Node.js">
+                                <img class="skills-icon" src="./assets/images/icons/icon-nodejs.webp" alt="Node.js icon">
+                            </span>
+
+                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="Next.js">
+                                <img class="skills-icon" src="./assets/images/icons/icon-nextjs.webp" alt="Next.js icon">
+                            </span>
+
+                            <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="MongoDB">
+                                <img class="skills-icon" src="./assets/images/icons/icon-mongodb.webp" alt="MongoDB icon">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects">
+            <div class="container d-flex flex-column justify-content-center align-items-center gap-5 mt-md-5 mt-0 p-0">
+                <!-- Hidden section title -->
+                <h2>Projects</h2>
+
+                <!-- First row -->
+                <div class="container-fluid d-flex flex-column flex-lg-row justify-content-between gap-5 gap-ld-0 p-0">
+                    <!-- Project 001 -->
+                    <div class="col-12 col-lg-3" data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
+                        <div class="card h-100 w-100 bg-tertiary border-0 shadow">
+                            <img class="card-img-top" src="./assets/images/screenshots/screenshot-holberton_survivors.webp" alt="Holberton Survivors's screenshot">
+
+                            <div class="card-body">
+                                <h3 class="card-title">Holberton Survivors</h3>
+
+                                <p class="card-text">
+                                    The final stage of my first year at Holberton School!
+                                    <br>
+                                    Discover our 2D game inspired by <a class="link-underline link-underline-opacity-0" href="https://store.steampowered.com/app/1794680/Vampire_Survivors/?l=french" target="_blank">Vampire Survivors</a>, which I developed in collaboration with <a class="link-underline link-underline-opacity-0" href="https://github.com/SpStigma" target="_blank">Yoann Rivet</a>.
+                                    <br>
+                                    Created in one month, it was presented to a panel of judges, successfully validating our graduation with excellent feedback.
+                                </p>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center p-3 ps-4 border-top">
+                                <a href="https://github.com/fchavonet/unity-2d-holberton_survivors" target="_blank">
+                                    <img src="https://img.shields.io/github/stars/fchavonet/unity-2d-holberton_survivors?style=social" alt="GitHub repository stars">
+                                </a>
+
+                                <a class="btn btn-sm btn-primary" href="http://holbertonsurvivors.com" target="_blank">Holberton Survivors</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 002 -->
+                    <div class="col-12 col-lg-3" data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
+                        <div class="card h-100 w-100 bg-tertiary border-0 shadow">
+                            <img class="card-img-top" src="./assets/images/screenshots/screenshot-othello_game.webp" alt="Othello Game's screenshot">
+
+                            <div class="card-body">
+                                <h3 class="card-title">Othello Game</h3>
+
+                                <p class="card-text">
+                                    Inspired by the end-of-year work of <a class="link-underline link-underline-opacity-0" href="https://github.com/Rdrg974" target="_blank">Rodrigue Hassany Mohamed</a> and <a class="link-underline link-underline-opacity-0" href="https://github.com/tjennat" target="_blank">Théo Jennat</a> at Holberton School, this browser-based implementation of the <a class="link-underline link-underline-opacity-0" href="https://www.worldothello.org" target="_blank">Othello Game</a> (Reversi) was built from scratch using HTML5, CSS3, and JavaScript.
+                                    <br>
+                                    It features both online play against a basic AI and local multiplayer mode with a friend.
+                                </p>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center p-3 ps-4 border-top">
+                                <a href="https://github.com/fchavonet/web-othello_game" target="_blank">
+                                    <img src="https://img.shields.io/github/stars/fchavonet/web-othello_game?style=social" alt="GitHub repository stars">
+                                </a>
+
+                                <a class="btn btn-primary btn-sm" href="https://fchavonet.github.io/web-othello_game/" target="_blank">Othello Game</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 003 -->
+                    <div class="col-12 col-lg-3" data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
+                        <div class="card h-100 w-100 bg-tertiary border-0 shadow">
+                            <img class="card-img-top"
+                                src="./assets/images/screenshots/screenshot-endless_runner.gif" alt="Endless Runner screenshot">
+
+                            <div class="card-body">
+                                <h3 class="card-title">Endless Runner</h3>
+
+                                <p class="card-text">
+                                    This project aims to recreate the gameplay of <a class="link-underline link-underline-opacity-0" href="https://en.wikipedia.org/wiki/Dinosaur_Game" target="_blank">Google Chrome Dino game</a> using Unity, focusing on fundamental game development concepts such as player control, collision management, and dynamic procedural level generation.
+                                    <br>
+                                    I have added my personal touch to the code, introducing enhanced functionalities.
+                                </p>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center p-3 ps-4 border-top">
+                                <a href="https://github.com/fchavonet/unity-2d-endless_runner" target="_blank">
+                                    <img src="https://img.shields.io/github/stars/fchavonet/unity-2d-endless_runner?style=social" alt="GitHub repository stars">
+                                </a>
+
+                                <a class="btn btn-primary btn-sm" href="https://github.com/fchavonet/unity-2d-endless_runner" target="_blank">Endless Runner</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second row -->
+                <div class="container-fluid d-flex flex-column flex-lg-row justify-content-between gap-5 gap-ld-0 p-0">
+                    <!-- Project 004 -->
+                    <div class="col-12 col-lg-3" data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
+                        <div class="card h-100 w-100 bg-tertiary border-0 shadow">
+                            <img class="card-img-top" src="./assets/images/screenshots/screenshot-flip_book.webp" alt="Flip Book's screenshot">
+
+                            <div class="card-body">
+                                <h3 class="card-title">Flip Book</h3>
+
+                                <p class="card-text">
+                                    A simple flip book designed in HTML and CSS to display a series of pages in a format reminiscent of a book.
+                                    <br>
+                                    It provides a visually appealing method to navigate through content by flipping the pages.
+                                    <br>
+                                    A personal challenge for me was to create this book using only HTML and CSS.
+                                </p>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center p-3 ps-4 border-top">
+                                <a href="https://github.com/fchavonet/web-flip_book" target="_blank">
+                                    <img src="https://img.shields.io/github/stars/fchavonet/web-flip_book?style=social" alt="GitHub repository stars">
+                                </a>
+
+                                <a class="btn btn-sm btn-primary" href="https://fchavonet.github.io/web-flip_book" target="_blank">Flip Book</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <!-- Project 005 -->
+                    <div class="col-12 col-lg-3" data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
+                        <div class="card h-100 w-100 bg-tertiary border-0 shadow">
+                            <img class="card-img-top" src="./assets/images/screenshots/screenshot-solid_snake.gif" alt="Solid Snake screenshot">
+
+                            <div class="card-body">
+                                <h3 class="card-title">Solid Snake</h3>
+
+                                <p class="card-text">
+                                    A classic C implementation of snake game in a Terminal inspired by this <a class="link-underline link-underline-opacity-0" href="https://www.youtube.com/watch?v=cUJE10XEjrU" target="_blank">ASMR programming video</a>.
+                                    <br>
+                                    Features snake movement, apple generation, collision detection and scoring.
+                                    <br>
+                                    The project serves as a confirmation of my C programming skills.
+                                </p>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center p-3 ps-4 border-top">
+                                <a href="https://github.com/fchavonet/c-solid_snake" target="_blank">
+                                    <img src="https://img.shields.io/github/stars/fchavonet/c-solid_snake?style=social" alt="GitHub repository stars">
+                                </a>
+
+                                <a class="btn btn-primary btn-sm" href="https://github.com/fchavonet/c-solid_snake" target="_blank">Solid Snake</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 006 -->
+                    <div class="col-12 col-lg-3" data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
+                        <div class="card h-100 w-100 bg-tertiary border-0 shadow">
+                            <img class="card-img-top"
+                                src="./assets/images/screenshots/screenshot-holberton_headphones.webp" alt="Holberton Headphones screenshot">
+
+                            <div class="card-body">
+                                <h3 class="card-title">Holberton Headphones</h3>
+
+                                <p class="card-text">
+                                    During my second year of Full Stack specialization at Holberton School, I was tasked with faithfully replicating a design provided by <a class="link-underline link-underline-opacity-0" href="https://fr.linkedin.com/in/nic0fil?challengeId=AQFJKcOlqal_lQAAAZJ_r4S2zk83tI4CxFf6BI-azhW7Rka7padRgfdo7fbLfP9xakZv5F6oIMhAHFRCIwJiBfequZB4XdP4yQ&submissionId=ddf286d6-d3a4-fd17-edb7-118a5cff7d51&challengeSource=AgFGPpQ6sfMQFAAAAZJ_r9irOm7KYuNMGk8DB1-dNIi4PBrm568RXMkq2wguG-g&challegeType=AgFSrjcDM-GkvAAAAZJ_r9iuC4Jbcah3lfjIh5n5gDbzGCL1Auh57kA&memberId=AgHcXzPOHwq70QAAAZJ_r9ixbGyCN6DCLxhDuyAwtiE-JD0&recognizeDevice=AgFh4RT6N7H-LgAAAZJ_r9i0xWskUNIOIyt_NLCfu4uEumPuuqq4" target="_blank">Nicolas Philippot</a> in Figma.
+                                    <br>
+                                    This project is a great demonstration of my adaptability and front-end developer skills. You can find all the details directly on the <a class="link-underline link-underline-opacity-0" href="https://github.com/fchavonet/holbertonschool-headphones" target="_blank">GitHub</a> repository.
+                                </p>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center p-3 ps-4 border-top">
+                                <a href="https://github.com/fchavonet/holbertonschool-headphones" target="_blank">
+                                    <img src="https://img.shields.io/github/stars/fchavonet/holbertonschool-headphones?style=social" alt="GitHub repository stars">
+                                </a>
+
+                                <a class="btn btn-primary btn-sm" href="https://fchavonet.github.io/holbertonschool-headphones/101-index.html" target="_blank">Holberton Headphones</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="d-flex justify-content-center align-items-center">
+            <div class="container mt-md-5 mt-0 mb-md-5 p-3 rounded-3 bg-tertiary shadow" data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
+                <!-- Hidden section title -->
+                <h2>Contact</h2>
+
+                <h4 class="mb-4 text-center"> Feel free to contact me if you have any questions.</h4>
+
+                <form id="contact-form">
+                    <div class="mb-3">
+                        <input id="name" class="form-control" type="text" name="name" placeholder="Your name" maxlength="50" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <input id="email" class="form-control" type="email" name="email" placeholder="Your Email" maxlength="50" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <textarea id="message" class="form-control" name="message" rows="10" placeholder="Your message..." maxlength="500" required></textarea>
+                        <small id="message-char-count" class="d-flex justify-content-end align-items-center mt-1 text-muted">0/500</small>
+                    </div>
+
+                    <div>
+                        <button id="send-button" class="btn btn-primary w-100" disabled>Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="d-flex flex-column justify-content-center align-items-center p-3 bg-tertiary border-top">
+        <p class="m-0 p-0">© 2024 - Fabien Chavonet.</p>
+    </footer>
+
+    <!-- Move to top button -->
+    <div id="move-to-top-button-container" class="container d-flex justify-content-end align-items-center">
+        <button id="move-to-top-button" class="btn btn-sm btn-primary d-none d-md-block" type="button">
+            <i class="bi bi-arrow-up-short"></i>
+        </button>
+    </div>
+
+    <!-- Background particles -->
+    <div id="particles-js"></div>
+</body>
+
+</html>

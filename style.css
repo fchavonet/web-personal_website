@@ -1,0 +1,166 @@
+/* VARIABLES */
+:root {
+    --primary-color: rgb(13, 109, 253);
+    --light-color: rgba(248, 249, 250, 0.75);
+    --dark-color: rgba(52, 58, 64, 0.75);
+    --backdrop-blur: 3px;
+}
+
+/* RESET CSS */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 1.5rem;
+    background-color: var(--primary-color);
+}
+
+/* GENERAL */
+body {
+    overflow-x: hidden;
+}
+
+h2 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    clip-path: inset(100%);
+}
+
+.active {
+    color: var(--primary-color) !important;
+}
+
+.bg-tertiary {
+    background-color: var(--light-color) !important;
+    backdrop-filter: blur(var(--backdrop-blur)) !important;
+    -webkit-backdrop-filter: blur(var(--backdrop-blur)) !important;
+    cursor: default !important;
+}
+
+.dark-mode {
+    background-color: var(--dark-color) !important;
+}
+
+#move-to-top-button-container {
+    position: relative;
+}
+
+#move-to-top-button {
+    position: fixed;
+    right: 0.75rem;
+    bottom: -2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+#move-to-top-button.unhide {
+    bottom: 0.75rem;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* ABOUT SECTION */
+#avatar {
+    height: 8rem;
+}
+
+.social {
+    transition: all 0.1s ease-in-out;
+}
+
+.social:hover {
+    transform: scale(1.2);
+}
+
+/* SKILLS SECTION */
+.skills-container {
+    transition: transform 0.3s ease-in-out;
+}
+
+.skills-container:hover {
+    transform: scale(0.95);
+}
+
+#skills-carousel-container {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    margin-left: -50vw;
+    right: 50%;
+    margin-right: -50vw;
+}
+
+#skills-carousel-overflow {
+    position: relative;
+    width: 100%;
+    height: 3rem;
+    overflow-x: hidden;
+}
+
+#skills-carousel-icons-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    white-space: nowrap;
+}
+
+.skills-icon {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    cursor: pointer;
+}
+
+/********** Projects SECTION **********/
+#projects-container {
+    width: 75%;
+}
+
+.card {
+    width: 20rem;
+}
+
+/*CONTACT SECTION */
+.invalid {
+    border: 1px solid crimson !important;
+}
+
+#message {
+    resize: none;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    #about {
+        height: 100svh;
+    }
+
+    #skills {
+        height: 100svh;
+    }
+
+    #contact {
+        height: 100svh;
+    }
+}
