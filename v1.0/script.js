@@ -340,4 +340,4 @@ window.addEventListener("resize", function () {
 
 
 ////////// BACKGROUND PARTICLES BEHAVIOR \\\\\\\\\\
-particlesJS.load("particles-js", "./resources/particles/particles.json");
+particlesJS.load("particles-js", "./assets/particles/particles.json");
