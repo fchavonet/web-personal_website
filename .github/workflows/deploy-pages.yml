@@ -1,0 +1,32 @@
+name: Deploy personal website to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+  id-token: write
+  pages: write
+
+env:
+  FOLDER_TO_DEPLOY: v1.0
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: true
+
+      - name: Deploy to github-pages branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: github-pages
+          publish_dir: ${{ env.FOLDER_TO_DEPLOY }}
+          clean: true
+          commit_message: "Deploy personal website (${{ env.FOLDER_TO_DEPLOY }}) via GitHub Actions."
