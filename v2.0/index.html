@@ -25,53 +25,99 @@
     <script src="./script.js" defer></script>
 </head>
 
-<body class="max-w-screen-lg mx-auto p-5 lg:p-0 flex flex-col lg:flex-row justify-center lg:gap-25 text-zinc-100 bg-zinc-950">
+<body class="flex flex-col justify-center max-w-screen-lg p-5 mx-auto lg:flex-row lg:gap-25 bg-zinc-950 lg:p-0 text-zinc-100">
     <!-- ASIDE -->
-    <aside class="mb-5 lg:mb-0 lg:w-75 lg:h-screen lg:sticky lg:top-0 flex flex-col justify-center">
+    <aside class="flex flex-col justify-center mb-5 lg:top-0 lg:sticky lg:mb-0 lg:w-75 lg:h-screen">
         <!-- Profile section -->
-        <section id="profile-section" class="h-100 lg:mb-5 flex flex-col justify-between items-center rounded-xl bg-zinc-800/75">
+        <div id="profile-section" class="relative flex flex-col items-center justify-between p-5 text-center pt-35 bg-zinc-800/75 mt-25 lg:mb-5 rounded-xl h-100 noise">
+            <img class="top-[-25%] absolute w-50" src="./assets/images/profile_picture.webp" alt="Image de profile">
 
-        </section>
+            <h1 class="text-3xl font-semibold">Fabien Chavonet</h1>
+            
+            <div class="mb-3">
+                <h2 class="text-lg font-thin text-blue-500">Software Engineer</h2>
+                <h3 class="italic font-thin text-zinc-500">Curieux, créatif, passionné...</h3>
+            </div>
+
+            <!-- Social media links -->
+            <ul class="flex flex-row items-center justify-center gap-2 text-2xl text-zinc-800">
+                <li class="flex flex-row items-center w-10 h-10 transition-all duration-300 rounded-lg cursor-pointer group bg-zinc-100 hover:w-30">
+                    <a class="flex flex-row items-center justify-center h-full mx-auto" href="https://github.com/fchavonet" target="_blank" aria-label="Voir mon profil GitHub">
+                        <i class="text-[#181717] bi bi-github"></i>
+                        <span class="w-0 overflow-hidden text-sm text-center transition-all duration-300 group-hover:w-20">GitHub</span>
+                    </a>
+
+                </li>
+
+                <li class="flex flex-row items-center w-10 h-10 transition-all duration-300 rounded-lg cursor-pointer group bg-zinc-100 hover:w-30">
+                    <a class="flex flex-row items-center justify-center h-full mx-auto" href="https://www.instagram.com/pandolowitz/" target="_blank" aria-label="Voir mon profil Instagram">
+                        <i class="text-transparent bg-clip-text bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 bi bi-instagram"></i>
+                        <span class="w-0 overflow-hidden text-sm text-center transition-all duration-300 group-hover:w-20">Instagram</span>
+                    </a>
+
+                </li>
+
+                <li class="flex flex-row items-center w-10 h-10 transition-all duration-300 rounded-lg cursor-pointer group bg-zinc-100 hover:w-30">
+                    <a class="flex flex-row items-center justify-center h-full mx-auto" href="https://www.linkedin.com/in/fchavonet/" target="_blank" aria-label="Voir mon profil LinkedIn">
+                        <i class="text-[#0e76a8] bi bi-linkedin"></i>
+                        <span class="w-0 overflow-hidden text-sm text-center transition-all duration-300 group-hover:w-20">LinkedIn</span>
+                    </a>
+
+                </li>
+
+                <li class="flex flex-row items-center w-10 h-10 transition-all duration-300 rounded-lg cursor-pointer group bg-zinc-100 hover:w-30">
+                    <a class="flex flex-row items-center justify-center h-full mx-auto" href="https://fchavonet.medium.com/" target="_blank" aria-label="Voir mon profil Medium">
+                        <i class="text-[#000000] bi bi-medium"></i>
+                        <span class="w-0 overflow-hidden text-sm text-center transition-all duration-300 group-hover:w-20">Medium</span>
+                    </a>
+
+                </li>
+            </ul>
+
+            <a class="flex items-center justify-center w-full py-2 text-white bg-blue-500 rounded-lg group active:scale-98" href="#" aria-label="Télécharger mon C.V.">
+                <i class="me-2 group-hover:rotate-[360deg] transition-transform duration-500 bi bi-file-earmark-person transform"></i>Mon C.V.
+            </a>
+        </div>
 
         <!-- Navigation menu (desktop) -->
-        <nav class="navigation-menu px-5 py-3 hidden lg:block text-xl rounded-xl bg-zinc-800/75">
+        <nav class="hidden px-5 py-3 text-xl lg:block bg-zinc-800/75 rounded-xl navigation-menu noise">
             <ul class="flex flex-row justify-between">
-                <li class="w-8 h-8 group relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
-                    <a class="w-full h-full flex justify-center items-center" href="#presentation-section" aria-label="Voir ma présentation">
+                <li class="relative w-8 h-8 rounded-lg group hover:bg-zinc-700 hover:text-blue-500">
+                    <a class="flex items-center justify-center w-full h-full" href="#presentation-section" aria-label="Voir ma présentation">
                         <i class="bi bi-chat-dots"></i>
                     </a>
 
-                    <span class="py-1 px-2 absolute left-1/2 top-full whitespace-nowrap text-xs text-zinc-100 rounded bg-blue-500 transform -translate-x-1/2 -translate-y-0 opacity-0 transition-all duration-200 ease-out group-hover:translate-y-6 group-hover:opacity-100 pointer-events-none">
+                    <span class="absolute px-2 py-1 text-xs transition-all duration-200 ease-out transform -translate-x-1/2 bg-blue-500 rounded opacity-0 pointer-events-none top-full left-1/2 group-hover:opacity-100 text-zinc-100 whitespace-nowrap -translate-y-0 group-hover:translate-y-6">
                         Présentation
                     </span>
                 </li>
 
-                <li class="w-8 h-8 group relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
-                    <a class="w-full h-full flex justify-center items-center" href="#projects-section" aria-label="Voir mes projets">
+                <li class="relative w-8 h-8 rounded-lg group hover:bg-zinc-700 hover:text-blue-500">
+                    <a class="flex items-center justify-center w-full h-full" href="#projects-section" aria-label="Voir mes projets">
                         <i class="bi bi-folder2"></i>
                     </a>
 
-                    <span class="py-1 px-2 absolute left-1/2 top-full whitespace-nowrap text-xs text-zinc-100 rounded bg-blue-500 transform -translate-x-1/2 -translate-y-0 opacity-0 transition-all duration-200 ease-out group-hover:translate-y-6 group-hover:opacity-100 pointer-events-none">
+                    <span class="absolute px-2 py-1 text-xs transition-all duration-200 ease-out transform -translate-x-1/2 bg-blue-500 rounded opacity-0 pointer-events-none top-full left-1/2 group-hover:opacity-100 text-zinc-100 whitespace-nowrap -translate-y-0 group-hover:translate-y-6">
                         Mes projets
                     </span>
                 </li>
 
-                <li class="w-8 h-8 group relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
-                    <a class="w-full h-full flex justify-center items-center" href="#skills-section" aria-label="Voir mes compétences">
+                <li class="relative w-8 h-8 rounded-lg group hover:bg-zinc-700 hover:text-blue-500">
+                    <a class="flex items-center justify-center w-full h-full" href="#skills-section" aria-label="Voir mes compétences">
                         <i class="bi bi-layers"></i>
                     </a>
 
-                    <span class="py-1 px-2 absolute left-1/2 top-full whitespace-nowrap text-xs text-zinc-100 rounded bg-blue-500 transform -translate-x-1/2 -translate-y-0 opacity-0 transition-all duration-200 ease-out group-hover:translate-y-6 group-hover:opacity-100 pointer-events-none">
+                    <span class="absolute px-2 py-1 text-xs transition-all duration-200 ease-out transform -translate-x-1/2 bg-blue-500 rounded opacity-0 pointer-events-none top-full left-1/2 group-hover:opacity-100 text-zinc-100 whitespace-nowrap -translate-y-0 group-hover:translate-y-6">
                         Mes compétences
                     </span>
                 </li>
 
-                <li class="w-8 h-8 group relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
-                    <a class="w-full h-full flex justify-center items-center" href="#contact-section" aria-label="Voir comment me contacter">
+                <li class="relative w-8 h-8 rounded-lg group hover:bg-zinc-700 hover:text-blue-500">
+                    <a class="flex items-center justify-center w-full h-full" href="#contact-section" aria-label="Voir comment me contacter">
                         <i class="bi bi-envelope-heart"></i>
                     </a>
 
-                    <span class="py-1 px-2 absolute left-1/2 top-full whitespace-nowrap text-xs text-zinc-100 rounded bg-blue-500 transform -translate-x-1/2 -translate-y-0 opacity-0 transition-all duration-200 ease-out group-hover:translate-y-6 group-hover:opacity-100 pointer-events-none">
+                    <span class="absolute px-2 py-1 text-xs transition-all duration-200 ease-out transform -translate-x-1/2 bg-blue-500 rounded opacity-0 pointer-events-none top-full left-1/2 group-hover:opacity-100 text-zinc-100 whitespace-nowrap -translate-y-0 group-hover:translate-y-6">
                         Me contacter
                     </span>
                 </li>
@@ -80,35 +126,34 @@
     </aside>
 
     <!-- Responsive navigation menu (mobile)-->
-    <nav
-        class="navigation-menu mb-5 px-5 py-3 sticky top-5 block lg:hidden text-xl rounded-xl backdrop-blur bg-zinc-800/75 z-9999">
+    <nav class="sticky block px-5 py-3 mb-5 text-xl lg:hidden top-5 z-9999 bg-zinc-800/75 backdrop-blur rounded-xl navigation-menu noise">
         <ul class="flex flex-row justify-between">
-            <li class="w-8 h-8 group relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
-                <a class="w-full h-full flex justify-center items-center" href="#profile-section"  aria-label="Voir mon profil">
+            <li class="relative w-8 h-8 rounded-lg group hover:bg-zinc-700 hover:text-blue-500">
+                <a class="flex items-center justify-center w-full h-full" href="#profile-section" aria-label="Voir mon profil">
                     <i class="bi bi-person"></i>
                 </a>
             </li>
 
-            <li class="w-8 h-8 group relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
-                <a class="w-full h-full flex justify-center items-center" href="#presentation-section"  aria-label="Voir ma présenation">
+            <li class="relative w-8 h-8 rounded-lg group hover:bg-zinc-700 hover:text-blue-500">
+                <a class="flex items-center justify-center w-full h-full" href="#presentation-section" aria-label="Voir ma présenation">
                     <i class="bi bi-chat-dots"></i>
                 </a>
             </li>
 
-            <li class="w-8 h-8 group relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
-                <a class="w-full h-full flex justify-center items-center" href="#projects-section" aria-label="Voir mes projets">
+            <li class="relative w-8 h-8 rounded-lg group hover:bg-zinc-700 hover:text-blue-500">
+                <a class="flex items-center justify-center w-full h-full" href="#projects-section" aria-label="Voir mes projets">
                     <i class="bi bi-folder2"></i>
                 </a>
             </li>
 
-            <li class="w-8 h-8 group relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
-                <a class="w-full h-full flex justify-center items-center" href="#skills-section" aria-label="Voir mes compétences">
+            <li class="relative w-8 h-8 rounded-lg group hover:bg-zinc-700 hover:text-blue-500">
+                <a class="flex items-center justify-center w-full h-full" href="#skills-section" aria-label="Voir mes compétences">
                     <i class="bi bi-layers"></i>
                 </a>
             </li>
 
-            <li class="w-8 h-8 group relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
-                <a class="w-full h-full flex justify-center items-center" href="#contact-section" aria-label="Voir comment me contacter">
+            <li class="relative w-8 h-8 rounded-lg group hover:bg-zinc-700 hover:text-blue-500">
+                <a class="flex items-center justify-center w-full h-full" href="#contact-section" aria-label="Voir comment me contacter">
                     <i class="bi bi-envelope-heart"></i>
                 </a>
             </li>

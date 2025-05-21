@@ -1,0 +1,4 @@
+.noise {
+    background-image: url(./assets/images/noise.webp);
+    background-blend-mode:overlay;
+}
