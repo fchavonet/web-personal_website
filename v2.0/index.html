@@ -25,8 +25,101 @@
     <script src="./script.js" defer></script>
 </head>
 
-<body>
+<body class="max-w-screen-lg mx-auto p-5 lg:p-0 flex flex-col lg:flex-row justify-center lg:gap-25 text-zinc-100 bg-zinc-950">
+    <!-- ASIDE -->
+    <aside class="mb-5 lg:mb-0 lg:w-75 lg:h-screen lg:sticky lg:top-0 flex flex-col justify-center">
+        <!-- Profile section -->
+        <section id="profile-section" class="h-100 lg:mb-5 flex flex-col justify-between items-center rounded-xl bg-zinc-800/75">
 
+        </section>
+
+        <!-- Navigation menu (desktop) -->
+        <nav class="navigation-menu px-5 py-3 hidden lg:block text-xl rounded-xl bg-zinc-800/75">
+            <ul class="flex flex-row justify-between">
+                <li>
+                    <a href="#presentation-section">
+                        <i class="bi bi-chat-dots"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#projects-section">
+                        <i class="bi bi-folder2"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#skills-section">
+                        <i class="bi bi-layers"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contact-section">
+                        <i class="bi bi-envelope-heart"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Responsive navigation menu (mobile)-->
+    <nav class="navigation-menu mb-5 px-5 py-3 sticky top-5 block lg:hidden text-xl rounded-xl backdrop-blur bg-zinc-800/75 z-9999">
+        <ul class="flex flex-row justify-between">
+            <li>
+                <a href="#profile-section">
+                    <i class="bi bi-person"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="#presentation-section">
+                    <i class="bi bi-chat-dots"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="#projects-section">
+                    <i class="bi bi-folder2"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="#skills-section">
+                    <i class="bi bi-layers"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="#contact-section">
+                    <i class="bi bi-envelope-heart"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="lg:w-150">
+        <!-- Presentation section -->
+        <section id="presentation-section" class="h-screen bg-red-500">
+            <h2>Présentation</h2>
+        </section>
+
+        <!-- Projects section -->
+        <section id="projects-section" class="h-screen bg-yellow-500">
+            <h2>Mes projets</h2>
+        </section>
+
+        <!-- Skills section -->
+        <section id="skills-section" class="h-screen bg-blue-500">
+            <h2>Mes compétences</h2>
+        </section>
+
+        <!-- Contact section -->
+        <section id="contact-section" class="h-screen bg-green-500">
+            <h2>Me contacter</h2>
+        </section>
+    </main>
 </body>
 
 </html>
