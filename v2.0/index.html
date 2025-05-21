@@ -36,62 +36,79 @@
         <!-- Navigation menu (desktop) -->
         <nav class="navigation-menu px-5 py-3 hidden lg:block text-xl rounded-xl bg-zinc-800/75">
             <ul class="flex flex-row justify-between">
-                <li>
-                    <a href="#presentation-section">
+                <li class="w-8 h-8 group relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
+                    <a class="w-full h-full flex justify-center items-center" href="#presentation-section" aria-label="Voir ma présentation">
                         <i class="bi bi-chat-dots"></i>
                     </a>
+
+                    <span class="py-1 px-2 absolute left-1/2 top-full whitespace-nowrap text-xs text-zinc-100 rounded bg-blue-500 transform -translate-x-1/2 -translate-y-0 opacity-0 transition-all duration-200 ease-out group-hover:translate-y-6 group-hover:opacity-100 pointer-events-none">
+                        Présentation
+                    </span>
                 </li>
 
-                <li>
-                    <a href="#projects-section">
+                <li class="w-8 h-8 group relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
+                    <a class="w-full h-full flex justify-center items-center" href="#projects-section" aria-label="Voir mes projets">
                         <i class="bi bi-folder2"></i>
                     </a>
+
+                    <span class="py-1 px-2 absolute left-1/2 top-full whitespace-nowrap text-xs text-zinc-100 rounded bg-blue-500 transform -translate-x-1/2 -translate-y-0 opacity-0 transition-all duration-200 ease-out group-hover:translate-y-6 group-hover:opacity-100 pointer-events-none">
+                        Mes projets
+                    </span>
                 </li>
 
-                <li>
-                    <a href="#skills-section">
+                <li class="w-8 h-8 group relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
+                    <a class="w-full h-full flex justify-center items-center" href="#skills-section" aria-label="Voir mes compétences">
                         <i class="bi bi-layers"></i>
                     </a>
+
+                    <span class="py-1 px-2 absolute left-1/2 top-full whitespace-nowrap text-xs text-zinc-100 rounded bg-blue-500 transform -translate-x-1/2 -translate-y-0 opacity-0 transition-all duration-200 ease-out group-hover:translate-y-6 group-hover:opacity-100 pointer-events-none">
+                        Mes compétences
+                    </span>
                 </li>
 
-                <li>
-                    <a href="#contact-section">
+                <li class="w-8 h-8 group relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
+                    <a class="w-full h-full flex justify-center items-center" href="#contact-section" aria-label="Voir comment me contacter">
                         <i class="bi bi-envelope-heart"></i>
                     </a>
+
+                    <span class="py-1 px-2 absolute left-1/2 top-full whitespace-nowrap text-xs text-zinc-100 rounded bg-blue-500 transform -translate-x-1/2 -translate-y-0 opacity-0 transition-all duration-200 ease-out group-hover:translate-y-6 group-hover:opacity-100 pointer-events-none">
+                        Me contacter
+                    </span>
                 </li>
             </ul>
         </nav>
     </aside>
 
     <!-- Responsive navigation menu (mobile)-->
-    <nav class="navigation-menu mb-5 px-5 py-3 sticky top-5 block lg:hidden text-xl rounded-xl backdrop-blur bg-zinc-800/75 z-9999">
+    <nav
+        class="navigation-menu mb-5 px-5 py-3 sticky top-5 block lg:hidden text-xl rounded-xl backdrop-blur bg-zinc-800/75 z-9999">
         <ul class="flex flex-row justify-between">
-            <li>
-                <a href="#profile-section">
+            <li class="w-8 h-8 group relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
+                <a class="w-full h-full flex justify-center items-center" href="#profile-section"  aria-label="Voir mon profil">
                     <i class="bi bi-person"></i>
                 </a>
             </li>
 
-            <li>
-                <a href="#presentation-section">
+            <li class="w-8 h-8 group relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
+                <a class="w-full h-full flex justify-center items-center" href="#presentation-section"  aria-label="Voir ma présenation">
                     <i class="bi bi-chat-dots"></i>
                 </a>
             </li>
 
-            <li>
-                <a href="#projects-section">
+            <li class="w-8 h-8 group relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
+                <a class="w-full h-full flex justify-center items-center" href="#projects-section" aria-label="Voir mes projets">
                     <i class="bi bi-folder2"></i>
                 </a>
             </li>
 
-            <li>
-                <a href="#skills-section">
+            <li class="w-8 h-8 group relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
+                <a class="w-full h-full flex justify-center items-center" href="#skills-section" aria-label="Voir mes compétences">
                     <i class="bi bi-layers"></i>
                 </a>
             </li>
 
-            <li>
-                <a href="#contact-section">
+            <li class="w-8 h-8 group relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
+                <a class="w-full h-full flex justify-center items-center" href="#contact-section" aria-label="Voir comment me contacter">
                     <i class="bi bi-envelope-heart"></i>
                 </a>
             </li>
