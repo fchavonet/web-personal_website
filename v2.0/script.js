@@ -1,6 +1,6 @@
-/***********************
- * NAVIGATION BEHAVIOR *
- **********************/
+/**********************
+* NAVIGATION BEHAVIOR *
+**********************/
 
 // Tailwind "lg" breakpoint in pixels.
 const MOBILE_BREAKPOINT = 1024;
@@ -10,7 +10,7 @@ const MOBILE_EXTRA_MARGIN = 20;
 const profileSection = document.getElementById("profile-section");
 const mainElement = document.querySelector("main");
 const [navigationMenuDesktop, navigationMenuMobile] = document.querySelectorAll("nav.navigation-menu");
-const anchorLinks = document.querySelectorAll("nav.navigation-menu a[href^='#']");
+const anchorLinks = document.querySelectorAll("a[href^='#']");
 
 // Apply top and bottom padding to <main> (desktop only).
 function updateDesktopPadding() {
@@ -107,3 +107,66 @@ window.addEventListener("resize", updateDesktopPadding);
 anchorLinks.forEach(link => {
 	link.addEventListener("click", handleAnchorClick);
 });
+
+
+/*****************************
+* GITHUB STATISTICS BEHAVIOR *
+*****************************/
+
+const GITHUB_USER = "fchavonet";
+const CACHE_KEY = "github_stats_cache";
+const EXPIRATION_KEY = "github_stats_expiration";
+
+// Fetch GitHub stats or use cached data.
+async function updateGitHubStats() {
+	const now = new Date().getTime();
+	const cache = JSON.parse(localStorage.getItem(CACHE_KEY) || "{}");
+	const expiration = localStorage.getItem(EXPIRATION_KEY);
+
+	// Use cached stats if still valid.
+	if (cache && expiration && now < parseInt(expiration)) {
+		displayStats(cache);
+		return;
+	}
+
+	try {
+		// Fetch repositories.
+		const reposResponse = await fetch("https://api.github.com/users/" + GITHUB_USER + "/repos?per_page=100");
+		if (!reposResponse.ok) throw new Error("GitHub API error (repos)...");
+		const reposData = await reposResponse.json();
+
+		// Fetch user data.
+		const userResponse = await fetch("https://api.github.com/users/" + GITHUB_USER);
+		if (!userResponse.ok) throw new Error("GitHub API error (user)...");
+		const userData = await userResponse.json();
+
+		// Sum total stars from all repos.
+		const totalStars = reposData.reduce((sum, repo) => sum + repo.stargazers_count, 0);
+
+		// Store relevant stats.
+		const stats = {
+			public_repos: userData.public_repos,
+			followers: userData.followers,
+			stars: totalStars
+		};
+
+		// Save to localStorage for 24h.
+		localStorage.setItem(CACHE_KEY, JSON.stringify(stats));
+		localStorage.setItem(EXPIRATION_KEY, now + 24 * 60 * 60 * 1000);
+
+		// Display data in DOM.
+		displayStats(stats);
+	} catch (error) {
+		console.error("Error fetching GitHub stats:", error);
+	}
+}
+
+// Update DOM elements with stats.
+function displayStats(stats) {
+	document.getElementById("repo-count").textContent = stats.public_repos;
+	document.getElementById("followers-count").textContent = stats.followers;
+	document.getElementById("stars-count").textContent = stats.stars;
+}
+
+// Run fetch on load.
+updateGitHubStats();

@@ -33,44 +33,44 @@
             <img class="top-[-25%] absolute w-50" src="./assets/images/profile_picture.webp" alt="Image de profile">
 
             <h1 class="text-3xl font-semibold">Fabien Chavonet</h1>
-            
-            <div class="mb-3">
-                <h2 class="text-lg font-thin text-blue-500">Software Engineer</h2>
-                <h3 class="italic font-thin text-zinc-500">Curieux, créatif, passionné...</h3>
+
+            <div class="mb-2">
+                <h2 class="text-lg font-normal text-blue-500">Software Engineer</h2>
+                <h3 class="italic font-extralight text-zinc-500">Curieux, créatif, passionné...</h3>
             </div>
 
             <!-- Social media links -->
-            <ul class="flex flex-row items-center justify-center gap-2 text-2xl text-zinc-800">
+            <ul class="flex flex-row items-center justify-center gap-2 mb-8 text-2xl text-zinc-800">
+                <!-- GitHub -->
                 <li class="flex flex-row items-center w-10 h-10 transition-all duration-300 rounded-lg cursor-pointer group bg-zinc-100 hover:w-30">
                     <a class="flex flex-row items-center justify-center h-full mx-auto" href="https://github.com/fchavonet" target="_blank" aria-label="Voir mon profil GitHub">
                         <i class="text-[#181717] bi bi-github"></i>
                         <span class="w-0 overflow-hidden text-sm text-center transition-all duration-300 group-hover:w-20">GitHub</span>
                     </a>
-
                 </li>
 
+                <!-- Instagram -->
                 <li class="flex flex-row items-center w-10 h-10 transition-all duration-300 rounded-lg cursor-pointer group bg-zinc-100 hover:w-30">
                     <a class="flex flex-row items-center justify-center h-full mx-auto" href="https://www.instagram.com/pandolowitz/" target="_blank" aria-label="Voir mon profil Instagram">
                         <i class="text-transparent bg-clip-text bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 bi bi-instagram"></i>
                         <span class="w-0 overflow-hidden text-sm text-center transition-all duration-300 group-hover:w-20">Instagram</span>
                     </a>
-
                 </li>
 
+                <!-- LinkedIn -->
                 <li class="flex flex-row items-center w-10 h-10 transition-all duration-300 rounded-lg cursor-pointer group bg-zinc-100 hover:w-30">
                     <a class="flex flex-row items-center justify-center h-full mx-auto" href="https://www.linkedin.com/in/fchavonet/" target="_blank" aria-label="Voir mon profil LinkedIn">
                         <i class="text-[#0e76a8] bi bi-linkedin"></i>
                         <span class="w-0 overflow-hidden text-sm text-center transition-all duration-300 group-hover:w-20">LinkedIn</span>
                     </a>
-
                 </li>
 
+                <!-- Medium -->
                 <li class="flex flex-row items-center w-10 h-10 transition-all duration-300 rounded-lg cursor-pointer group bg-zinc-100 hover:w-30">
                     <a class="flex flex-row items-center justify-center h-full mx-auto" href="https://fchavonet.medium.com/" target="_blank" aria-label="Voir mon profil Medium">
                         <i class="text-[#000000] bi bi-medium"></i>
                         <span class="w-0 overflow-hidden text-sm text-center transition-all duration-300 group-hover:w-20">Medium</span>
                     </a>
-
                 </li>
             </ul>
 
@@ -163,8 +163,45 @@
     <!-- MAIN -->
     <main class="lg:w-150">
         <!-- Presentation section -->
-        <section id="presentation-section" class="h-screen bg-red-500">
-            <h2>Présentation</h2>
+        <section id="presentation-section" class="mb-10 text-center lg:text-left">
+            <h2 class="mb-5 text-5xl font-semibold">Développeur <span class="text-blue-500">Full Stack</span></h2>
+
+            <p class="mb-10 text-lg font-extralight">
+                Après un parcours atypique et riche en expériences, je me consacre aujourd’hui au développement Full Stack. Formé à la <a class="font-normal text-blue-500 no-underline hover:underline underline-offset-2 decoration-1" href="https://www.holbertonschool.fr/" target="_blank" rel="noopener noreferrer">Holberton School</a>, je mets ma capacité d’adaptation, ma créativité, et ma rigueur, au service de solutions web modernes et porteuses de sens.
+                <br>
+                Visitez mon profil <a class="font-normal text-blue-500 no-underline hover:underline underline-offset-2 decoration-1" href="https://www.holbertonschool.fr/" target="_blank" rel="noopener noreferrer">LinkedIn</a> pour en apprendre plus sur moi.
+            </p>
+
+            <!--  GitHub statistics -->
+            <h3 class="mb-5 text-xl font-semibold">Statistiques <span class="text-blue-500">GitHub</span></h3>
+
+            <div class="grid grid-cols-3 mb-5">
+                <div class="flex flex-col">
+                    <span id="repo-count" class="text-5xl font-semibold">...</span>
+                    <span class="text-sm font-extralight lg:text-lg">Dépôts publics</span>
+                </div>
+
+                <div class="flex flex-col">
+                    <span id="followers-count" class="text-5xl font-semibold">...</span>
+                    <span class="text-sm font-extralight lg:text-lg">Abonnés</span>
+                </div>
+
+                <div class="flex flex-col">
+                    <span id="stars-count" class="text-5xl font-semibold">...</span>
+                    <span class="text-sm font-extralight lg:text-lg">Étoiles reçues</span>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-center p-5 mb-10 bg-zinc-100 rounded-xl">
+                <img src="https://ghchart.rshah.org/2b7fff/fchavonet" alt="Github Chart" />
+            </div>
+
+            <!-- Call to action -->
+            <div class="flex flex-row items-center justify-end w-full gap-5">
+                <a class="inline-flex items-center transition duration-300 group" href="#contact-section">
+                    Me contacter<i class="inline-block text-xs transition duration-300 transform group-hover:text-blue-500 bi bi-arrow-down-right-square ms-2 group-hover:translate-x-1 group-hover:translate-y-1"></i>
+                </a>
+            </div>
         </section>
 
         <!-- Projects section -->
