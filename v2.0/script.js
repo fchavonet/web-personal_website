@@ -141,7 +141,9 @@ async function updateGitHubStats() {
 		const userData = await userResponse.json();
 
 		// Sum total stars from all repos.
-		const totalStars = reposData.reduce((sum, repo) => sum + repo.stargazers_count, 0);
+		const totalStars = reposData.reduce(function (sum, repo) {
+			sum + repo.stargazers_count, 0;
+		});
 
 		// Store relevant stats.
 		const stats = {
@@ -168,5 +170,27 @@ function displayStats(stats) {
 	document.getElementById("stars-count").textContent = stats.stars;
 }
 
+// Fetch and display stars for each GitHub project card.
+async function updateProjectStars() {
+	const links = document.querySelectorAll("a[data-repo]");
+
+	links.forEach(async link => {
+		const repositoryName = link.dataset.repo;
+		const starPlaceholder = link.querySelector(".stars-placeholder");
+
+		try {
+			const response = await fetch("https://api.github.com/repos/" + GITHUB_USER + "/" + repositoryName);
+			if (!response.ok) throw new Error("Error fetching GitHub repository stars");
+			const data = await response.json();
+	
+			starPlaceholder.textContent = data.stargazers_count;
+		} catch (error) {
+			console.error("Erreur lors de la récupération des étoiles pour " + repositoryName + ":", error);
+			starPlaceholder.textContent = "—";
+		}
+	});
+}
+
 // Run fetch on load.
 updateGitHubStats();
+updateProjectStars();
