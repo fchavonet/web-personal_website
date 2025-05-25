@@ -34,7 +34,12 @@ function updateDesktopPadding() {
 // Return the computed top padding value of the <body> element.
 function getBodyPaddingTop() {
 	const bodyStyles = window.getComputedStyle(document.body);
-	return parseFloat(bodyStyles.paddingTop) || 0;
+	const value = parseFloat(bodyStyles.paddingTop);
+
+	if (isNaN(value)) {
+		return 0;
+	}
+	return value;
 }
 
 // Scroll behavior for desktop view.
@@ -87,7 +92,9 @@ function handleAnchorClick(event) {
 	const targetId = linkHref.slice(1);
 	const target = document.getElementById(targetId);
 
-	if (!target) return;
+	if (!target) {
+		return;
+	}
 
 	// Prevent default browser behavior and URL hash change.
 	event.preventDefault();
@@ -100,11 +107,15 @@ function handleAnchorClick(event) {
 }
 
 // Initialize padding on page load and window resize.
-window.addEventListener("load", updateDesktopPadding);
+window.addEventListener("load", function () {
+	updateDesktopPadding();
+	updateGitHubStats();
+});
+
 window.addEventListener("resize", updateDesktopPadding);
 
 // Attach click handlers to all anchor links.
-anchorLinks.forEach(link => {
+anchorLinks.forEach(function (link) {
 	link.addEventListener("click", handleAnchorClick);
 });
 
@@ -115,82 +126,126 @@ anchorLinks.forEach(link => {
 
 const GITHUB_USER = "fchavonet";
 const CACHE_KEY = "github_stats_cache";
+const ETAG_KEY_USER = "github_etag_user";
+const ETAG_KEY_REPOS = "github_etag_repos";
 const EXPIRATION_KEY = "github_stats_expiration";
+
+// Cache expiration duration: 24 hours.
+const CACHE_DURATION = 24 * 60 * 60 * 1000;
+
+// Fetch data with conditional request using ETag.
+async function fetchWithEtag(url, etagKey) {
+	const headers = { "Accept": "application/vnd.github.v3+json" };
+	const savedEtag = localStorage.getItem(etagKey);
+
+	if (savedEtag) {
+		headers["If-None-Match"] = savedEtag;
+	}
+
+	const response = await fetch(url, { headers: headers });
+
+	if (response.status === 304) {
+		// Resource has not changed since last fetch.
+		return null;
+	}
+
+	if (!response.ok) {
+		throw new Error("GitHub API error (" + response.status + ")");
+	}
+
+	const newEtag = response.headers.get("ETag");
+
+	if (newEtag) {
+		localStorage.setItem(etagKey, newEtag);
+	}
+
+	const data = await response.json();
+	return data;
+}
 
 // Fetch GitHub stats or use cached data.
 async function updateGitHubStats() {
-	const now = new Date().getTime();
-	const cache = JSON.parse(localStorage.getItem(CACHE_KEY) || "{}");
-	const expiration = localStorage.getItem(EXPIRATION_KEY);
+	const now = Date.now();
+	const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || "null");
+	const expiration = parseInt(localStorage.getItem(EXPIRATION_KEY) || "0", 10);
 
 	// Use cached stats if still valid.
-	if (cache && expiration && now < parseInt(expiration)) {
-		displayStats(cache);
+	if (cached && now < expiration) {
+		displayStats(cached);
+		populateProjectStars(cached.repos);
 		return;
 	}
 
 	try {
-		// Fetch repositories.
-		const reposResponse = await fetch("https://api.github.com/users/" + GITHUB_USER + "/repos?per_page=100");
-		if (!reposResponse.ok) throw new Error("GitHub API error (repos)...");
-		const reposData = await reposResponse.json();
+		// Fetch user and repo data from GitHub.
+		const [userData, reposData] = await Promise.all([
+			fetchWithEtag("https://api.github.com/users/" + GITHUB_USER, ETAG_KEY_USER),
+			fetchWithEtag("https://api.github.com/users/" + GITHUB_USER + "/repos?per_page=100", ETAG_KEY_REPOS)
+		]);
 
-		// Fetch user data.
-		const userResponse = await fetch("https://api.github.com/users/" + GITHUB_USER);
-		if (!userResponse.ok) throw new Error("GitHub API error (user)...");
-		const userData = await userResponse.json();
+		// If no new data and cache is available, use cache.
+		if (userData === null && reposData === null && cached) {
+			displayStats(cached);
+			populateProjectStars(cached.repos);
+			localStorage.setItem(EXPIRATION_KEY, now + CACHE_DURATION);
+			return;
+		}
 
-		// Sum total stars from all repos.
-		const totalStars = reposData.reduce(function (sum, repo) {
-			sum + repo.stargazers_count, 0;
-		});
+		const finalUser = userData || cached.user;
+		const finalRepos = reposData || cached.repos;
+
+		// Count total stars across all repositories.
+		let totalStars = 0;
+		for (let repo of finalRepos) {
+			totalStars += repo.stargazers_count;
+		}
 
 		// Store relevant stats.
 		const stats = {
-			public_repos: userData.public_repos,
-			followers: userData.followers,
+			user: {
+				public_repos: finalUser.public_repos,
+				followers: finalUser.followers
+			},
+			repos: finalRepos,
 			stars: totalStars
 		};
 
 		// Save to localStorage for 24h.
 		localStorage.setItem(CACHE_KEY, JSON.stringify(stats));
-		localStorage.setItem(EXPIRATION_KEY, now + 24 * 60 * 60 * 1000);
+		localStorage.setItem(EXPIRATION_KEY, now + CACHE_DURATION);
 
 		// Display data in DOM.
 		displayStats(stats);
+		populateProjectStars(finalRepos);
+
 	} catch (error) {
-		console.error("Error fetching GitHub stats:", error);
+		console.error("Error updating GitHub statistics:", error);
+		document.getElementById("repo-count").textContent = "...";
+		document.getElementById("followers-count").textContent = "...";
+		document.getElementById("stars-count").textContent = "...";
 	}
 }
 
 // Update DOM elements with stats.
 function displayStats(stats) {
-	document.getElementById("repo-count").textContent = stats.public_repos;
-	document.getElementById("followers-count").textContent = stats.followers;
+	document.getElementById("repo-count").textContent = stats.user.public_repos;
+	document.getElementById("followers-count").textContent = stats.user.followers;
 	document.getElementById("stars-count").textContent = stats.stars;
 }
 
 // Fetch and display stars for each GitHub project card.
-async function updateProjectStars() {
+function populateProjectStars(repos) {
 	const links = document.querySelectorAll("a[data-repo]");
-
-	links.forEach(async link => {
-		const repositoryName = link.dataset.repo;
-		const starPlaceholder = link.querySelector(".stars-placeholder");
-
-		try {
-			const response = await fetch("https://api.github.com/repos/" + GITHUB_USER + "/" + repositoryName);
-			if (!response.ok) throw new Error("Error fetching GitHub repository stars");
-			const data = await response.json();
-	
-			starPlaceholder.textContent = data.stargazers_count;
-		} catch (error) {
-			console.error("Erreur lors de la récupération des étoiles pour " + repositoryName + ":", error);
-			starPlaceholder.textContent = "—";
+	for (let link of links) {
+		const repoName = link.dataset.repo;
+		let count = "—";
+		for (let repo of repos) {
+			if (repo.name === repoName) {
+				count = repo.stargazers_count;
+				break;
+			}
 		}
-	});
+		const placeholder = link.querySelector(".stars-placeholder");
+		placeholder.textContent = count;
+	}
 }
-
-// Run fetch on load.
-updateGitHubStats();
-updateProjectStars();
