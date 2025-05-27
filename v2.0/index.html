@@ -42,7 +42,7 @@
             <!-- Social media links -->
             <ul class="mb-8 flex flex-row justify-center items-center gap-2 text-2xl text-zinc-800">
                 <!-- GitHub -->
-                <li class="group w-10 h-10 flex flex-row items-center rounded-lg bg-zinc-100 transition-all duration-300 cursor-pointer hover:w-30">
+                <li class="group w-10 h-10 flex flex-row items-center rounded-lg bg-zinc-100 cursor-pointer transition-all duration-300 hover:w-30">
                     <a class="h-full mx-auto flex flex-row items-center justify-center" href="https://github.com/fchavonet" target="_blank" aria-label="Voir mon profil GitHub">
                         <i class="bi bi-github text-[#181717]"></i>
                         <span class="w-0 text-sm text-center overflow-hidden transition-all duration-300 group-hover:w-20">GitHub</span>
@@ -50,7 +50,7 @@
                 </li>
 
                 <!-- Instagram -->
-                <li class="group w-10 h-10 flex flex-row items-center rounded-lg bg-zinc-100 transition-all duration-300 cursor-pointer hover:w-30">
+                <li class="group w-10 h-10 flex flex-row items-center rounded-lg bg-zinc-100 cursor-pointer transition-all duration-300 hover:w-30">
                     <a class="h-full mx-auto flex flex-row items-center justify-center" href="https://www.instagram.com/pandolowitz/" target="_blank" aria-label="Voir mon profil Instagram">
                         <i class="bi bi-instagram text-transparent bg-clip-text bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600"></i>
                         <span class="w-0 text-sm text-center overflow-hidden transition-all duration-300 group-hover:w-20">Instagram</span>
@@ -58,7 +58,7 @@
                 </li>
 
                 <!-- LinkedIn -->
-                <li class="group w-10 h-10 flex flex-row items-center rounded-lg bg-zinc-100 transition-all duration-300 cursor-pointer hover:w-30">
+                <li class="group w-10 h-10 flex flex-row items-center rounded-lg bg-zinc-100 cursor-pointer transition-all duration-300 hover:w-30">
                     <a class="h-full mx-auto flex flex-row items-center justify-center" href="https://www.linkedin.com/in/fchavonet/" target="_blank" aria-label="Voir mon profil LinkedIn">
                         <i class="text-[#0e76a8] bi bi-linkedin"></i>
                         <span class="w-0 text-sm text-center overflow-hidden transition-all duration-300 group-hover:w-20">LinkedIn</span>
@@ -66,7 +66,7 @@
                 </li>
 
                 <!-- Medium -->
-                <li class="group w-10 h-10 flex flex-row items-center rounded-lg bg-zinc-100 transition-all duration-300 cursor-pointer hover:w-30">
+                <li class="group w-10 h-10 flex flex-row items-center rounded-lg bg-zinc-100 cursor-pointer transition-all duration-300 hover:w-30">
                     <a class="h-full mx-auto flex flex-row items-center justify-center" href="https://fchavonet.medium.com/" target="_blank" aria-label="Voir mon profil Medium">
                         <i class="bi bi-medium text-[#000000]"></i>
                         <span class="w-0 text-sm text-center overflow-hidden transition-all duration-300 group-hover:w-20">Medium</span>
@@ -75,7 +75,7 @@
             </ul>
 
             <!-- Resume download link -->
-            <a class="w-full py-2 flex justify-center items-center rounded-lg bg-blue-500 transition-all duration-300 hover:bg-blue-600 active:scale-98 cursor-pointer" href="#" aria-label="Télécharger mon C.V.">
+            <a class="w-full py-2 flex justify-center items-center rounded-lg bg-blue-500 cursor-pointer transition-all duration-300 hover:bg-blue-600 active:scale-98" href="#" aria-label="Télécharger mon C.V.">
                 <i class="bi bi-file-earmark-person me-2"></i>Mon C.V.
             </a>
         </div>
@@ -325,15 +325,15 @@
         <section id="skills-section" class="mb-20">
             <h2 class="mb-5 text-4xl font-semibold">Mes compétences</h2>
 
+            <!-- Competenses carousel -->
             <div class="mb-10 overflow-hidden">
                 <div id="slide-track" class="flex flex-row items-center space-x-5 transition-transform duration-700 ease-in-out">
-                    <!--  -->
+                    <!-- Clone of the last slide (for seamless infinite loop)  -->
                     <div class="w-full px-5 py-3 flex-shrink-0 rounded-xl bg-zinc-800/75">
                         <h3 class="text-lg font-semibold">Compétences interpersonnelles</h3>
                         <p class="text-sm font-thin">Adaptabilité, autonomie, communication efficace, esprit d’analyse, travail d’équipe.</p>
                     </div>
 
-                    <!-- -->
                     <div class="w-full px-5 py-3 flex-shrink-0 rounded-xl bg-zinc-800/75">
                         <h3 class="text-lg font-semibold">HTML, CSS & Javascript</h3>
                         <p class="text-sm font-thin">Création de mises en page responsives et conformes aux standards.
@@ -365,24 +365,27 @@
                         <p class="text-sm font-thin m-0 p-0">Adaptabilité, autonomie, communication efficace, esprit d’analyse, travail d’équipe.</p>
                     </div>
 
-                    <!--  -->
+                    <!-- Clone of the first slide (for seamless infinite loop) -->
                     <div class="w-full px-5 py-3 flex-shrink-0 rounded-xl bg-zinc-800/75">
                         <h3 class="text-lg font-semibold m-0 p-0">HTML, CSS & Javascript</h3>
                         <p class="text-sm font-thin m-0 p-0">Création de mises en page responsives et conformes aux standards.</p>
                     </div>
                 </div>
 
-                <!-- -->
+                <!-- Carousel navigation dots -->
                 <div id="dots" class="mt-3 ms-3 flex justify-start gap-2"></div>
 
-                <!--  -->
+                <!-- Carousel controls -->
                 <div class="w-full flex justify-end items-center gap-2">
+                    <!-- Previous button-->
                     <button id="prev-btn" aria-label="Précédent"
-                        class="w-8 h-8 flex items-center justify-center bg-blue-500 rounded-full cursor-pointer transition-all duration-300 active:scale-80">
+                        class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-500 cursor-pointer transition-all duration-300 active:scale-80">
                         <i class="bi bi-arrow-left"></i>
                     </button>
+
+                    <!-- Next buttons -->
                     <button id="next-btn" aria-label="Suivant"
-                        class="w-8 h-8 flex items-center justify-center bg-blue-500 rounded-full cursor-pointer transition-all duration-300 active:scale-80">
+                        class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-500 rounded-full cursor-pointer transition-all duration-300 active:scale-80">
                         <i class="bi bi-arrow-right"></i>
                     </button>
                 </div>
@@ -409,7 +412,7 @@
                     <textarea id="message" class="w-full p-3 rounded-lg bg-zinc-800/75 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500" name="message" rows="3" required></textarea>
                 </div>
 
-                <button class="w-full py-2 flex justify-center items-center rounded-lg bg-blue-500 transition-all duration-300 hover:bg-blue-600 active:scale-98 cursor-pointer" type="submit">
+                <button class="w-full py-2 flex justify-center items-center rounded-lg bg-blue-500 cursor-pointer transition-all duration-300 hover:bg-blue-600 active:scale-98" type="submit">
                     Envoyer
                 </button>
             </form>
