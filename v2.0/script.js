@@ -249,3 +249,152 @@ function populateProjectStars(repos) {
 		placeholder.textContent = count;
 	}
 }
+
+
+/*********************
+ * CARROUSEL BEHAVIOR *
+ *********************/
+
+const slidesTrack = document.getElementById("slide-track");
+const slideItems = slidesTrack.children;
+
+const dotsWrapper = document.getElementById("dots");
+
+const previousButton = document.getElementById("prev-btn");
+const nextButton = document.getElementById("next-btn");
+
+// Navigation state.
+let currentIndex = 1;
+let isTransitionLocked = false;
+let slideQueue = [];
+
+// Calculate the distance to move between two slides.
+function getSlideStep() {
+	const firstSlideRect = slideItems[0].getBoundingClientRect();
+	const computedStyle = getComputedStyle(slideItems[0]);
+	const marginRight = parseFloat(computedStyle.marginRight);
+
+	return firstSlideRect.width + marginRight;
+}
+
+// Move the track to the specified slide index.
+function goToSlide(targetIndex, shouldAnimate, durationMs) {
+	if (shouldAnimate) {
+		slidesTrack.style.transition = "transform " + durationMs + "ms ease-in-out";
+	} else {
+		slidesTrack.style.transition = "none";
+	}
+
+	const offset = - getSlideStep() * targetIndex;
+	slidesTrack.style.transform = "translateX(" + offset + "px)";
+}
+
+// Advance or rewind the carousel by one slide.
+function changeSlide(delta) {
+	if (isTransitionLocked) {
+		slideQueue.push(delta);
+		return;
+	}
+
+	isTransitionLocked = true;
+	currentIndex += delta;
+
+	// Adjust speed based on queued actions
+	const baseDuration = 500;
+	const queuedCount = slideQueue.length;
+	let computedDuration = baseDuration - (queuedCount * 100);
+
+	if (computedDuration < 150) {
+		computedDuration = 150;
+	}
+
+	goToSlide(currentIndex, true, computedDuration);
+}
+
+// Handle end of transition: loop and process queue.
+slidesTrack.addEventListener("transitionend", function () {
+	const lastRealIndex = slideItems.length - 2;
+
+	if (currentIndex === 0) {
+		currentIndex = lastRealIndex;
+		goToSlide(currentIndex, false, 0);
+	} else if (currentIndex === slideItems.length - 1) {
+		currentIndex = 1;
+		goToSlide(currentIndex, false, 0);
+	}
+
+	updateDots();
+
+	requestAnimationFrame(function () {
+		isTransitionLocked = false;
+
+		if (slideQueue.length > 0) {
+			const nextDelta = slideQueue.shift();
+			requestAnimationFrame(function () {
+				changeSlide(nextDelta);
+			});
+		}
+	});
+});
+
+// Dynamic creation of navigation dots.
+const realSlideCount = slideItems.length - 2;
+
+for (let slideNumber = 1; slideNumber <= realSlideCount; slideNumber++) {
+	const dotButton = document.createElement("button");
+	dotButton.classList.add(
+		"w-2", "h-2", "rounded-full",
+		"bg-zinc-500/75", "cursor-pointer",
+		"transition-colors", "duration-300", "ease-in-out"
+	);
+	
+	dotButton.setAttribute("data-index", slideNumber);
+
+	dotButton.addEventListener("click", function () {
+		if (!isTransitionLocked) {
+			currentIndex = parseInt(this.getAttribute("data-index"), 10);
+			goToSlide(currentIndex, true, 500);
+			updateDots();
+		}
+	});
+
+	dotsWrapper.appendChild(dotButton);
+}
+
+// Update the visual state of navigation dots.
+function updateDots() {
+	const dotButtons = dotsWrapper.children;
+
+	for (let position = 0; position < dotButtons.length; position++) {
+		const dotPosition = position + 1;
+		const button = dotButtons[position];
+
+		if (dotPosition === currentIndex) {
+			button.classList.add("bg-blue-500");
+			button.classList.remove("bg-zinc-500/75");
+		} else {
+			button.classList.remove("bg-blue-500");
+			button.classList.add("bg-zinc-500/75");
+		}
+	}
+}
+
+// Previous button events.
+previousButton.addEventListener("click", function () {
+	changeSlide(-1);
+});
+
+// Next button events.
+nextButton.addEventListener("click", function () {
+	changeSlide(1);
+});
+
+// Initialize carousel position and dots.
+goToSlide(currentIndex, false, 0);
+updateDots();
+
+// Update carousel position and dots when the window is resized.
+window.addEventListener("resize", function () {
+	goToSlide(currentIndex, false, 0);
+	updateDots();
+});
