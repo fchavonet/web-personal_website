@@ -252,14 +252,15 @@ function populateProjectStars(repos) {
 
 
 /*********************
- * CARROUSEL BEHAVIOR *
- *********************/
+* CARROUSEL BEHAVIOR *
+*********************/
+
+const carouselContainer = document.getElementById("carousel-container");
 
 const slidesTrack = document.getElementById("slide-track");
 const slideItems = slidesTrack.children;
 
 const dotsWrapper = document.getElementById("dots");
-
 const previousButton = document.getElementById("prev-btn");
 const nextButton = document.getElementById("next-btn");
 
@@ -267,6 +268,10 @@ const nextButton = document.getElementById("next-btn");
 let currentIndex = 1;
 let isTransitionLocked = false;
 let slideQueue = [];
+
+// Auto-play settings.
+const AUTO_PLAY_DELAY = 3000;
+let autoPlayInterval = null;
 
 // Calculate the distance to move between two slides.
 function getSlideStep() {
@@ -285,7 +290,7 @@ function goToSlide(targetIndex, shouldAnimate, durationMs) {
 		slidesTrack.style.transition = "none";
 	}
 
-	const offset = - getSlideStep() * targetIndex;
+	const offset = -getSlideStep() * targetIndex;
 	slidesTrack.style.transform = "translateX(" + offset + "px)";
 }
 
@@ -347,13 +352,14 @@ for (let slideNumber = 1; slideNumber <= realSlideCount; slideNumber++) {
 		"bg-zinc-500/75", "cursor-pointer",
 		"transition-colors", "duration-300", "ease-in-out"
 	);
-	
+
 	dotButton.setAttribute("data-index", slideNumber);
 
 	dotButton.addEventListener("click", function () {
 		if (!isTransitionLocked) {
 			currentIndex = parseInt(this.getAttribute("data-index"), 10);
 			goToSlide(currentIndex, true, 500);
+			resetAutoPlay();
 			updateDots();
 		}
 	});
@@ -379,6 +385,31 @@ function updateDots() {
 	}
 }
 
+// Start auto-play if not already running.
+function startAutoPlay() {
+	if (autoPlayInterval !== null) {
+		return;
+	}
+
+	autoPlayInterval = setInterval(function () {
+		changeSlide(1);
+	}, AUTO_PLAY_DELAY);
+}
+
+// Stop auto-play if running.
+function stopAutoPlay() {
+	if (autoPlayInterval !== null) {
+		clearInterval(autoPlayInterval);
+		autoPlayInterval = null;
+	}
+}
+
+// Reset auto-play timer by stopping and starting again.
+function resetAutoPlay() {
+	stopAutoPlay();
+	startAutoPlay();
+}
+
 // Previous button events.
 previousButton.addEventListener("click", function () {
 	changeSlide(-1);
@@ -389,8 +420,15 @@ nextButton.addEventListener("click", function () {
 	changeSlide(1);
 });
 
-// Initialize carousel position and dots.
+// Pause auto-play on hover if container exists.
+if (carouselContainer) {
+	carouselContainer.addEventListener("mouseenter", stopAutoPlay);
+	carouselContainer.addEventListener("mouseleave", startAutoPlay);
+}
+
+// Initialize carousel position, dots and start auto-play.
 goToSlide(currentIndex, false, 0);
+startAutoPlay();
 updateDots();
 
 // Update carousel position and dots when the window is resized.
