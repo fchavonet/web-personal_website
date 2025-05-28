@@ -436,3 +436,14 @@ window.addEventListener("resize", function () {
 	goToSlide(currentIndex, false, 0);
 	updateDots();
 });
+
+// Pause autoplay on page hide, resume on page show.
+document.addEventListener("visibilitychange", function () {
+  if (document.hidden) {
+    stopAutoPlay();
+    slideQueue = [];
+  } else {
+    goToSlide(currentIndex, false, 0);
+    startAutoPlay();
+  }
+});
