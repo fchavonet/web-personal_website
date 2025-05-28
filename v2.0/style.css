@@ -1,0 +1,13 @@
+.noise {
+    position: relative;
+}
+
+.noise::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url(./assets/images/noise.webp);
+    opacity: 0.5;
+    z-index: -1;
+
+}
