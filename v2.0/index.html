@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr" class="scroll-smooth noise">
 
 <head>
     <meta charset="UTF-8">
@@ -52,7 +52,7 @@
                 <!-- Instagram -->
                 <li class="group w-10 h-10 flex flex-row items-center rounded-lg bg-zinc-100 cursor-pointer transition-all duration-300 hover:w-30">
                     <a class="h-full mx-auto flex flex-row items-center justify-center" href="https://www.instagram.com/pandolowitz/" target="_blank" aria-label="Voir mon profil Instagram">
-                        <i class="bi bi-instagram text-transparent bg-clip-text bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600"></i>
+                        <i class="bi bi-instagram text-transparent bg-clip-text bg-gradient-to-tr from-yellow-400 via-pink-500 to-blue-600"></i>
                         <span class="w-0 text-sm text-center overflow-hidden transition-all duration-300 group-hover:w-20">Instagram</span>
                     </a>
                 </li>
@@ -126,7 +126,7 @@
         </nav>
     </aside>
 
-    <!-- Responsive navigation menu (mobile)-->
+    <!-- Responsive navigation menu (mobile) -->
     <nav class="navigation-menu mb-5 px-5 py-3 sticky top-5 block lg:hidden text-xl rounded-xl bg-zinc-800/75 backdrop-blur z-9999">
         <ul class="flex flex-row justify-between">
             <li class="group w-8 h-8 relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
@@ -217,7 +217,7 @@
                         <!-- Project link -->
                         <a class="flex flex-1 flex-col" href="https://fchavonet.github.io/web-apple_music_artworks_finder/" target="_blank">
                             <div class="overflow-hidden">
-                                <img class="w-full h-40 object-cover object-top transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-105" src="./assets/images/screenshots/screenshots-apple_music_artworks_finder.webp" alt="Capture d'écran du projet Holberton Survivors">
+                                <img class="w-full h-40 object-cover object-top transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-105" src="./assets/images/screenshots/screenshots-apple_music_artworks_finder.webp" alt="Capture d'écran du projet Apple Music Artworks Finder">
                             </div>
 
                             <div class="px-5 py-3 lg:py-0 flex flex-col justify-center flex-1">
@@ -244,7 +244,7 @@
                         <!-- Project link -->
                         <a class="flex flex-1 flex-col" href="https://github.com/fchavonet/web-flask_shop_template" target="_blank">
                             <div class="overflow-hidden">
-                                <img class="w-full h-40 object-cover object-top transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-105" src="./assets/images/screenshots/screenshots-flask_shop_template.webp" alt="Capture d'écran du projet Holberton Survivors">
+                                <img class="w-full h-40 object-cover object-top transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-105" src="./assets/images/screenshots/screenshots-flask_shop_template.webp" alt="Capture d'écran du projet Flask Shop Template">
                             </div>
 
                             <div class="px-5 py-3 lg:py-0 flex flex-col justify-center flex-1">
@@ -298,7 +298,7 @@
                         <!-- Project link -->
                         <a class="flex flex-1 flex-col" href="https://fchavonet.github.io/web-othello_game/" target="_blank">
                             <div class="overflow-hidden">
-                                <img class="w-full h-40 object-cover object-top transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-105" src="./assets/images/screenshots/screenshots-othello_game.webp" alt="Capture d'écran du projet Holberton Survivors">
+                                <img class="w-full h-40 object-cover object-top transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-105" src="./assets/images/screenshots/screenshots-othello_game.webp" alt="Capture d'écran du projet Othello Game">
                             </div>
 
                             <div class="px-5 py-3 lg:py-0 flex flex-col justify-center flex-1">
@@ -322,11 +322,23 @@
         </section>
 
         <!-- Skills section -->
-        <section id="skills-section" class="mb-20">
+        <section id="skills-section" class="mb-10">
             <h2 class="mb-5 text-4xl font-semibold">Mes compétences</h2>
 
+            <p class="mb-2 text-lg font-extralight">
+                J'ai ré-appris à apprendre, c’est ce que je retiens le plus de la <a class="group relative font-normal text-blue-500" href="https://www.holbertonschool.fr/methodologie" target="_blank" rel="noopener noreferrer">méthodologie<span class="w-0 h-0.25 absolute -bottom-0.5 left-1/2 bg-blue-500 transition-all group-hover:w-3/6"></span><span class="w-0 h-0.25 absolute -bottom-0.5 right-1/2 bg-blue-500 transition-all group-hover:w-3/6"></span></a>utilisée lors de ma formation.
+            </p>
+
+            <p class="mb-2 text-lg font-extralight">
+                Trois années intensives, rythmées par un stage puis deux ans d’alternance, m’ont permis d’acquérir une solide expérience et des bases techniques robustes.
+            </p>
+
+            <p class="mb-10 text-lg font-extralight">
+                Mon parcours professionnel antérieur m’a également permis de développer des compétences précieuses : autonomie, écoute, esprit d’équipe, exigence de qualité et sens du détail.
+            </p>
+
             <!-- Competenses carousel -->
-            <div class="mb-10 overflow-hidden">
+            <div id="carousel-container" class="mb-10 overflow-hidden cursor-default">
                 <div id="slide-track" class="flex flex-row items-center space-x-5 transition-transform duration-700 ease-in-out">
                     <!-- Clone of the last slide (for seamless infinite loop)  -->
                     <div class="w-full px-5 py-3 flex-shrink-0 rounded-xl bg-zinc-800/75">
@@ -336,18 +348,17 @@
 
                     <div class="w-full px-5 py-3 flex-shrink-0 rounded-xl bg-zinc-800/75">
                         <h3 class="text-lg font-semibold">HTML, CSS & Javascript</h3>
-                        <p class="text-sm font-thin">Création de mises en page responsives et conformes aux standards.
-                        </p>
+                        <p class="text-sm font-thin">Création de mises en page responsives et conformes aux standards.</p>
                     </div>
 
                     <div class="w-full px-5 py-3 flex-shrink-0 rounded-xl bg-zinc-800/75">
-                        <h3 class="text-xl font-semibold m-0 p-0">Back-end & API</h3>
-                        <p class="text-sm font-thin m-0 p-0">Conception et développement d'API robustes, sécurisées et performantes.</p>
+                        <h3 class="text-xl font-semibold">Back-end & API</h3>
+                        <p class="text-sm font-thin">Conception et développement d'API robustes, sécurisées et performantes.</p>
                     </div>
 
                     <div class="w-full px-5 py-3 flex-shrink-0 rounded-xl bg-zinc-800/75">
-                        <h3 class="text-lg font-semibold m-0 p-0">Bases de données</h3>
-                        <p class="text-sm font-thin m-0 p-0">Conception et gestion de bases de données relationnelles et NoSQL.</p>
+                        <h3 class="text-lg font-semibold">Bases de données</h3>
+                        <p class="text-sm font-thin">Conception et gestion de bases de données relationnelles et NoSQL.</p>
                     </div>
 
                     <div class="w-full px-5 py-3 flex-shrink-0 rounded-xl bg-zinc-800/75">
@@ -356,39 +367,93 @@
                     </div>
 
                     <div class="w-full px-5 py-3 flex-shrink-0 rounded-xl bg-zinc-800/75">
-                        <h3 class="text-lg font-semibold m-0 p-0">Gestion de versions</h3>
-                        <p class="text-sm font-thin m-0 p-0">Organisation du code via Git & GitHub pour un suivi précis et une collaboration fluide.</p>
+                        <h3 class="text-lg font-semibold">Gestion de versions</h3>
+                        <p class="text-sm font-thin">Organisation du code via Git & GitHub pour un suivi précis et une collaboration fluide.</p>
                     </div>
 
                     <div class="w-full px-5 py-3 flex-shrink-0 rounded-xl bg-zinc-800/75">
-                        <h3 class="text-lg font-semibold m-0 p-0">Compétences interpersonnelles</h3>
-                        <p class="text-sm font-thin m-0 p-0">Adaptabilité, autonomie, communication efficace, esprit d’analyse, travail d’équipe.</p>
+                        <h3 class="text-lg font-semibold">Compétences interpersonnelles</h3>
+                        <p class="text-sm font-thin">Adaptabilité, autonomie, communication efficace, esprit d’analyse, travail d’équipe.</p>
                     </div>
 
                     <!-- Clone of the first slide (for seamless infinite loop) -->
                     <div class="w-full px-5 py-3 flex-shrink-0 rounded-xl bg-zinc-800/75">
-                        <h3 class="text-lg font-semibold m-0 p-0">HTML, CSS & Javascript</h3>
-                        <p class="text-sm font-thin m-0 p-0">Création de mises en page responsives et conformes aux standards.</p>
+                        <h3 class="text-lg font-semibold">HTML, CSS & Javascript</h3>
+                        <p class="text-sm font-thin">Création de mises en page responsives et conformes aux standards.</p>
                     </div>
                 </div>
 
                 <!-- Carousel navigation dots -->
-                <div id="dots" class="mt-3 ms-3 flex justify-start gap-2"></div>
+                <div id="dots" class="mt-4 ms-3 flex justify-start gap-2"></div>
 
                 <!-- Carousel controls -->
                 <div class="w-full flex justify-end items-center gap-2">
                     <!-- Previous button-->
-                    <button id="prev-btn" aria-label="Précédent"
-                        class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-500 cursor-pointer transition-all duration-300 active:scale-80">
+                    <button id="prev-btn" aria-label="Précédent" class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-500 cursor-pointer transition-all duration-300 active:scale-80">
                         <i class="bi bi-arrow-left"></i>
                     </button>
 
                     <!-- Next buttons -->
-                    <button id="next-btn" aria-label="Suivant"
-                        class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-500 rounded-full cursor-pointer transition-all duration-300 active:scale-80">
+                    <button id="next-btn" aria-label="Suivant" class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-500 rounded-full cursor-pointer transition-all duration-300 active:scale-80">
                         <i class="bi bi-arrow-right"></i>
                     </button>
                 </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="mb-10 grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div class="p-3 flex flex-row items-center gap-3 rounded-xl bg-zinc-800/75 cursor-default transition-all duration-300 hover:bg-blue-500">
+                    <img class="w-15 h-15 rounded-lg bg-zinc-100" src="./assets/images/logos/logo-angular.webp" alt="Icone Angular">
+
+                    <div>
+                        <h3 class="text-lg font-semibold">Angular</h3>
+                        <h4 class="text-sm font-thin">Front-End</h4>
+                    </div>
+                </div>
+
+                <div class="p-3 flex flex-row items-center gap-3 rounded-xl bg-zinc-800/75 cursor-default transition-all duration-300 hover:bg-blue-500">
+                    <img class="w-15 h-15 rounded-lg bg-zinc-100" src="./assets/images/logos/logo-react.webp" alt="Icone REACT">
+
+                    <div>
+                        <h3 class="text-lg font-semibold">REACT</h3>
+                        <h4 class="text-sm font-thin">Front-End</h4>
+                    </div>
+                </div>
+
+                <div class="p-3 flex flex-row items-center gap-3 rounded-xl bg-zinc-800/75 cursor-default transition-all duration-300 hover:bg-blue-500">
+                    <img class="w-15 h-15 rounded-lg bg-zinc-100" src="./assets/images/logos/logo-nodejs.webp" alt="Icone Node.js">
+
+                    <div>
+                        <h3 class="text-lg font-semibold">Node.js</h3>
+                        <h4 class="text-sm font-thin">Back-End</h4>
+                    </div>
+                </div>
+
+                <div class="p-3 flex flex-row items-center gap-3 rounded-xl bg-zinc-800/75 cursor-default transition-all duration-300 hover:bg-blue-500">
+                    <img class="w-15 h-15 rounded-lg bg-zinc-100" src="./assets/images/logos/logo-mongodb.webp" alt="Icone MongoDB">
+
+                    <div>
+                        <h3 class="text-lg font-semibold">MongoDB</h3>
+                        <h4 class="text-sm font-thin">Base de données</h4>
+                    </div>
+                </div>
+
+                <div class="p-3 flex flex-row items-center gap-3 rounded-xl bg-zinc-800/75 cursor-default transition-all duration-300 hover:bg-blue-500">
+                    <img class="w-15 h-15 rounded-lg bg-zinc-100" src="./assets/images/logos/logo-tailwindcss.webp" alt="Icone Tailwind CSS">
+
+                    <div>
+                        <h3 class="text-lg font-semibold">Tailwind</h3>
+                        <h4 class="text-sm font-thin">CSS</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col">
+                <p>
+                    Pour accompagner les étudiants de la Holberton School mais aussi les débutants en programmation, je rédige des ressources techniques en français.
+                    <br>
+                    Retrouvez-les sur ce <a class="group relative font-normal text-blue-500" href="https://github.com/fchavonet/holbertonschool-concepts" target="_blank">dépôt GitHub<span class="w-0 h-0.25 absolute -bottom-0.5 left-1/2 bg-blue-500 transition-all group-hover:w-3/6"></span><span class="w-0 h-0.25 absolute -bottom-0.5 right-1/2 bg-blue-500 transition-all group-hover:w-3/6"></span></a>.
+                </p>
             </div>
         </section>
 
