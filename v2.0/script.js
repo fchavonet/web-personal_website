@@ -439,11 +439,14 @@ window.addEventListener("resize", function () {
 
 // Pause autoplay on page hide, resume on page show.
 document.addEventListener("visibilitychange", function () {
-  if (document.hidden) {
-    stopAutoPlay();
-    slideQueue = [];
-  } else {
-    goToSlide(currentIndex, false, 0);
-    startAutoPlay();
-  }
+	if (document.hidden) {
+		stopAutoPlay();
+		slideQueue = [];
+		isTransitionLocked = false;
+		slidesTrack.style.transition = "none";
+	} else {
+		goToSlide(currentIndex, false, 0);
+		startAutoPlay();
+		updateDots();
+	}
 });
