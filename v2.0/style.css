@@ -1,3 +1,14 @@
+/* NO SCROLLBAR */
+* {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* NOISE BACKGROUND */
 .noise {
     position: relative;
 }
@@ -9,5 +20,13 @@
     background-image: url(./assets/images/noise.webp);
     opacity: 0.5;
     z-index: -1;
+}
 
+@keyframes text-move {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+}
+
+.animate-text-move {
+  animation: text-move 2s ease-in-out infinite;
 }
