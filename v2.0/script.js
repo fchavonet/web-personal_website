@@ -295,155 +295,157 @@ let autoPlayInterval = null;
 
 // Calculate the distance to move between two slides.
 function getSlideStep() {
-	const firstSlideRect = slideItems[0].getBoundingClientRect();
-	const computedStyle = getComputedStyle(slideItems[0]);
-	const marginRight = parseFloat(computedStyle.marginRight);
+  const firstSlideRect = slideItems[0].getBoundingClientRect();
+  const computedStyle = getComputedStyle(slideItems[0]);
+  const marginRight = parseFloat(computedStyle.marginRight);
 
-	return firstSlideRect.width + marginRight;
+  return firstSlideRect.width + marginRight;
 }
 
 // Move the track to the specified slide index.
 function goToSlide(targetIndex, shouldAnimate, durationMs) {
-	if (shouldAnimate) {
-		slidesTrack.style.transition = "transform " + durationMs + "ms ease-in-out";
-	} else {
-		slidesTrack.style.transition = "none";
-	}
+  if (shouldAnimate) {
+    slidesTrack.style.transition = "transform " + durationMs + "ms ease-in-out";
+  } else {
+    slidesTrack.style.transition = "none";
+  }
 
-	const offset = -getSlideStep() * targetIndex;
-	slidesTrack.style.transform = "translateX(" + offset + "px)";
+  const offset = -getSlideStep() * targetIndex;
+  slidesTrack.style.transform = "translateX(" + offset + "px)";
 }
 
 // Advance or rewind the carousel by one slide.
 function changeSlide(delta) {
-	if (isTransitionLocked) {
-		slideQueue.push(delta);
-		return;
-	}
+  if (isTransitionLocked) {
+    slideQueue.push(delta);
+    return;
+  }
 
-	isTransitionLocked = true;
-	currentIndex += delta;
+  isTransitionLocked = true;
+  currentIndex += delta;
 
-	// Adjust speed based on queued actions
-	const baseDuration = 500;
-	const queuedCount = slideQueue.length;
-	let computedDuration = baseDuration - (queuedCount * 100);
+  // Adjust speed based on queued actions
+  const baseDuration = 500;
+  const queuedCount = slideQueue.length;
+  let computedDuration = baseDuration - (queuedCount * 100);
 
-	if (computedDuration < 150) {
-		computedDuration = 150;
-	}
+  if (computedDuration < 150) {
+    computedDuration = 150;
+  }
 
-	goToSlide(currentIndex, true, computedDuration);
+  goToSlide(currentIndex, true, computedDuration);
 }
 
 // Handle end of transition: loop and process queue.
 slidesTrack.addEventListener("transitionend", function () {
-	const lastRealIndex = slideItems.length - 2;
+  const lastRealIndex = slideItems.length - 2;
 
-	if (currentIndex === 0) {
-		currentIndex = lastRealIndex;
-		goToSlide(currentIndex, false, 0);
-	} else if (currentIndex === slideItems.length - 1) {
-		currentIndex = 1;
-		goToSlide(currentIndex, false, 0);
-	}
+  if (currentIndex === 0) {
+    currentIndex = lastRealIndex;
+    goToSlide(currentIndex, false, 0);
+  } else if (currentIndex === slideItems.length - 1) {
+    currentIndex = 1;
+    goToSlide(currentIndex, false, 0);
+  }
 
-	updateDots();
+  updateDots();
 
-	requestAnimationFrame(function () {
-		isTransitionLocked = false;
+  requestAnimationFrame(function () {
+    isTransitionLocked = false;
 
-		if (slideQueue.length > 0) {
-			const nextDelta = slideQueue.shift();
-			requestAnimationFrame(function () {
-				changeSlide(nextDelta);
-			});
-		}
-	});
+    if (slideQueue.length > 0) {
+      const nextDelta = slideQueue.shift();
+      requestAnimationFrame(function () {
+        changeSlide(nextDelta);
+      });
+    }
+  });
 });
 
 // Dynamic creation of navigation dots.
 const realSlideCount = slideItems.length - 2;
 
 for (let slideNumber = 1; slideNumber <= realSlideCount; slideNumber++) {
-	const dotButton = document.createElement("button");
-	dotButton.classList.add(
-		"w-2", "h-2", "rounded-full",
-		"bg-zinc-500/75", "cursor-pointer",
-		"transition-colors", "duration-300", "ease-in-out"
-	);
+  const dotButton = document.createElement("button");
+  dotButton.classList.add(
+    "w-2", "h-2", "rounded-full",
+    "bg-zinc-500/75", "cursor-pointer",
+    "transition-colors", "duration-300", "ease-in-out"
+  );
 
-	dotButton.setAttribute("data-index", slideNumber);
+  dotButton.setAttribute("data-index", slideNumber);
 
-	dotButton.addEventListener("click", function () {
-		if (!isTransitionLocked) {
-			currentIndex = parseInt(this.getAttribute("data-index"), 10);
-			goToSlide(currentIndex, true, 500);
-			resetAutoPlay();
-			updateDots();
-		}
-	});
+  dotButton.setAttribute("aria-label", "Aller à la diapositive " + slideNumber + " sur " + realSlideCount);
 
-	dotsWrapper.appendChild(dotButton);
+  dotButton.addEventListener("click", function () {
+    if (!isTransitionLocked) {
+      currentIndex = parseInt(this.getAttribute("data-index"), 10);
+      goToSlide(currentIndex, true, 500);
+      resetAutoPlay();
+      updateDots();
+    }
+  });
+
+  dotsWrapper.appendChild(dotButton);
 }
 
 // Update the visual state of navigation dots.
 function updateDots() {
-	const dotButtons = dotsWrapper.children;
+  const dotButtons = dotsWrapper.children;
 
-	for (let position = 0; position < dotButtons.length; position++) {
-		const dotPosition = position + 1;
-		const button = dotButtons[position];
+  for (let position = 0; position < dotButtons.length; position++) {
+    const dotPosition = position + 1;
+    const button = dotButtons[position];
 
-		if (dotPosition === currentIndex) {
-			button.classList.add("bg-blue-500");
-			button.classList.remove("bg-zinc-500/75");
-		} else {
-			button.classList.remove("bg-blue-500");
-			button.classList.add("bg-zinc-500/75");
-		}
-	}
+    if (dotPosition === currentIndex) {
+      button.classList.add("bg-blue-500");
+      button.classList.remove("bg-zinc-500/75");
+    } else {
+      button.classList.remove("bg-blue-500");
+      button.classList.add("bg-zinc-500/75");
+    }
+  }
 }
 
 // Start auto-play if not already running.
 function startAutoPlay() {
-	if (autoPlayInterval !== null) {
-		return;
-	}
+  if (autoPlayInterval !== null) {
+    return;
+  }
 
-	autoPlayInterval = setInterval(function () {
-		changeSlide(1);
-	}, AUTO_PLAY_DELAY);
+  autoPlayInterval = setInterval(function () {
+    changeSlide(1);
+  }, AUTO_PLAY_DELAY);
 }
 
 // Stop auto-play if running.
 function stopAutoPlay() {
-	if (autoPlayInterval !== null) {
-		clearInterval(autoPlayInterval);
-		autoPlayInterval = null;
-	}
+  if (autoPlayInterval !== null) {
+    clearInterval(autoPlayInterval);
+    autoPlayInterval = null;
+  }
 }
 
 // Reset auto-play timer by stopping and starting again.
 function resetAutoPlay() {
-	stopAutoPlay();
-	startAutoPlay();
+  stopAutoPlay();
+  startAutoPlay();
 }
 
 // Previous button events.
 previousButton.addEventListener("click", function () {
-	changeSlide(-1);
+  changeSlide(-1);
 });
 
 // Next button events.
 nextButton.addEventListener("click", function () {
-	changeSlide(1);
+  changeSlide(1);
 });
 
 // Pause auto-play on hover if container exists.
 if (carouselContainer) {
-	carouselContainer.addEventListener("mouseenter", stopAutoPlay);
-	carouselContainer.addEventListener("mouseleave", startAutoPlay);
+  carouselContainer.addEventListener("mouseenter", stopAutoPlay);
+  carouselContainer.addEventListener("mouseleave", startAutoPlay);
 }
 
 // Initialize carousel position, dots and start auto-play.
@@ -453,20 +455,20 @@ updateDots();
 
 // Update carousel position and dots when the window is resized.
 window.addEventListener("resize", function () {
-	goToSlide(currentIndex, false, 0);
-	updateDots();
+  goToSlide(currentIndex, false, 0);
+  updateDots();
 });
 
 // Pause autoplay on page hide, resume on page show.
 document.addEventListener("visibilitychange", function () {
-	if (document.hidden) {
-		stopAutoPlay();
-		slideQueue = [];
-		isTransitionLocked = false;
-		slidesTrack.style.transition = "none";
-	} else {
-		goToSlide(currentIndex, false, 0);
-		startAutoPlay();
-		updateDots();
-	}
+  if (document.hidden) {
+    stopAutoPlay();
+    slideQueue = [];
+    isTransitionLocked = false;
+    slidesTrack.style.transition = "none";
+  } else {
+    goToSlide(currentIndex, false, 0);
+    startAutoPlay();
+    updateDots();
+  }
 });
