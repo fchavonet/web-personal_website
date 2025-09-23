@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="bg-zinc-950 bg-gradient-to-r from-zinc-950 via-gray-900 to-zinc-950 noise cursor-default select-none scroll-smooth">
+<html lang="fr" class="bg-zinc-950 bg-gradient-to-r from-zinc-950 via-gray-900 to-zinc-950 noise cursor-default scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -20,7 +20,10 @@
 
     <!-- daisyUI -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
+
+    <!-- Email.js -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
 
     <!-- Script -->
     <script src="./script.js" defer></script>
@@ -42,7 +45,7 @@
 
                 <!-- Tagline -->
                 <div class="w-full flex flex-col justify-center items-center">
-                    <h3 class="text-lg font-normal text-blue-500">Software Engineer</h3>
+                    <h2 class="text-lg font-normal text-blue-500">Software Engineer</h2>
                     <p class=" text-sm font-extralight italic text-zinc-500">Curieux, créatif, passionné...</p>
                 </div>
 
@@ -207,7 +210,7 @@
 
             <!-- Call to action -->
             <div class="w-full flex flex-row justify-end items-center gap-4">
-                <a class="group inline-flex items-center text-xs transition duration-300 ease-in-out" href="#contact-section">
+                <a class="group inline-flex items-center text-xs transition duration-300 ease-in-out" href="#contact-section" onclick="event.preventDefault(); document.getElementById('name').focus();">
                     <i class="bi bi-arrow-down-left-square me-2 inline-block text-lg transform transition duration-300 ease-in-out group-hover:-translate-x-1 group-hover:translate-y-1 group-hover:text-blue-500"></i>
                     ME CONTACTER
                 </a>
@@ -462,7 +465,7 @@
 
                     <div>
                         <h3 class="text-lg font-semibold">Node.js</h3>
-                        <p class="text-xs font-thin">Back-End (JavaScript/typeScript)</p>
+                        <p class="text-xs font-thin">Back-End (JavaScript/TypeScript)</p>
                     </div>
                 </div>
 
@@ -471,7 +474,7 @@
 
                     <div>
                         <h3 class="text-lg font-semibold">React</h3>
-                        <p class="text-xs font-thin">Front-End (Javascript/Typescript)</p>
+                        <p class="text-xs font-thin">Front-End (JavaScript/TypeScript)</p>
                     </div>
                 </div>
 
@@ -498,15 +501,15 @@
 
                     <div>
                         <h3 class="text-lg font-semibold">MongoDB</h3>
-                        <p class="text-xs font-thin">Bas de donnée (NoSQL)</p>
+                        <p class="text-xs font-thin">Base de donnée (NoSQL)</p>
                     </div>
                 </div>
 
                 <div class="p-2 flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75">
-                    <img class="w-15 h-15 rounded-lg" src="./assets/images/icons/postgresql.webp" alt="Icône PostgreSQL">
+                    <img class="w-15 h-15 rounded-lg" src="./assets/images/icons/mysql.webp" alt="Icône MySQL">
 
                     <div>
-                        <h3 class="text-lg font-semibold">PostgreSQL</h3>
+                        <h3 class="text-lg font-semibold">MySQL</h3>
                         <p class="text-xs font-thin">Base de donnée (SQL)</p>
                     </div>
                 </div>
