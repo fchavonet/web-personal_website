@@ -472,3 +472,212 @@ document.addEventListener("visibilitychange", function () {
     updateDots();
   }
 });
+
+
+/************************
+* CONTACT FORM BEHAVIOR *
+************************/
+
+// Initialize EmailJS.
+emailjs.init("-nvDUA2GW_QoL_8nL");
+
+const contactForm = document.getElementById("contact-form");
+const name = document.getElementById("name");
+const email = document.getElementById("email");
+const message = document.getElementById("message");
+const messageCharCount = document.getElementById("message-char-count");
+const sendButton = document.getElementById("send-button");
+
+let isSubmitting = false;
+
+// Check email sending cooldown.
+function canSendEmail() {
+  const lastSend = localStorage.getItem("lastEmailSent");
+  const now = Date.now();
+  const cooldown = 3 * 60 * 1000;
+
+  if (lastSend && (now - lastSend) < cooldown) {
+    const remaining = Math.ceil((cooldown - (now - lastSend)) / 60000);
+
+    alert("Veuillez attendre " + remaining + " minute(s) avant de renvoyer un message.");
+
+    return false;
+  }
+
+  return true;
+}
+
+// Detect spam content.
+function isSpamContent(text) {
+  const spamPatterns = [
+    // URLs detection.
+    /http[s]?:\/\//gi,
+    // www domains.
+    /www\./gi,
+    // Email addresses.
+    /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/gi,
+    // English spam terms.
+    /\b(casino|cialis|crypto|lottery|porn|scam|viagra|winner)\b/gi,
+    // French spam terms.
+    /\b(casino|cialis|crypto|loterie|porn|scam|viagra|winner)\b/gi,
+    // Repeated characters (aaaaa).
+    /(.)\1{4,}/g
+  ];
+
+  return spamPatterns.some(pattern => pattern.test(text));
+}
+
+// Complete form validation.
+function validateFormData(formData) {
+  // Honeypot check.
+  if (formData.get("website") || formData.get("fake_email") || formData.get("bot_trap")) {
+    console.warn("Bot detected via honeypot!");
+    return false;
+  }
+
+  const nameValue = formData.get("name").trim();
+  const emailValue = formData.get("email").trim();
+  const messageValue = formData.get("message").trim();
+
+  // Length validation with alerts.
+  if (nameValue.length < 2 || nameValue.length > 50) {
+    alert("Le nom doit contenir entre 2 et 50 caractères.");
+    return false;
+  }
+  if (messageValue.length < 10) {
+    alert("Le message doit contenir au moins 10 caractères.");
+    return false;
+  }
+  if (messageValue.length > 500) {
+    alert("Le message ne peut pas dépasser 500 caractères.");
+    return false;
+  }
+
+  // Email format validation.
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
+    alert("Veuillez saisir une adresse email valide.");
+    return false;
+  }
+
+  // Spam detection.
+  if (isSpamContent(nameValue) || isSpamContent(messageValue)) {
+    alert("Votre message contient du contenu suspect. Veuillez le modifier.");
+    return false;
+  }
+
+  // Character validation (at least one letter).
+  if (!/[a-zA-ZÀ-ÿ]/.test(nameValue) || !/[a-zA-ZÀ-ÿ]/.test(messageValue)) {
+    alert("Le nom et le message doivent contenir au moins une lettre valide.");
+    return false;
+  }
+
+  return true;
+}
+
+// Check form completion and update UI.
+function checkFormCompletion() {
+  const isNameFilled = name.value.trim() !== "";
+  const isEmailFilled = email.value.trim() !== "";
+  const isMessageFilled = message.value.trim() !== "";
+  const nameLength = name.value.trim().length;
+  const messageLength = message.value.trim().length;
+
+  const isNameValid = nameLength >= 2;
+
+  // Email validation.
+  const isEmailValid = isEmailFilled && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+
+  // Message length validation.
+  const isMessageValid = messageLength >= 10;
+
+  // Update name field styling.
+  name.classList.remove("focus:ring-blue-500", "focus:shadow-blue-500/30", "focus:ring-red-500", "focus:shadow-red-500/30");
+  if (isNameValid) {
+    name.classList.add("focus:ring-blue-500", "focus:shadow-blue-500/30");
+  } else {
+    name.classList.add("focus:ring-red-500", "focus:shadow-red-500/30");
+  }
+
+  // Update email field styling.
+  email.classList.remove("focus:ring-blue-500", "focus:shadow-blue-500/30", "focus:ring-red-500", "focus:shadow-red-500/30");
+  if (isEmailValid) {
+    email.classList.add("focus:ring-blue-500", "focus:shadow-blue-500/30");
+  } else {
+    email.classList.add("focus:ring-red-500", "focus:shadow-red-500/30");
+  }
+
+  // Update message field styling.
+  message.classList.remove("focus:ring-blue-500", "focus:shadow-blue-500/30", "focus:ring-red-500", "focus:shadow-red-500/30");
+  if (isMessageValid) {
+    message.classList.add("focus:ring-blue-500", "focus:shadow-blue-500/30");
+  } else {
+    message.classList.add("focus:ring-red-500", "focus:shadow-red-500/30");
+  }
+
+  // Enable/disable submit button.
+  const isFormValid = isNameFilled && isEmailFilled && isMessageFilled && isEmailValid && isMessageValid;
+  sendButton.disabled = !isFormValid;
+}
+
+// Initialize form state.
+checkFormCompletion();
+
+// Handle form input.
+contactForm.addEventListener("input", function () {
+  const messageLength = message.value.length;
+  messageCharCount.textContent = messageLength + "/500";
+  checkFormCompletion();
+});
+
+// Handle form submission.
+contactForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  if (isSubmitting) {
+    return;
+  }
+
+  if (!canSendEmail()) {
+    return;
+  }
+
+  const formData = new FormData(this);
+
+  if (!validateFormData(formData)) {
+    return;
+  }
+
+  isSubmitting = true;
+  sendButton.disabled = true;
+  sendButton.textContent = "Envoi en cours...";
+
+  emailjs.sendForm("service_r8qu87w", "template_lxmfrhn", this)
+    .then(() => {
+      alert("Votre message a été envoyé avec succès !");
+      contactForm.reset();
+      messageCharCount.textContent = "0/500";
+      localStorage.setItem("lastEmailSent", Date.now());
+    })
+    .catch((error) => {
+      alert("Une erreur s'est produite. Veuillez réessayer plus tard.");
+    })
+    .finally(() => {
+      isSubmitting = false;
+      sendButton.textContent = "Envoyer";
+      sendButton.disabled = false;
+      checkFormCompletion();
+    });
+});
+
+// Prevent spam paste.
+message.addEventListener("paste", () => {
+  setTimeout(() => {
+    if (isSpamContent(message.value)) {
+      message.value = "";
+      alert("Le contenu collé semble suspect et a été supprimé.");
+      messageCharCount.textContent = "0/500";
+      checkFormCompletion();
+    }
+  }, 100);
+});
+
