@@ -17,7 +17,7 @@ window.addEventListener("load", () => {
         loader.style.display = "none";
       }, 1000);
     }, 500);
-  }, 1500);
+  }, 0);
 });
 
 
@@ -269,6 +269,81 @@ function populateProjectStars(repos) {
 }
 
 updateGitHubStats();
+
+
+/********************************
+* CREATIVE EXPERIMENTS BEHAVIOR *
+********************************/
+
+const projectList = document.getElementById("project-list");
+const projects = document.querySelectorAll("#project-list li");
+const experimentScreenshot = document.getElementById("experiment-screenshot");
+const projectLink = document.getElementById("project-link");
+const githubLink = document.getElementById("github-link");
+
+// Display the screenshot and update links for a given project.
+function displayScreenshot(project) {
+  // Get project data attributes.
+  const screenshotSrc = project.getAttribute("data-screenshot-src");
+  const projectUrl = project.getAttribute("data-project-url");
+  const githubUrl = project.getAttribute("data-github-url");
+
+  // Update DOM elements.
+  experimentScreenshot.src = screenshotSrc;
+  projectLink.href = projectUrl;
+  githubLink.href = githubUrl;
+
+  // Update active project visual state.
+  projects.forEach(element => {
+    element.classList.remove("bg-blue-500");
+    element.classList.add("bg-zinc-800/75");
+  });
+
+  project.classList.remove("bg-zinc-800/75");
+  project.classList.add("bg-blue-500");
+}
+
+// Add click event for each project (desktop + mobile click support).
+projects.forEach(project => {
+  project.addEventListener("click", function () {
+    displayScreenshot(project);
+  });
+});
+
+// Scroll event for mobile: update active project automatically.
+projectList.addEventListener("scroll", function () {
+  // Only active on mobile.
+  if (window.innerWidth >= 1024) {
+    return;
+  }
+
+  let closestProject = null;
+  let closestDistance = Infinity;
+  const listRect = projectList.getBoundingClientRect();
+
+  // Find project closest to the center of the viewport.
+  projects.forEach(project => {
+    const rect = project.getBoundingClientRect();
+    const distance = Math.abs((rect.left + rect.right) / 2 - (listRect.left + listRect.right) / 2);
+
+    if (distance < closestDistance) {
+      closestDistance = distance;
+      closestProject = project;
+    }
+  });
+
+  // Display screenshot for the closest project.
+  if (closestProject) {
+    displayScreenshot(closestProject);
+  }
+});
+
+// Initialize: display first project by default.
+if (projects.length > 0) {
+  displayScreenshot(projects[0]);
+  projects[0].classList.remove("bg-zinc-800/75");
+  projects[0].classList.add("bg-blue-500");
+}
 
 
 /*********************
