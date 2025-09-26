@@ -23,7 +23,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- EmailJS -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <!-- Script -->
     <script src="./script.js" defer></script>
@@ -218,7 +218,7 @@
         </section>
 
         <!-- Projects section -->
-        <section id="projects-section" class="mb-8 flex flex-col gap-4">
+        <section id="projects-section" class="mb-0 lg:mb-8 flex flex-col gap-4">
             <h2 class="text-4xl font-semibold">Mes projets</h2>
 
             <!-- Main projects -->
@@ -230,7 +230,7 @@
                         <a class="flex flex-1 flex-col" href="https://fchavonet.github.io/web-apple_artworks_finder/" rel="noopener noreferrer" target="_blank">
                             <!-- Screenshots -->
                             <div class="mb-2 overflow-hidden border-b border-zinc-700">
-                                <img class="w-full h-40 object-cover object-top transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-105" src="./assets/images/screenshots/apple_artworks_finder.webp" loading="lazy" alt="Capture d'écran du projet Apple Artworks Finder">
+                                <img class="w-full h-40 object-cover object-top transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-105" src="./assets/images/screenshots/projects/apple_artworks_finder.webp" loading="lazy" alt="Capture d'écran du projet Apple Artworks Finder">
                             </div>
 
                             <div class="mb-4 px-4 flex flex-1 flex-col justify-center">
@@ -265,7 +265,7 @@
                         <a class="flex flex-1 flex-col" href="https://github.com/fchavonet/web-flask_shop_template" rel="noopener noreferrer" target="_blank">
                             <!-- Screenshots -->
                             <div class="mb-2 overflow-hidden border-b border-zinc-700">
-                                <img class="w-full h-40 object-cover object-top transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-105" src="./assets/images/screenshots/flask_shop_template.webp" loading="lazy" alt="Capture d'écran du projet Flask Shop Template">
+                                <img class="w-full h-40 object-cover object-top transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-105" src="./assets/images/screenshots/projects/flask_shop_template.webp" loading="lazy" alt="Capture d'écran du projet Flask Shop Template">
                             </div>
 
                             <div class="mb-4 px-4 flex flex-1 flex-col justify-center">
@@ -300,7 +300,7 @@
                         <a class="flex flex-1 flex-col" href="https://fchavonet.github.io/web-gpt_stats_landing_page/" rel="noopener noreferrer" target="_blank">
                             <!-- Screenshots -->
                             <div class="mb-2 overflow-hidden border-b border-zinc-700">
-                                <img class="w-full h-40 object-cover object-top transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-105" src="./assets/images/screenshots/gpt_stats.webp" loading="lazy" alt="Capture d'écran du projet GPT Stats">
+                                <img class="w-full h-40 object-cover object-top transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-105" src="./assets/images/screenshots/projects/gpt_stats.webp" loading="lazy" alt="Capture d'écran du projet GPT Stats">
                             </div>
 
                             <div class="mb-4 px-4 flex flex-1 flex-col justify-center">
@@ -335,7 +335,7 @@
                         <a class="flex flex-1 flex-col" href="https://holbertonsurvivors.com/" rel="noopener noreferrer" target="_blank">
                             <!-- Screenshots -->
                             <div class="mb-2 overflow-hidden border-b border-zinc-700">
-                                <img class="w-full h-40 object-cover object-top transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-105" src="./assets/images/screenshots/holberton_survivors.webp" loading="lazy" alt="Capture d'écran du projet Holberton Survivors">
+                                <img class="w-full h-40 object-cover object-top transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-105" src="./assets/images/screenshots/projects/holberton_survivors.webp" loading="lazy" alt="Capture d'écran du projet Holberton Survivors">
                             </div>
 
                             <div class="mb-4 px-4 flex flex-1 flex-col justify-center">
@@ -361,6 +361,46 @@
                             <span class="stars-placeholder ms-3">...</span>
                             <span class="ms-1 text-yellow-300 transition-transform duration-1000 ease-in-out group-hover:rotate-[360deg]">★</span>
                         </a>
+                    </div>
+                </div>
+            </div>
+
+            <!--  Creative experiments -->
+            <h3 class="text-2xl font-semibold">Expérimentations <span class="text-blue-500">créatives</span></h3>
+
+            <div class="grid lg:grid-cols-[2fr_3fr] gap-4">
+                <!-- Experiment list -->
+                <ul id="project-list" class="overflow-x-auto lg:overflow-x-visible snap-x snap-mandatory flex flex-row lg:flex-col gap-4 [-webkit-overflow-scrolling:touch]">
+                    <li class="w-full lg:w-auto px-4 py-2 snap-center flex flex-shrink-0 justify-center items-center whitespace-nowrap border border-zinc-700 rounded-xl bg-zinc-800/75 cursor-pointer"
+                        data-screenshot-src="./assets/images/screenshots/experiments/audio_visualizer.webp"
+                        data-project-url="https://fchavonet.github.io/web-audio_visualizer/"
+                        data-github-url="https://github.com/fchavonet/web-audio_visualizer">
+                        Audio Visualizer
+                    </li>
+
+                    <li class="w-full lg:w-auto px-4 py-2 snap-center flex flex-shrink-0 justify-center items-center whitespace-nowrap border border-zinc-700 rounded-xl bg-zinc-800/75 cursor-pointer"
+                        data-screenshot-src="./assets/images/screenshots/experiments/dbscg_3d_viewer.webp"
+                        data-project-url="https://fchavonet.github.io/web-dbscg_3d_viewer/"
+                        data-github-url="https://github.com/fchavonet/web-dbscg_3d_viewer">
+                        DBSCG 3D Viewer
+                    </li>
+                </ul>
+
+                <!-- Experiment screenshot and link -->
+                <div>
+                    <div class="group cursor-pointer">
+                        <a id="project-link" href="#" rel="noopener noreferrer" target="_blank">
+                            <img id="experiment-screenshot" class="w-full p-2 rounded-xl bg-zinc-100" src="./assets/images/" alt="">
+
+                            <span class="w-full mt-2 flex justify-end items-center">
+                                <i class="bi bi-arrow-up-square me-2 inline-block text-lg transform transition duration-300 ease-in-out group-hover:-translate-y-1 group-hover:text-blue-500"></i>TESTER L'EXPÉRIMENTATION
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Experiment GitHub link -->
+                    <div class="flex flex-row justify-end items-center">
+                        <a id="github-link" class="group relative text-blue-500" href="#" rel="noopener noreferrer" target="_blank">GitHub du projet<span class="w-0 h-0.25 absolute -bottom-0.5 left-1/2 bg-blue-500 transition-all group-hover:w-3/6"></span><span class="w-0 h-0.25 absolute -bottom-0.5 right-1/2 bg-blue-500 transition-all group-hover:w-3/6"></span></a>
                     </div>
                 </div>
             </div>
