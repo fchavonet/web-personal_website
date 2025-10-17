@@ -756,3 +756,26 @@ message.addEventListener("paste", () => {
   }, 100);
 });
 
+
+/********************
+* ANIMATE ON SCROLL *
+********************/
+
+AOS.init({
+  disable: false,
+  startEvent: "DOMContentLoaded",
+  initClassName: "aos-init",
+  animatedClassName: "aos-animate",
+  useClassNames: false,
+  disableMutationObserver: false,
+  debounceDelay: 50,
+  throttleDelay: 100,
+
+  offset: 60,
+  delay: 0,
+  duration: 500,
+  easing: "ease-in-out",
+  once: false,
+  mirror: false,
+  anchorPlacement: "top-bottom"
+});

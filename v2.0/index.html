@@ -22,8 +22,12 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
+    <!-- AOS (Animate on scroll)-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
+
     <!-- EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
 
     <!-- Script -->
     <script src="./script.js" defer></script>
@@ -185,9 +189,9 @@
             </p>
 
             <!--  GitHub statistics -->
-            <h3 class="text-2xl font-semibold">Statistiques <span class="text-blue-500">GitHub</span></h3>
+            <h3 class="text-2xl font-semibold" data-aos="fade-in">Statistiques <span class="text-blue-500">GitHub</span></h3>
 
-            <div class="grid grid-cols-3">
+            <div class="grid grid-cols-3" data-aos="fade-in">
                 <div class="flex flex-col">
                     <span id="repo-count" class="text-5xl font-semibold">...</span>
                     <span class="text-sm font-extralight lg:text-lg">Dépôts publics</span>
@@ -204,12 +208,12 @@
                 </div>
             </div>
 
-            <div class="p-2 lg:p-4 flex justify-center items-center rounded-xl lg:rounded-2xl bg-zinc-100">
+            <div class="p-2 lg:p-4 flex justify-center items-center rounded-xl lg:rounded-2xl bg-zinc-100" data-aos="fade-in">
                 <img src="https://ghchart.rshah.org/2b7fff/fchavonet" alt="Github Chart">
             </div>
 
             <!-- Call to action -->
-            <div class="w-full flex flex-row justify-end items-center gap-4">
+            <div class="w-full flex flex-row justify-end items-center gap-4" data-aos="fade-in">
                 <a class="group inline-flex items-center text-xs transition duration-300 ease-in-out" href="#contact-section" onclick="event.preventDefault(); document.getElementById('name').focus();">
                     <i class="bi bi-arrow-down-left-square me-2 inline-block text-lg transform transition duration-300 ease-in-out group-hover:-translate-x-1 group-hover:translate-y-1 group-hover:text-blue-500"></i>
                     ME CONTACTER
@@ -219,12 +223,12 @@
 
         <!-- Projects section -->
         <section id="projects-section" class="mb-0 lg:mb-8 flex flex-col gap-4">
-            <h2 class="text-4xl font-semibold">Mes projets</h2>
+            <h2 class="text-4xl font-semibold" data-aos="fade-in">Mes projets</h2>
 
             <!-- Main projects -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <!-- Apple Artworks Finder -->
-                <div class="lg:aspect-square flex flex-col justify-between overflow-hidden border border-zinc-700 rounded-4xl bg-zinc-800/75">
+                <div class="lg:aspect-square flex flex-col justify-between overflow-hidden border border-zinc-700 rounded-4xl bg-zinc-800/75" data-aos="fade-in">
                     <div class="group flex flex-1 flex-col cursor-pointer">
                         <!-- Project link -->
                         <a class="flex flex-1 flex-col" href="https://fchavonet.github.io/web-apple_artworks_finder/" rel="noopener noreferrer" target="_blank">
@@ -259,7 +263,7 @@
                 </div>
 
                 <!-- Flask Shop Template -->
-                <div class="lg:aspect-square flex flex-col justify-between overflow-hidden border border-zinc-700 rounded-4xl bg-zinc-800/75">
+                <div class="lg:aspect-square flex flex-col justify-between overflow-hidden border border-zinc-700 rounded-4xl bg-zinc-800/75" data-aos="fade-in">
                     <div class="group flex flex-1 flex-col cursor-pointer">
                         <!-- Project link -->
                         <a class="flex flex-1 flex-col" href="https://github.com/fchavonet/web-flask_shop_template" rel="noopener noreferrer" target="_blank">
@@ -294,7 +298,7 @@
                 </div>
 
                 <!-- GPT Stats -->
-                <div class="lg:aspect-square flex flex-col justify-between overflow-hidden border border-zinc-700 rounded-4xl bg-zinc-800/75">
+                <div class="lg:aspect-square flex flex-col justify-between overflow-hidden border border-zinc-700 rounded-4xl bg-zinc-800/75" data-aos="fade-in">
                     <div class="group flex flex-1 flex-col cursor-pointer">
                         <!-- Project link -->
                         <a class="flex flex-1 flex-col" href="https://fchavonet.github.io/web-gpt_stats_landing_page/" rel="noopener noreferrer" target="_blank">
@@ -329,7 +333,7 @@
                 </div>
 
                 <!-- Holberton Survivors -->
-                <div class="lg:aspect-square flex flex-col justify-between overflow-hidden border border-zinc-700 rounded-4xl bg-zinc-800/75">
+                <div class="lg:aspect-square flex flex-col justify-between overflow-hidden border border-zinc-700 rounded-4xl bg-zinc-800/75" data-aos="fade-in">
                     <div class="group flex flex-1 flex-col cursor-pointer">
                         <!-- Project link -->
                         <a class="flex flex-1 flex-col" href="https://holbertonsurvivors.com/" rel="noopener noreferrer" target="_blank">
@@ -366,10 +370,10 @@
             </div>
 
             <!-- Other projects -->
-            <h3 class="text-2xl font-semibold">Autres <span class="text-blue-500">projets</span></h3>
+            <h3 class="text-2xl font-semibold" data-aos="fade-in">Autres <span class="text-blue-500">projets</span></h3>
 
             <div class="flex flex-col justify-center items-center gap-3">
-                <a class="group w-full" href="https://fchavonet.github.io/web-db_visual_adventure_cards_api/" target="_blank">
+                <a class="group w-full" href="https://fchavonet.github.io/web-db_visual_adventure_cards_api/" target="_blank" data-aos="fade-in">
                     <div class="w-full p-2 relative flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75">
                         <div class="flex flex-col lg:flex-row justify-start items-start lg:items-center gap-5">
                             <img class="w-full lg:w-max lg:h-25 rounded-lg" src="./assets/images/screenshots/other_projects/cowabunga.webp" alt="Capture d'écran du projet Cowabunga">
@@ -392,7 +396,7 @@
                     </div>
                 </a>
 
-                <a class="group w-full" href="https://fchavonet.github.io/web-db_visual_adventure_cards_api/" target="_blank">
+                <a class="group w-full" href="https://fchavonet.github.io/web-db_visual_adventure_cards_api/" target="_blank" data-aos="fade-in">
                     <div class="w-full p-2 relative flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75">
                         <div class="flex flex-col lg:flex-row justify-start items-start lg:items-center gap-5">
                             <img class="w-full lg:w-max lg:h-25 rounded-lg" src="./assets/images/screenshots/other_projects/db_visual_adventure_cards_api.webp" alt="Capture d'écran du projet Dragon Ball Visual Adventure Cards API">
@@ -414,7 +418,7 @@
                     </div>
                 </a>
 
-                <a class="group w-full" href="https://fchavonet.github.io/web-doubly_linked_list_visualizer/" target="_blank">
+                <a class="group w-full" href="https://fchavonet.github.io/web-doubly_linked_list_visualizer/" target="_blank" data-aos="fade-in">
                     <div class="w-full p-2 relative flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75">
                         <div class="flex flex-col lg:flex-row justify-start items-start lg:items-center gap-5">
                             <img class="w-full lg:w-max lg:h-25 rounded-lg" src="./assets/images/screenshots/other_projects/doubly_linked_list_visualizer.webp" alt="Capture d'écran du projet Doubly Linked List Visualizer">
@@ -436,7 +440,7 @@
                     </div>
                 </a>
 
-                <a class="group w-full" href="https://fchavonet.github.io/web-github_readme_builder/" target="_blank">
+                <a class="group w-full" href="https://fchavonet.github.io/web-github_readme_builder/" target="_blank" data-aos="fade-in">
                     <div class="w-full p-2 relative flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75">
                         <div class="flex flex-col lg:flex-row justify-start items-start lg:items-center gap-5">
                             <img class="w-full lg:w-max lg:h-25 rounded-lg" src="./assets/images/screenshots/other_projects/github_readme_builder.webp" alt="Capture d'écran du projet GitHub README Builder">
@@ -458,7 +462,7 @@
                     </div>
                 </a>
 
-                <a class="group w-full" href="https://github.com/fchavonet/python-gshock_database/" target="_blank">
+                <a class="group w-full" href="https://github.com/fchavonet/python-gshock_database/" target="_blank" data-aos="fade-in">
                     <div class="w-full p-2 relative flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75">
                         <div class="flex flex-col lg:flex-row justify-start items-start lg:items-center gap-5">
                             <img class="w-full lg:w-max lg:h-25 rounded-lg" src="./assets/images/screenshots/other_projects/gshock_database.webp" alt="Capture d'écran du projet G-Shock Database">
@@ -478,7 +482,7 @@
                     </div>
                 </a>
 
-                <a class="group w-full" href="https://fchavonet.github.io/web-holberton_letter_particles/" target="_blank">
+                <a class="group w-full" href="https://fchavonet.github.io/web-holberton_letter_particles/" target="_blank" data-aos="fade-in">
                     <div class="w-full p-2 relative flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75">
                         <div class="flex flex-col lg:flex-row justify-start items-start lg:items-center gap-5">
                             <img class="w-full lg:w-max lg:h-25 rounded-lg" src="./assets/images/screenshots/other_projects/holberton_letter_particles.webp" alt="Capture d'écran du projet Holberton Letter Particles">
@@ -500,7 +504,7 @@
                     </div>
                 </a>
 
-                <a class="group w-full" href="https://fchavonet.github.io/web-othello_game/" target="_blank">
+                <a class="group w-full" href="https://fchavonet.github.io/web-othello_game/" target="_blank" data-aos="fade-in">
                     <div class="w-full p-2 relative flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75">
                         <div class="flex flex-col lg:flex-row justify-start items-start lg:items-center gap-5">
                             <img class="w-full lg:w-max lg:h-25 rounded-lg" src="./assets/images/screenshots/other_projects/othello_game.webp" alt="Capture d'écran du projet Othello Game">
@@ -522,7 +526,7 @@
                     </div>
                 </a>
 
-                <a class="group w-full" href="https://fchavonet.github.io/web-pokedex/" target="_blank">
+                <a class="group w-full" href="https://fchavonet.github.io/web-pokedex/" target="_blank" data-aos="fade-in">
                     <div class="w-full p-2 relative flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75">
                         <div class="flex flex-col lg:flex-row justify-start items-start lg:items-center gap-5">
                             <img class="w-full lg:w-max lg:h-25 rounded-lg" src="./assets/images/screenshots/other_projects/pokedex.webp" alt="Capture d'écran du projet Pokédex">
@@ -546,7 +550,7 @@
             </div>
 
             <!--  Creative experiments -->
-            <h3 class="text-2xl font-semibold">Expérimentations <span class="text-blue-500">créatives</span></h3>
+            <h3 class="text-2xl font-semibold" data-aos="fade-in">Expérimentations <span class="text-blue-500">créatives</span></h3>
 
             <div class="grid lg:grid-cols-[2fr_3fr] gap-4">
                 <!-- Experiment list -->
@@ -554,48 +558,54 @@
                     <li class="w-full lg:w-auto px-4 py-2 snap-center flex flex-shrink-0 justify-center items-center whitespace-nowrap border border-zinc-700 rounded-xl bg-zinc-800/75 cursor-pointer"
                         data-screenshot-src="./assets/images/screenshots/experiments/audio_visualizer.webp"
                         data-project-url="https://fchavonet.github.io/web-audio_visualizer/"
-                        data-github-url="https://github.com/fchavonet/web-audio_visualizer">
+                        data-github-url="https://github.com/fchavonet/web-audio_visualizer"
+                        data-aos="fade-in">
                         Audio Visualizer
                     </li>
 
                     <li class="w-full lg:w-auto px-4 py-2 snap-center flex flex-shrink-0 justify-center items-center whitespace-nowrap border border-zinc-700 rounded-xl bg-zinc-800/75 cursor-pointer"
                         data-screenshot-src="./assets/images/screenshots/experiments/dbscg_3d_viewer.webp"
                         data-project-url="https://fchavonet.github.io/web-dbscg_3d_viewer/"
-                        data-github-url="https://github.com/fchavonet/web-dbscg_3d_viewer">
+                        data-github-url="https://github.com/fchavonet/web-dbscg_3d_viewer"
+                        data-aos="fade-in">
                         DBSCG 3D Viewer
                     </li>
 
                     <li class="w-full lg:w-auto px-4 py-2 snap-center flex flex-shrink-0 justify-center items-center whitespace-nowrap border border-zinc-700 rounded-xl bg-zinc-800/75 cursor-pointer"
                         data-screenshot-src="./assets/images/screenshots/experiments/flappy_bird_clone.webp"
                         data-project-url="https://fchavonet.github.io/web-flappy_bird_clone/"
-                        data-github-url="https://github.com/fchavonet/web-flappy_bird_clone">
+                        data-github-url="https://github.com/fchavonet/web-flappy_bird_clone"
+                        data-aos="fade-in">
                         Flappy Bird Clone
                     </li>
 
                     <li class="w-full lg:w-auto px-4 py-2 snap-center flex flex-shrink-0 justify-center items-center whitespace-nowrap border border-zinc-700 rounded-xl bg-zinc-800/75 cursor-pointer"
                         data-screenshot-src="./assets/images/screenshots/experiments/flip_book.webp"
                         data-project-url="https://fchavonet.github.io/web-flip_book/"
-                        data-github-url="https://github.com/fchavonet/web-flip_book">
+                        data-github-url="https://github.com/fchavonet/web-flip_book"
+                        data-aos="fade-in">
                         Flip Book
                     </li>
 
                     <li class="w-full lg:w-auto px-4 py-2 snap-center flex flex-shrink-0 justify-center items-center whitespace-nowrap border border-zinc-700 rounded-xl bg-zinc-800/75 cursor-pointer"
                         data-screenshot-src="./assets/images/screenshots/experiments/holberton_letter_cascade.webp"
                         data-project-url="https://fchavonet.github.io/web-holberton_letter_cascade/"
-                        data-github-url="https://github.com/fchavonet/web-holberton_letter_cascade">
+                        data-github-url="https://github.com/fchavonet/web-holberton_letter_cascade"
+                        data-aos="fade-in">
                         Holberton Letter Cascade
                     </li>
 
                     <li class="w-full lg:w-auto px-4 py-2 snap-center flex flex-shrink-0 justify-center items-center whitespace-nowrap border border-zinc-700 rounded-xl bg-zinc-800/75 cursor-pointer"
                         data-screenshot-src="./assets/images/screenshots/experiments/xmb_wave_background.webp"
                         data-project-url="https://fchavonet.github.io/web-xmb_wave_background/"
-                        data-github-url="https://github.com/fchavonet/web-xmb_wave_background">
+                        data-github-url="https://github.com/fchavonet/web-xmb_wave_background"
+                        data-aos="fade-in">
                         XMB Wave Background
                     </li>
                 </ul>
 
                 <!-- Experiment screenshot and link -->
-                <div>
+                <div data-aos="fade-in">
                     <div class="group cursor-pointer">
                         <a id="project-link" href="#" rel="noopener noreferrer" target="_blank">
                             <img id="experiment-screenshot" class="w-full rounded-xl bg-zinc-100" src="./assets/images/" alt="">
@@ -616,22 +626,22 @@
 
         <!-- Skills section -->
         <section id="skills-section" class="mb-8 flex flex-col gap-4">
-            <h2 class="text-4xl font-semibold">Mes compétences</h2>
+            <h2 class="text-4xl font-semibold" data-aos="fade-in">Mes compétences</h2>
 
-            <p class="text-lg font-extralight">
+            <p class="text-lg font-extralight" data-aos="fade-in">
                 J'ai ré-appris à apprendre, c’est le point que je retiens le plus de la <a class="group relative font-normal text-blue-500" href="https://www.holbertonschool.fr/methodologie" rel="noopener noreferrer" target="_blank">méthodologie<span class="w-0 h-0.25 absolute -bottom-0.5 left-1/2 bg-blue-500 transition-all group-hover:w-3/6"></span><span class="w-0 h-0.25 absolute -bottom-0.5 right-1/2 bg-blue-500 transition-all group-hover:w-3/6"></span></a> utilisée lors de ma formation.
             </p>
 
-            <p class="text-lg font-extralight">
+            <p class="text-lg font-extralight" data-aos="fade-in">
                 Trois années intensives, rythmées par un stage puis deux ans d’alternance, m’ont permis d’acquérir une solide expérience et des bases techniques robustes.
             </p>
 
-            <p class="text-lg font-extralight">
+            <p class="text-lg font-extralight" data-aos="fade-in">
                 Mon parcours professionnel antérieur m’a également permis de développer de précieuses compétences interpersonnelles : autonomie, écoute, esprit d’équipe, exigence de qualité et sens du détail.
             </p>
 
             <!-- Competenses carousel -->
-            <div id="carousel-container" class="overflow-hidden">
+            <div id="carousel-container" class="overflow-hidden" data-aos="fade-in">
                 <div id="slide-track" class="flex flex-row items-center space-x-4 transition-transform duration-700 ease-in-out">
                     <!-- Clone of the last slide (for seamless infinite loop)  -->
                     <div class="w-full px-4 py-2 flex-shrink-0 border border-zinc-700 rounded-xl bg-zinc-800/75">
@@ -696,10 +706,10 @@
             </div>
 
             <!-- Tech Stack -->
-            <h3 class="-mt-4 text-2xl font-semibold">Tech <span class="text-blue-500">Stack</span></h3>
+            <h3 class="-mt-4 text-2xl font-semibold" data-aos="fade-in">Tech <span class="text-blue-500">Stack</span></h3>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="p-2 flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75">
+                <div class="p-2 flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75" data-aos="fade-in">
                     <img class="w-15 h-15 rounded-lg" src="./assets/images/icons/flask.webp" alt="Icône Flask">
 
                     <div>
@@ -708,7 +718,7 @@
                     </div>
                 </div>
 
-                <div class="p-2 flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75">
+                <div class="p-2 flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75" data-aos="fade-in">
                     <img class="w-15 h-15 rounded-lg" src="./assets/images/icons/nodejs.webp" alt="Icône Node.js">
 
                     <div>
@@ -717,7 +727,7 @@
                     </div>
                 </div>
 
-                <div class="p-2 flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75">
+                <div class="p-2 flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75" data-aos="fade-in">
                     <img class="w-15 h-15 rounded-lg" src="./assets/images/icons/react.webp" alt="Icône React">
 
                     <div>
@@ -726,7 +736,7 @@
                     </div>
                 </div>
 
-                <div class="p-2 flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75">
+                <div class="p-2 flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75" data-aos="fade-in">
                     <img class="w-15 h-15 rounded-lg" src="./assets/images/icons/bootstrap.webp" alt="Icône Bootstrap">
 
                     <div>
@@ -735,7 +745,7 @@
                     </div>
                 </div>
 
-                <div class="p-2 flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75">
+                <div class="p-2 flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75" data-aos="fade-in">
                     <img class="w-15 h-15 rounded-lg" src="./assets/images/icons/tailwindcss.webp" alt="Icône Tailwind CSS">
 
                     <div>
@@ -744,7 +754,7 @@
                     </div>
                 </div>
 
-                <div class="p-2 flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75">
+                <div class="p-2 flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75" data-aos="fade-in">
                     <img class="w-15 h-15 rounded-lg" src="./assets/images/icons/mongodb.webp" alt="Icône MongoDB">
 
                     <div>
@@ -753,7 +763,7 @@
                     </div>
                 </div>
 
-                <div class="p-2 flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75">
+                <div class="p-2 flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75" data-aos="fade-in">
                     <img class="w-15 h-15 rounded-lg" src="./assets/images/icons/mysql.webp" alt="Icône MySQL">
 
                     <div>
@@ -763,7 +773,7 @@
                 </div>
             </div>
 
-            <div class="mt-2 flex flex-col">
+            <div class="mt-2 flex flex-col" data-aos="fade-in">
                 <p class="text-xs font-extralight italic">
                     <i class="bi bi-quote inline-block transform scale-y-[-1]"></i>
                     Pour accompagner les étudiants de la Holberton School mais aussi les débutants en programmation, je rédige des ressources techniques en français.
@@ -775,7 +785,7 @@
 
         <!-- Contact section -->
         <section id="contact-section" class="flex flex-col gap-4">
-            <h2 class="-mb-4 text-4xl font-semibold">Me contacter<i class="bi bi-send ms-2 text-2xl"></i></h2>
+            <h2 class="-mb-4 text-4xl font-semibold" data-aos="fade-in">Me contacter<i class="bi bi-send ms-2 text-2xl"></i></h2>
 
             <form id="contact-form" class="grid grid-cols-1 gap-4">
                 <!-- Anti-bot honeypots -->
@@ -787,24 +797,24 @@
                 </div>
 
                 <!-- Form fields -->
-                <div>
+                <div data-aos="fade-in">
                     <label class="mb-1 block" for="name">Nom&nbsp;:</label>
                     <input id="name" class="w-full px-2 py-1 border border-zinc-700 rounded-lg bg-zinc-800/75 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:shadow-lg focus:shadow-blue-500/30" name="name" type="text" maxlength="50" autocomplete="off" required>
                 </div>
 
-                <div>
+                <div data-aos="fade-in">
                     <label class="mb-1 block" for="email">E-mail&nbsp;:</label>
                     <input id="email" class="w-full px-2 py-1 border border-zinc-700 rounded-lg bg-zinc-800/75 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:shadow-lg focus:shadow-blue-500/30" name="email" type="email" maxlength="50" autocomplete="off" required>
                 </div>
 
-                <div>
+                <div data-aos="fade-in">
                     <label class="mb-1 block" for="message">Message&nbsp;:</label>
                     <textarea id="message" class="w-full px-2 py-1 border border-zinc-700 rounded-lg bg-zinc-800/75 resize-none transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:shadow-lg focus:shadow-blue-500/30" name="message" rows="3" maxlength="500" autocomplete="off" required></textarea>
 
                     <div id="message-char-count" class="me-2 flex flex-row justify-end items-center text-zinc-500">0/500</div>
                 </div>
 
-                <button id="send-button" class="w-full p-2 flex justify-center items-center border border-blue-500 rounded-lg bg-blue-500 cursor-pointer transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1 active:scale-98 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none" type="submit">
+                <button id="send-button" class="w-full p-2 flex justify-center items-center border border-blue-500 rounded-lg bg-blue-500 cursor-pointer transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1 active:scale-98 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none" type="submit" data-aos="fade-in">
                     Envoyer
                 </button>
             </form>
